@@ -54,9 +54,37 @@ npm run build
 npm start
 ```
 
+## Two ways to run it
+
+**1. The Next.js app** (this repo's main build) — the full multi-route site
+described above. Run it with the commands in the previous section.
+
+**2. A single-file, zero-build version** — [`standalone/index.html`](standalone/index.html)
+is the entire store compiled into one self-contained HTML file (all styling and
+JavaScript inlined, hash-based routing, product imagery, cart, and checkout). It
+needs no Node, no build step, and no dependencies — just open the file, or drop
+it on any static host:
+
+```bash
+# open locally
+open standalone/index.html            # macOS  (use xdg-open on Linux)
+
+# or serve it
+npx serve standalone                  # → http://localhost:3000
+```
+
+Host it anywhere that serves a static file:
+
+- **GitHub Pages** — enable Pages for this repo and point it at `/standalone`,
+  or copy `standalone/index.html` to the repo root of a `gh-pages` branch.
+- **Netlify / Vercel / Cloudflare Pages** — drag the `standalone/` folder into
+  their dashboard, or set it as the publish directory.
+- **Any web server** — copy `standalone/index.html` to the document root.
+
 ## Project structure
 
 ```
+standalone/index.html         # Single-file, no-build version of the whole store
 src/
 ├── app/                      # App Router pages
 │   ├── layout.tsx            # Root layout: header, footer, cart provider

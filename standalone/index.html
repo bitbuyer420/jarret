@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian — Modern Essentials</title>
+<meta name="description" content="Meridian makes considered, well-made apparel built to be worn on repeat.">
+</head>
+<body>
+<style>
+  :root {
+    --paper: #F3EFE6;
+    --cloud: #FBF8F2;
+    --ink: #1E1B17;
+    --ink-80: rgba(30, 27, 23, 0.82);
+    --ink-60: rgba(30, 27, 23, 0.6);
+    --stone: #857B6E;
+    --clay: #AC4E38;
+    --clay-dark: #8F3E2C;
+    --sage: #7C8C6C;
+    --line: rgba(30, 27, 23, 0.12);
+    --line-soft: rgba(30, 27, 23, 0.07);
+    --radius: 14px;
+    --serif: Georgia, "Iowan Old Style", Cambria, "Times New Roman", serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  img, svg { display: block; max-width: 100%; }
+
+  ::selection { background: var(--clay); color: var(--cloud); }
+
+  :focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin: 0;
+  }
+
+  .muted { color: var(--stone); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    border: none; border-radius: 999px;
+    padding: 13px 26px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .1s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--ink); color: var(--cloud); }
+  .btn-primary:hover { background: var(--clay); }
+  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn-secondary:hover { background: var(--ink); color: var(--cloud); border-color: var(--ink); }
+  .btn-ghost { background: transparent; color: var(--cloud); border: 1px solid rgba(251,248,242,.35); }
+  .btn-ghost:hover { background: var(--cloud); color: var(--ink); }
+  .btn-block { width: 100%; }
+
+  .ul-link { position: relative; }
+  .ul-link::after {
+    content: ""; position: absolute; left: 0; bottom: -3px; height: 1px; width: 0; background: currentColor; transition: width .3s ease;
+  }
+  .ul-link:hover::after { width: 100%; }
+
+  /* Announcement */
+  #announcement {
+    background: var(--ink); color: var(--cloud);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+  }
+  #announcement .wrap { display: flex; justify-content: center; gap: 34px; height: 36px; align-items: center; }
+  #announcement span:not(:first-child) { display: none; }
+  @media (min-width: 640px) { #announcement span:not(:first-child) { display: inline; } }
+
+  /* Header */
+  #site-header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(243,239,230,.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  #site-header .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 66px; }
+  .logo { font-family: var(--sans); font-weight: 600; font-size: 22px; letter-spacing: 0.28em; }
+  .nav { display: none; gap: 28px; }
+  @media (min-width: 900px) { .nav { display: flex; } .menu-toggle { display: none; } }
+  .nav a { font-size: 14px; color: var(--ink-80); }
+  .nav a.active { color: var(--clay); }
+  .header-actions { display: flex; align-items: center; gap: 18px; }
+  .icon-btn { background: none; border: none; padding: 0; color: var(--ink); display: inline-flex; position: relative; }
+  .cart-count {
+    position: absolute; top: -8px; right: -9px; min-width: 17px; height: 17px; padding: 0 4px;
+    background: var(--clay); color: var(--cloud); border-radius: 999px;
+    font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  }
+  .menu-toggle { background: none; border: none; color: var(--ink); padding: 0; }
+  #mobile-nav { display: none; border-top: 1px solid var(--line); background: var(--paper); }
+  #mobile-nav.open { display: block; }
+  #mobile-nav a { display: block; padding: 13px 0; font-size: 15px; border-bottom: 1px solid var(--line-soft); }
+
+  /* View animation */
+  #app { animation: fade-up .45s ease both; }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    #app, .prod-media img, .prod-media > div { animation: none !important; transition: none !important; }
+    * { scroll-behavior: auto !important; }
+  }
+
+  /* Hero */
+  .hero { background: var(--cloud); border-bottom: 1px solid var(--line); }
+  .hero .grid { display: grid; gap: 40px; align-items: center; padding: 60px 0; }
+  @media (min-width: 820px) { .hero .grid { grid-template-columns: 1fr 1fr; padding: 96px 0; } }
+  .hero h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.03; margin-top: 14px; }
+  .hero p.lead { max-width: 30rem; color: var(--stone); margin: 22px 0 0; font-size: 17px; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .hero-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hero-tiles a:nth-child(2) { margin-top: 34px; }
+  .tile { overflow: hidden; border-radius: 18px; }
+  .tile .media { aspect-ratio: 3/4; transition: transform .5s ease; }
+  .tile:hover .media { transform: scale(1.05); }
+
+  /* Value props */
+  .values { border-bottom: 1px solid var(--line); }
+  .values .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; padding: 30px 0; text-align: center; }
+  @media (min-width: 760px) { .values .grid { grid-template-columns: repeat(4, 1fr); } }
+  .values b { display: block; font-size: 14px; }
+  .values small { color: var(--stone); font-size: 12px; }
+
+  /* Section */
+  section.block { padding: 66px 0; }
+  section.block.tint { background: var(--cloud); }
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 34px; gap: 16px; }
+  .sec-head h2 { font-size: 30px; margin-top: 8px; }
+
+  /* Product grid */
+  .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 18px; }
+  @media (min-width: 680px) { .pgrid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1000px) { .pgrid { grid-template-columns: repeat(4, 1fr); } }
+  .card { display: flex; flex-direction: column; }
+  .card .prod-media { position: relative; overflow: hidden; border-radius: 12px; }
+  .card .media { aspect-ratio: 4/5; transition: transform .5s ease; }
+  .card:hover .media { transform: scale(1.03); }
+  .badges { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .badge { border-radius: 999px; padding: 4px 10px; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--cloud); }
+  .badge.best { background: var(--ink); }
+  .badge.sale { background: var(--clay); }
+  .card-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; }
+  .card-name { font-size: 14px; font-weight: 500; }
+  .card:hover .card-name { color: var(--clay); }
+  .card-cat { font-size: 12px; color: var(--stone); margin-top: 2px; }
+  .price { font-size: 14px; font-weight: 500; }
+  .price .was { color: var(--stone); text-decoration: line-through; margin-left: 6px; font-size: 12px; }
+  .swatches { display: flex; gap: 6px; margin-top: 8px; }
+  .swatch { width: 14px; height: 14px; border-radius: 999px; border: 1px solid var(--line); }
+
+  /* Collections */
+  .colls { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 560px) { .colls { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 980px) { .colls { grid-template-columns: repeat(4, 1fr); } }
+  .coll-card {
+    position: relative; overflow: hidden; border-radius: 18px; aspect-ratio: 4/5;
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; color: var(--cloud);
+  }
+  .coll-card h3 { font-family: var(--sans); font-weight: 600; font-size: 18px; }
+  .coll-card small { color: rgba(251,248,242,.8); }
+  .coll-card .sheen { position: absolute; inset: 0; opacity: .18; transition: transform .5s ease; background-image: radial-gradient(circle at 30% 18%, #ffffff66, transparent 60%); }
+  .coll-card:hover .sheen { transform: scale(1.12); }
+
+  /* Editorial band */
+  .band { background: var(--ink); color: var(--cloud); }
+  .band .grid { display: grid; gap: 40px; align-items: center; padding: 66px 0; }
+  @media (min-width: 820px) { .band .grid { grid-template-columns: 1fr 1fr; padding: 92px 0; } }
+  .band .eyebrow { color: var(--clay); }
+  .band h2 { font-size: 34px; margin-top: 14px; }
+  .band p { color: rgba(251,248,242,.72); max-width: 28rem; margin-top: 18px; }
+  .band-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .band-tiles .tile .media { aspect-ratio: 3/4; }
+
+  /* Shop toolbar */
+  .toolbar { display: flex; flex-direction: column; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 26px; }
+  @media (min-width: 640px) { .toolbar { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border-radius: 999px; padding: 7px 15px; font-size: 13px; border: 1px solid var(--line); background: transparent; color: var(--ink-80); transition: all .18s; }
+  .chip:hover { border-color: var(--ink); }
+  .chip.active { background: var(--ink); color: var(--cloud); border-color: var(--ink); }
+  select.sort { border-radius: 999px; border: 1px solid var(--line); background: transparent; padding: 8px 14px; font-size: 13px; color: var(--ink); font-family: inherit; }
+
+  /* Page header */
+  .page-head { padding: 52px 0 8px; }
+  .page-head h1 { font-size: clamp(32px, 5vw, 46px); margin-top: 10px; }
+  .page-head p { color: var(--stone); max-width: 34rem; margin: 14px 0 0; }
+  .banner { border-bottom: 1px solid var(--line); }
+  .banner .inner { padding: 58px 0; }
+
+  /* Breadcrumb */
+  .crumb { font-size: 12px; color: var(--stone); padding: 12px 0 4px; }
+  .crumb a:hover { color: var(--ink); }
+  .crumb .sep { margin: 0 8px; }
+
+  /* Product detail */
+  .pdp { display: grid; gap: 40px; padding: 8px 0 20px; }
+  @media (min-width: 960px) { .pdp { grid-template-columns: 1fr 1fr; gap: 60px; } }
+  .pdp-gallery { display: none; }
+  @media (min-width: 960px) { .pdp-gallery { display: block; } }
+  .pdp-gallery .main { border-radius: 18px; overflow: hidden; }
+  .pdp-gallery .main .media { aspect-ratio: 1/1; }
+  .pdp-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+  .pdp-thumbs .tile .media { aspect-ratio: 1/1; }
+  .pdp h1 { font-size: clamp(28px, 4vw, 40px); margin-top: 8px; }
+  .pdp .tagline { color: var(--stone); margin-top: 8px; }
+  .pdp .price-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+  .pdp .price-row .now { font-size: 24px; font-weight: 500; }
+  .pdp .price-row .was { font-size: 18px; color: var(--stone); text-decoration: line-through; }
+  .save-pill { background: rgba(172,78,56,.12); color: var(--clay); border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; }
+  .pdp .desc { margin-top: 22px; color: var(--ink-80); line-height: 1.65; }
+  .mobile-media { border-radius: 16px; overflow: hidden; margin-bottom: 8px; }
+  .mobile-media .media { aspect-ratio: 1/1; }
+  @media (min-width: 960px) { .mobile-media { display: none; } }
+
+  .opt-label { display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 500; }
+  .opt-label .sel { color: var(--stone); font-weight: 400; }
+  .color-opts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .color-dot { width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--line); position: relative; transition: box-shadow .15s; }
+  .color-dot.active { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink); }
+  .size-opts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .size-btn { min-width: 48px; border-radius: 9px; border: 1px solid var(--line); background: transparent; padding: 9px 12px; font-size: 14px; color: var(--ink); transition: all .15s; }
+  .size-btn:hover { border-color: var(--ink); }
+  .size-btn.active { background: var(--ink); color: var(--cloud); border-color: var(--ink); }
+  .size-err { color: var(--clay); font-size: 12px; margin-top: 8px; display: none; }
+  .size-err.show { display: block; }
+  .buy-row { display: flex; align-items: center; gap: 12px; margin-top: 30px; }
+  .qty { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; }
+  .qty button { background: none; border: none; padding: 12px 16px; font-size: 15px; color: var(--ink); }
+  .qty span { min-width: 30px; text-align: center; font-size: 14px; }
+  .stock { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--stone); margin-top: 16px; }
+  .dot-sage { width: 7px; height: 7px; border-radius: 999px; background: var(--sage); }
+  .detail-block { border-top: 1px solid var(--line); margin-top: 38px; padding-top: 30px; display: flex; flex-direction: column; gap: 22px; }
+  .detail-block h4 { font-family: var(--sans); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 10px; }
+  .detail-block ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .detail-block li { display: flex; gap: 10px; font-size: 14px; color: var(--ink-80); }
+  .detail-block li::before { content: ""; width: 4px; height: 4px; margin-top: 8px; border-radius: 999px; background: var(--clay); flex: none; }
+  .detail-block .perks { display: flex; gap: 24px; font-size: 12px; color: var(--stone); }
+
+  /* Cart page */
+  .cart-layout { display: grid; gap: 44px; margin-top: 36px; }
+  @media (min-width: 900px) { .cart-layout { grid-template-columns: 1fr 360px; } }
+  .cart-lines { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cart-lines li { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line-soft); }
+  .cart-lines li:last-child { border-bottom: none; }
+  .cart-thumb { width: 92px; height: 112px; border-radius: 10px; flex: none; }
+  .summary { border: 1px solid var(--line); background: var(--cloud); border-radius: 18px; padding: 24px; height: fit-content; }
+  @media (min-width: 900px) { .summary { position: sticky; top: 90px; } }
+  .summary h2 { font-family: var(--sans); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+  .sum-row { display: flex; justify-content: space-between; font-size: 14px; margin-top: 12px; }
+  .sum-total { display: flex; justify-content: space-between; font-size: 17px; font-weight: 600; border-top: 1px solid var(--line); margin-top: 14px; padding-top: 14px; }
+  .empty { min-height: 46vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 18px; padding: 60px 0; }
+  .empty h1 { font-size: 30px; }
+
+  /* Checkout */
+  .checkout-grid { display: grid; gap: 44px; margin-top: 34px; }
+  @media (min-width: 960px) { .checkout-grid { grid-template-columns: 1fr 380px; } }
+  fieldset { border: none; margin: 0; padding: 0; }
+  fieldset + fieldset { margin-top: 34px; }
+  fieldset > h3 { font-family: var(--sans); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 16px; }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label.field { display: block; font-size: 14px; }
+  label.field.full { grid-column: 1 / -1; }
+  label.field span { display: block; color: var(--stone); margin-bottom: 6px; }
+  label.field input { width: 100%; border: 1px solid var(--line); background: var(--paper); border-radius: 10px; padding: 11px 13px; font-family: inherit; font-size: 14px; color: var(--ink); }
+  label.field input:focus { outline: none; border-color: var(--ink); }
+  .demo-note { grid-column: 1 / -1; border: 1px solid var(--line); background: var(--cloud); border-radius: 12px; padding: 15px; }
+  .demo-note b { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .demo-note small { color: var(--stone); }
+  .co-line { display: flex; gap: 12px; align-items: center; }
+  .co-thumb { width: 48px; height: 56px; border-radius: 8px; flex: none; position: relative; }
+  .co-badge { position: absolute; top: -8px; right: -8px; width: 20px; height: 20px; border-radius: 999px; background: var(--ink); color: var(--cloud); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+  .confirm { min-height: 62vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 0; }
+  .confirm .check { width: 66px; height: 66px; border-radius: 999px; background: rgba(124,140,108,.18); color: var(--sage); display: flex; align-items: center; justify-content: center; }
+  .confirm h1 { font-size: 30px; margin-top: 24px; }
+  .confirm p { color: var(--stone); max-width: 27rem; margin-top: 12px; }
+
+  /* About */
+  .about-values { display: grid; gap: 34px; padding: 62px 0; }
+  @media (min-width: 780px) { .about-values { grid-template-columns: repeat(3, 1fr); } }
+  .about-values .rule { width: 40px; height: 2px; background: var(--clay); margin-bottom: 16px; }
+  .about-values h3 { font-family: var(--sans); font-size: 18px; font-weight: 600; }
+  .about-values p { color: var(--stone); margin-top: 12px; }
+  .sus-list { display: flex; flex-direction: column; gap: 22px; }
+  .sus-list .item { border-top: 1px solid rgba(251,248,242,.16); padding-top: 16px; }
+  .sus-list h4 { font-family: var(--sans); font-weight: 500; margin: 0; }
+  .sus-list small { color: rgba(251,248,242,.7); }
+
+  /* Cart drawer */
+  #overlay { position: fixed; inset: 0; z-index: 50; background: rgba(30,27,23,.42); opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+  #overlay.open { opacity: 1; pointer-events: auto; }
+  #drawer { position: fixed; top: 0; right: 0; z-index: 51; height: 100%; width: 100%; max-width: 430px; background: var(--paper); box-shadow: -20px 0 50px rgba(0,0,0,.16); transform: translateX(100%); transition: transform .32s ease; display: flex; flex-direction: column; }
+  #drawer.open { transform: none; }
+  .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--line); }
+  .drawer-head h2 { font-family: var(--sans); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+  .close-x { background: none; border: none; font-size: 26px; line-height: 1; color: var(--ink); }
+  .ship-meter { padding: 16px 24px; border-bottom: 1px solid var(--line); }
+  .ship-meter .track { height: 6px; border-radius: 999px; background: var(--line); margin-top: 8px; overflow: hidden; }
+  .ship-meter .fill { height: 100%; background: var(--sage); border-radius: 999px; transition: width .5s ease; }
+  .drawer-lines { flex: 1; overflow-y: auto; list-style: none; margin: 0; padding: 0 24px; }
+  .drawer-lines li { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line-soft); }
+  .drawer-thumb { width: 62px; height: 78px; border-radius: 8px; flex: none; }
+  .drawer-foot { border-top: 1px solid var(--line); padding: 20px 24px; }
+  .drawer-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; padding: 0 24px; }
+  .mini-qty { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; }
+  .mini-qty button { background: none; border: none; padding: 4px 10px; font-size: 14px; color: var(--ink); }
+  .mini-qty span { min-width: 22px; text-align: center; font-size: 13px; }
+  .link-remove { background: none; border: none; font-size: 12px; color: var(--stone); text-decoration: underline; }
+  .link-remove:hover { color: var(--clay); }
+
+  /* Footer */
+  #site-footer { margin-top: 90px; border-top: 1px solid var(--line); background: var(--cloud); }
+  .foot-grid { display: grid; gap: 44px; padding: 60px 0; }
+  @media (min-width: 780px) { .foot-grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
+  .foot-grid h4 { font-family: var(--sans); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+  .foot-grid ul { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .foot-grid ul a { font-size: 14px; color: var(--stone); }
+  .foot-grid ul a:hover { color: var(--ink); }
+  .news { display: flex; max-width: 20rem; margin-top: 14px; }
+  .news input { flex: 1; border: 1px solid var(--line); border-right: none; background: transparent; border-radius: 999px 0 0 999px; padding: 10px 15px; font-family: inherit; font-size: 14px; color: var(--ink); }
+  .news input:focus { outline: none; border-color: var(--ink); }
+  .news button { border: none; background: var(--ink); color: var(--cloud); border-radius: 0 999px 999px 0; padding: 0 16px; font-size: 15px; }
+  .news button:hover { background: var(--clay); }
+  .foot-bottom { border-top: 1px solid var(--line); }
+  .foot-bottom .wrap { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: space-between; padding: 22px 0; font-size: 12px; color: var(--stone); }
+  @media (min-width: 640px) { .foot-bottom .wrap { flex-direction: row; } }
+  .foot-bottom .links { display: flex; gap: 20px; }
+</style>
+
+<div id="announcement">
+  <div class="wrap">
+    <span>Free shipping on orders over $75</span>
+    <span>30-day easy returns</span>
+    <span>New Fall arrivals just landed</span>
+  </div>
+</div>
+
+<header id="site-header">
+  <div class="wrap bar">
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+    </button>
+    <a href="#/" class="logo" aria-label="Meridian home">MERIDIAN</a>
+    <nav class="nav" id="mainNav"></nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="cartBtn" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav"><div class="wrap" id="mobileNavInner"></div></nav>
+</header>
+
+<main id="app"></main>
+
+<footer id="site-footer"></footer>
+
+<div id="overlay"></div>
+<aside id="drawer" role="dialog" aria-label="Shopping cart" aria-modal="true"></aside>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ----------------------------- Data ----------------------------- */
+  var COLLECTIONS = [
+    { handle: "new-arrivals", title: "New Arrivals", accent: "#AC4E38", description: "The latest additions to the Meridian wardrobe — fresh cuts, seasonal fabrics, and quiet color." },
+    { handle: "essentials", title: "The Essentials", accent: "#7C8C6C", description: "Everyday pieces built to be worn on repeat. Considered basics that never shout." },
+    { handle: "outerwear", title: "Outerwear", accent: "#5B6B7B", description: "Layers for the in-between seasons. Structured, durable, and made to travel." },
+    { handle: "accessories", title: "Accessories", accent: "#B08D57", description: "The finishing details — carry, cover, and complete the look." }
+  ];
+
+  var PRODUCTS = [
+    { id:"1", handle:"everyday-crew-tee", name:"Everyday Crew Tee", price:38, category:"Tees", collections:["new-arrivals","essentials"], colors:[{name:"Sand",hex:"#D9C9AE"},{name:"Ink",hex:"#26221E"},{name:"Sage",hex:"#8A9A7B"}], sizes:["XS","S","M","L","XL"], tagline:"The tee you'll reach for daily", description:"A midweight crewneck cut from long-staple combed cotton. Soft enough to sleep in, structured enough to wear out. The Everyday Crew is our most-loved piece for a reason.", details:["Midweight 190gsm combed cotton","Ribbed crew collar that holds its shape","Pre-shrunk, garment-washed for softness","Relaxed-but-tailored fit"], materials:"100% organic combed cotton", featured:true, bestSeller:true },
+    { id:"2", handle:"heavyweight-pocket-tee", name:"Heavyweight Pocket Tee", price:46, category:"Tees", collections:["essentials"], colors:[{name:"Bone",hex:"#EDE6D8"},{name:"Olive",hex:"#6E7355"},{name:"Charcoal",hex:"#3A3733"}], sizes:["S","M","L","XL"], tagline:"Structured cotton with a clean chest pocket", description:"Built from a dense 240gsm jersey that drapes with weight. A single chest pocket keeps it honest. This is the tee that gets better with every wash.", details:["Heavyweight 240gsm cotton jersey","Reinforced chest pocket","Double-needle hem and sleeves","Boxy, modern silhouette"], materials:"100% heavyweight cotton", bestSeller:true },
+    { id:"3", handle:"merino-crewneck-sweater", name:"Merino Crewneck Sweater", price:128, compareAtPrice:148, category:"Knitwear", collections:["new-arrivals","essentials"], colors:[{name:"Oatmeal",hex:"#D6CBB6"},{name:"Navy",hex:"#2C3444"},{name:"Clay",hex:"#B5533A"}], sizes:["S","M","L","XL"], tagline:"Fine-gauge merino for every season", description:"Knit from extra-fine merino wool that regulates temperature naturally — warm when it's cool, breathable when it's not. A wardrobe cornerstone.", details:["Extra-fine 19.5 micron merino wool","Fully-fashioned, seamless shoulders","Ribbed collar, cuffs, and hem","Naturally odor-resistant"], materials:"100% extra-fine merino wool", featured:true },
+    { id:"4", handle:"waffle-knit-henley", name:"Waffle-Knit Henley", price:72, category:"Knitwear", collections:["essentials"], colors:[{name:"Fog",hex:"#C7C3BA"},{name:"Rust",hex:"#A0522D"},{name:"Black",hex:"#201D1A"}], sizes:["S","M","L","XL"], tagline:"Textured layering with a three-button placket", description:"A waffle-textured henley that traps warmth without bulk. The perfect mid-layer, or a standalone on milder days.", details:["Thermal waffle-knit cotton blend","Three-button corozo placket","Rib-knit cuffs","Slim, layering-friendly fit"], materials:"95% cotton, 5% elastane" },
+    { id:"5", handle:"field-overshirt", name:"Field Overshirt", price:148, category:"Outerwear", collections:["new-arrivals","outerwear"], colors:[{name:"Tobacco",hex:"#7C5A3C"},{name:"Olive",hex:"#5F6647"},{name:"Slate",hex:"#4A4F57"}], sizes:["S","M","L","XL"], tagline:"A shirt-jacket that does the heavy lifting", description:"Part shirt, part jacket — the Field Overshirt is cut from brushed cotton twill with four utility pockets. Throw it over a tee or under a coat.", details:["Brushed 8oz cotton twill","Four button-through pockets","Corozo buttons","Relaxed overshirt fit"], materials:"100% brushed cotton twill", featured:true, bestSeller:true },
+    { id:"6", handle:"quilted-liner-jacket", name:"Quilted Liner Jacket", price:198, category:"Outerwear", collections:["outerwear"], colors:[{name:"Moss",hex:"#5A6350"},{name:"Black",hex:"#211E1B"}], sizes:["S","M","L","XL"], tagline:"Lightweight warmth that packs down small", description:"A diamond-quilted liner jacket with recycled insulation. Wear it solo in the shoulder seasons or zip it under a shell when it turns.", details:["Diamond-quilted recycled shell","Recycled synthetic insulation","Two-way YKK zip","Packs into its own pocket"], materials:"Recycled polyester shell & fill" },
+    { id:"7", handle:"selvedge-denim-jacket", name:"Selvedge Denim Jacket", price:178, category:"Outerwear", collections:["new-arrivals","outerwear"], colors:[{name:"Indigo",hex:"#38455F"},{name:"Washed",hex:"#8592A6"}], sizes:["S","M","L","XL"], tagline:"Raw selvedge denim that ages with you", description:"Cut from 13oz Japanese selvedge denim on vintage shuttle looms. It starts stiff and deep, then fades into something entirely your own.", details:["13oz Japanese selvedge denim","Copper rivets and branded shank buttons","Chain-stitched hems","Classic trucker silhouette"], materials:"100% cotton selvedge denim", featured:true },
+    { id:"8", handle:"tapered-chino", name:"Tapered Chino", price:98, category:"Bottoms", collections:["essentials"], colors:[{name:"Stone",hex:"#B7A98D"},{name:"Navy",hex:"#2C3444"},{name:"Black",hex:"#211E1B"}], sizes:["28","30","32","34","36"], tagline:"A clean chino with just enough stretch", description:"The chino, refined. A tapered leg, a touch of stretch, and a fabric that holds a press without fuss. Dress it up or down.", details:["Peached cotton twill with 2% stretch","Tapered leg, mid rise","Slant front, welt back pockets","Wrinkle-resistant finish"], materials:"98% cotton, 2% elastane", bestSeller:true },
+    { id:"9", handle:"relaxed-linen-trouser", name:"Relaxed Linen Trouser", price:110, category:"Bottoms", collections:["new-arrivals"], colors:[{name:"Flax",hex:"#D8C9A9"},{name:"Clay",hex:"#B5533A"},{name:"Sea",hex:"#6E8B8E"}], sizes:["28","30","32","34","36"], tagline:"Breezy European linen for warm days", description:"A relaxed, drawstring-waist trouser in breathable European linen. Effortless from the beach to dinner.", details:["Garment-dyed European linen","Elastic drawstring waist","Relaxed straight leg","Side seam pockets"], materials:"100% European linen", featured:true },
+    { id:"10", handle:"ribbed-beanie", name:"Ribbed Beanie", price:32, category:"Accessories", collections:["accessories"], colors:[{name:"Oat",hex:"#D6CBB6"},{name:"Clay",hex:"#B5533A"},{name:"Charcoal",hex:"#3A3733"},{name:"Sage",hex:"#8A9A7B"}], sizes:["One Size"], tagline:"Soft merino, cuffed and cozy", description:"A classic cuffed beanie knit from soft merino wool. Warm, itch-free, and endlessly wearable.", details:["Soft merino wool rib knit","Double-layer cuff","One size, stretches to fit"], materials:"100% merino wool" },
+    { id:"11", handle:"canvas-tote", name:"Heavy Canvas Tote", price:44, category:"Accessories", collections:["accessories","essentials"], colors:[{name:"Natural",hex:"#E2D8C3"},{name:"Olive",hex:"#6E7355"},{name:"Black",hex:"#211E1B"}], sizes:["One Size"], tagline:"A do-everything bag built to last", description:"A structured 18oz canvas tote with an interior pocket and reinforced straps. Groceries, laptops, the lot — it carries the day.", details:["18oz heavyweight cotton canvas","Reinforced webbing straps","Interior zip pocket","Flat base holds its shape"], materials:"100% heavyweight cotton canvas", bestSeller:true },
+    { id:"12", handle:"leather-card-holder", name:"Leather Card Holder", price:58, category:"Accessories", collections:["accessories"], colors:[{name:"Tan",hex:"#A9764A"},{name:"Black",hex:"#211E1B"},{name:"Cognac",hex:"#7C4A2D"}], sizes:["One Size"], tagline:"Full-grain leather that patinas beautifully", description:"A slim, four-pocket card holder in vegetable-tanned full-grain leather. It softens and deepens in color with every use.", details:["Vegetable-tanned full-grain leather","Four card slots + center pocket","Edge-painted and hand-finished","Ages to a rich patina"], materials:"Full-grain vegetable-tanned leather" }
+  ];
+
+  var CATEGORIES = ["Tees", "Knitwear", "Outerwear", "Bottoms", "Accessories"];
+  var FREE_SHIP = 75, SHIP_FLAT = 8;
+
+  var SWATCH = {};
+  PRODUCTS.forEach(function (p) { p.colors.forEach(function (c) { SWATCH[c.name] = c.hex; }); });
+
+  /* --------------------------- Helpers ---------------------------- */
+  function money(n) {
+    return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: n % 1 === 0 ? 0 : 2 }).format(n);
+  }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (m) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[m]; }); }
+  function getProduct(h) { return PRODUCTS.filter(function (p) { return p.handle === h; })[0]; }
+  function getCollection(h) { return COLLECTIONS.filter(function (c) { return c.handle === h; })[0]; }
+  function inCollection(h) { return PRODUCTS.filter(function (p) { return p.collections.indexOf(h) > -1; }); }
+  function related(p) {
+    var same = PRODUCTS.filter(function (x) { return x.id !== p.id && x.category === p.category; });
+    var other = PRODUCTS.filter(function (x) { return x.id !== p.id && x.category !== p.category; });
+    return same.concat(other).slice(0, 4);
+  }
+
+  /* ---------------------- SVG product imagery --------------------- */
+  function shade(hex, pct) {
+    var n = hex.replace("#", "");
+    if (n.length === 3) n = n[0]+n[0]+n[1]+n[1]+n[2]+n[2];
+    var num = parseInt(n, 16), amt = Math.round(2.55 * pct);
+    var r = Math.max(0, Math.min(255, (num >> 16) + amt));
+    var g = Math.max(0, Math.min(255, ((num >> 8) & 0xff) + amt));
+    var b = Math.max(0, Math.min(255, (num & 0xff) + amt));
+    return "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  }
+  var BG = {
+    Tees: "linear-gradient(160deg,#F4EFE6,#EAE2D3)", Knitwear: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
+    Outerwear: "linear-gradient(160deg,#ECEBE6,#DCD9CF)", Bottoms: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
+    Accessories: "linear-gradient(160deg,#F5F0E7,#EBE2D0)"
+  };
+  function garment(cat, handle, line) {
+    if (handle.indexOf("beanie") > -1) return '<path d="M120 300 C120 190 280 190 280 300 Z"/><rect x="112" y="298" width="176" height="46" rx="14"/><path d="M120 300 L120 240 M160 300 L160 214 M200 300 L200 206 M240 300 L240 214 M280 300 L280 240" fill="none" stroke="#00000022" stroke-width="4"/>';
+    if (handle.indexOf("tote") > -1) return '<path d="M132 190 L268 190 L282 400 L118 400 Z"/><path d="M164 190 C164 130 236 130 236 190" fill="none" stroke="'+line+'" stroke-width="8" stroke-linecap="round"/><path d="M118 232 L282 232" fill="none" stroke="'+line+'" stroke-width="2.5" opacity="0.5"/>';
+    if (handle.indexOf("card-holder") > -1) return '<rect x="118" y="196" width="164" height="118" rx="12"/><rect x="140" y="220" width="120" height="70" rx="6" fill="none" stroke="'+line+'" stroke-width="2.5" opacity="0.7"/><path d="M170 220 L170 290 M200 220 L200 290 M230 220 L230 290" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.5"/>';
+    if (handle.indexOf("trouser") > -1 || handle.indexOf("chino") > -1 || cat === "Bottoms") return '<path d="M132 96 L268 96 L262 200 L214 200 L200 420 L156 420 L150 250 L144 420 L100 420 L138 200 L132 96 Z" transform="translate(0,-4)"/><path d="M132 120 L268 120" fill="none" stroke="'+line+'" stroke-width="3"/><path d="M200 116 L200 196" fill="none" stroke="'+line+'" stroke-width="2" stroke-dasharray="3 6" opacity="0.6"/>';
+    if (cat === "Knitwear") return '<path d="M150 108 L96 132 L70 210 L104 228 L120 195 L120 388 L280 388 L280 195 L296 228 L330 210 L304 132 L250 108 C242 136 158 136 150 108 Z"/><path d="M150 108 C158 136 242 136 250 108" fill="none" stroke="'+line+'" stroke-width="3"/><path d="M120 372 L280 372" fill="none" stroke="'+line+'" stroke-width="3" stroke-dasharray="1 7"/>';
+    if (cat === "Outerwear") return '<path d="M150 104 L92 130 L66 214 L100 234 L118 198 L118 392 L282 392 L282 198 L300 234 L334 214 L308 130 L250 104 L206 128 L162 128 Z"/><path d="M200 128 L200 392" fill="none" stroke="'+line+'" stroke-width="2.5" stroke-dasharray="4 6"/><path d="M162 128 L150 104 M238 128 L250 104" fill="none" stroke="'+line+'" stroke-width="3"/><rect x="150" y="300" width="34" height="42" rx="3" fill="none" stroke="'+line+'" stroke-width="2.5"/><rect x="216" y="300" width="34" height="42" rx="3" fill="none" stroke="'+line+'" stroke-width="2.5"/>';
+    var pocket = handle.indexOf("pocket") > -1 ? '<rect x="168" y="205" width="46" height="52" rx="3" fill="none" stroke="'+line+'" stroke-width="2.5"/>' : '';
+    return '<path d="M150 110 L110 130 L88 185 L120 205 L132 175 L132 380 L268 380 L268 175 L280 205 L312 185 L290 130 L250 110 C240 138 160 138 150 110 Z"/><path d="M150 110 C160 138 240 138 250 110" fill="none" stroke="'+line+'" stroke-width="3"/>' + pocket;
+  }
+  function media(cat, hex, handle, cls) {
+    var dark = shade(hex, -18), light = shade(hex, 16), uid = handle + "-" + hex.replace("#", "");
+    return '<div class="media ' + (cls || "") + '" style="background:' + BG[cat] + '">' +
+      '<svg viewBox="0 0 400 480" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">' +
+      '<defs><linearGradient id="g-' + uid + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="' + light + '"/><stop offset="100%" stop-color="' + dark + '"/></linearGradient>' +
+      '<filter id="s-' + uid + '" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-opacity="0.14"/></filter></defs>' +
+      '<g fill="url(#g-' + uid + ')" stroke="' + dark + '" stroke-width="2" stroke-linejoin="round" filter="url(#s-' + uid + ')">' +
+      garment(cat, handle, dark) + '</g></svg></div>';
+  }
+
+  /* ----------------------------- Cart ----------------------------- */
+  var KEY = "meridian-cart-v1";
+  var cart = load();
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} }
+  function lineKey(l) { return l.productId + "::" + l.color + "::" + l.size; }
+  function cartCount() { return cart.reduce(function (s, l) { return s + l.qty; }, 0); }
+  function subtotal() { return cart.reduce(function (s, l) { return s + l.price * l.qty; }, 0); }
+  function addLine(line) {
+    var k = lineKey(line), found = false;
+    cart.forEach(function (l) { if (lineKey(l) === k) { l.qty += line.qty; found = true; } });
+    if (!found) cart.push(line);
+    save(); syncCart(); openDrawer();
+  }
+  function setQty(k, q) {
+    cart = cart.filter(function (l) { if (lineKey(l) === k) { l.qty = q; } return l.qty > 0; });
+    save(); syncCart(); renderDrawer();
+    var h = location.hash.slice(1);
+    if (h === "/cart" || h === "/checkout") render();
+  }
+  function removeLine(k) { cart = cart.filter(function (l) { return lineKey(l) !== k; }); save(); syncCart(); renderDrawer();
+    var h = location.hash.slice(1); if (h === "/cart" || h === "/checkout") render(); }
+  function clearCart() { cart = []; save(); syncCart(); }
+
+  function syncCart() {
+    var c = cartCount(), el = document.getElementById("cartCount");
+    if (c > 0) { el.style.display = "flex"; el.textContent = c; } else { el.style.display = "none"; }
+  }
+
+  /* --------------------------- Drawer ----------------------------- */
+  var drawer = document.getElementById("drawer"), overlay = document.getElementById("overlay");
+  function openDrawer() { renderDrawer(); drawer.classList.add("open"); overlay.classList.add("open"); document.body.style.overflow = "hidden"; }
+  function closeDrawer() { drawer.classList.remove("open"); overlay.classList.remove("open"); document.body.style.overflow = ""; }
+  function renderDrawer() {
+    var c = cartCount(), sub = subtotal();
+    var html = '<div class="drawer-head"><h2>Your Cart (' + c + ')</h2><button class="close-x" data-close aria-label="Close">&times;</button></div>';
+    if (!cart.length) {
+      html += '<div class="drawer-empty"><p class="muted">Your cart is empty.</p><a href="#/shop" class="btn btn-primary" data-close>Start shopping</a></div>';
+    } else {
+      var remaining = Math.max(0, FREE_SHIP - sub), pct = Math.min(100, sub / FREE_SHIP * 100);
+      html += '<div class="ship-meter"><p class="muted" style="font-size:12px;margin:0">' +
+        (remaining > 0 ? "You're <b style=\"color:var(--ink)\">" + money(remaining) + "</b> away from free shipping" : '<b style="color:var(--sage)">You\'ve unlocked free shipping!</b>') +
+        '</p><div class="track"><div class="fill" style="width:' + pct + '%"></div></div></div>';
+      html += '<ul class="drawer-lines">';
+      cart.forEach(function (l) {
+        var k = lineKey(l);
+        html += '<li><div class="drawer-thumb" style="background:' + (SWATCH[l.color] || "#D6CBB6") + '"></div>' +
+          '<div style="flex:1;display:flex;flex-direction:column">' +
+          '<div style="display:flex;justify-content:space-between;gap:8px"><a href="#/product/' + l.handle + '" data-close style="font-size:14px;font-weight:500">' + esc(l.name) + '</a><span style="font-size:14px">' + money(l.price * l.qty) + '</span></div>' +
+          '<p class="muted" style="font-size:12px;margin:2px 0 0">' + esc(l.color) + ' &middot; ' + esc(l.size) + '</p>' +
+          '<div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:8px">' +
+          '<div class="mini-qty"><button data-dq="' + k + '" aria-label="Decrease">&minus;</button><span>' + l.qty + '</span><button data-iq="' + k + '" aria-label="Increase">+</button></div>' +
+          '<button class="link-remove" data-rm="' + k + '">Remove</button></div></div></li>';
+      });
+      html += '</ul>';
+      html += '<div class="drawer-foot"><div style="display:flex;justify-content:space-between;align-items:center"><span class="muted" style="font-size:14px">Subtotal</span><span style="font-size:16px;font-weight:600">' + money(sub) + '</span></div>' +
+        '<p class="muted" style="font-size:12px;margin:4px 0 0">Shipping &amp; taxes calculated at checkout.</p>' +
+        '<a href="#/checkout" class="btn btn-primary btn-block" style="margin-top:16px" data-close>Checkout</a>' +
+        '<button class="btn btn-block" style="margin-top:8px;background:none;color:var(--stone);font-size:12px;text-decoration:underline;padding:6px" data-close>Continue shopping</button></div>';
+    }
+    drawer.innerHTML = html;
+  }
+
+  /* ----------------------------- Views ---------------------------- */
+  function cardHTML(p) {
+    var onSale = p.compareAtPrice && p.compareAtPrice > p.price;
+    var badges = "";
+    if (p.bestSeller) badges += '<span class="badge best">Best Seller</span>';
+    if (onSale) badges += '<span class="badge sale">Sale</span>';
+    var sw = p.colors.map(function (c) { return '<span class="swatch" style="background:' + c.hex + '" title="' + esc(c.name) + '"></span>'; }).join("");
+    return '<a class="card" href="#/product/' + p.handle + '">' +
+      '<div class="prod-media">' + media(p.category, p.colors[0].hex, p.handle) + (badges ? '<div class="badges">' + badges + '</div>' : '') + '</div>' +
+      '<div class="card-row"><div><div class="card-name">' + esc(p.name) + '</div><div class="card-cat">' + esc(p.category) + '</div></div>' +
+      '<div class="price">' + money(p.price) + (onSale ? '<span class="was">' + money(p.compareAtPrice) + '</span>' : '') + '</div></div>' +
+      '<div class="swatches">' + sw + '</div></a>';
+  }
+  function gridHTML(list) { return '<div class="pgrid">' + list.map(cardHTML).join("") + '</div>'; }
+
+  function viewHome() {
+    var featured = PRODUCTS.filter(function (p) { return p.featured; }).slice(0, 8);
+    var best = PRODUCTS.filter(function (p) { return p.bestSeller; }).slice(0, 4);
+    var heroTiles = PRODUCTS.slice(0, 2).map(function (p) { return '<a class="tile" href="#/product/' + p.handle + '">' + media(p.category, p.colors[0].hex, p.handle) + '</a>'; }).join("");
+    var valueItems = [["Natural fibers","Organic cotton, merino & linen"],["Made responsibly","Fair factories, less waste"],["Free shipping","On orders over $75"],["30-day returns","Easy, no-fuss exchanges"]]
+      .map(function (v) { return '<div><b>' + v[0] + '</b><small>' + v[1] + '</small></div>'; }).join("");
+    var collCards = COLLECTIONS.map(function (c) {
+      return '<a class="coll-card" href="#/collection/' + c.handle + '" style="background:linear-gradient(180deg,' + c.accent + '00 30%,' + c.accent + ' 100%),' + c.accent + '">' +
+        '<span class="sheen"></span><h3>' + c.title + '</h3><small>Shop now &rarr;</small></a>';
+    }).join("");
+    var bandTiles = PRODUCTS.slice(2, 5).map(function (p) { return '<div class="tile">' + media(p.category, p.colors[0].hex, p.handle) + '</div>'; }).join("");
+
+    return '' +
+      '<section class="hero"><div class="wrap grid">' +
+        '<div><p class="eyebrow">Fall Collection 2026</p><h1>Quiet clothes,<br>made to last.</h1>' +
+        '<p class="lead">Considered essentials in natural fibers and honest cuts. No logos, no noise — just pieces you\'ll wear until they wear out.</p>' +
+        '<div class="hero-cta"><a href="#/shop" class="btn btn-primary">Shop the collection</a><a href="#/collection/new-arrivals" class="btn btn-secondary">New arrivals</a></div></div>' +
+        '<div class="hero-tiles">' + heroTiles + '</div>' +
+      '</div></section>' +
+      '<section class="values"><div class="wrap grid">' + valueItems + '</div></section>' +
+      '<section class="block"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Just landed</p><h2>Featured</h2></div><a href="#/shop" class="ul-link muted" style="font-size:14px">View all &rarr;</a></div>' + gridHTML(featured) + '</div></section>' +
+      '<section class="block tint"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Shop by category</p><h2>Collections</h2></div></div><div class="colls">' + collCards + '</div></div></section>' +
+      '<section class="block"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Tried &amp; true</p><h2>Best sellers</h2></div><a href="#/shop" class="ul-link muted" style="font-size:14px">View all &rarr;</a></div>' + gridHTML(best) + '</div></section>' +
+      '<section class="band"><div class="wrap grid"><div><p class="eyebrow">The Meridian promise</p><h2>Fewer, better things.</h2>' +
+      '<p>We design a tight collection of pieces meant to work together and outlast trends. Every garment is built from natural fibers in factories we\'ve visited and vetted.</p>' +
+      '<a href="#/about" class="btn btn-ghost" style="margin-top:28px">Read our story</a></div><div class="band-tiles">' + bandTiles + '</div></div></section>';
+  }
+
+  var shopState = { cat: "All", sort: "featured" };
+  function viewShop() {
+    return '<div class="wrap"><div class="page-head"><p class="eyebrow">Everything</p><h1>Shop All</h1>' +
+      '<p>The complete Meridian wardrobe — considered pieces in natural fibers, designed to be worn together and worn often.</p></div>' +
+      '<div style="padding:24px 0" id="shopMount"></div></div>';
+  }
+  function renderShop() {
+    var mount = document.getElementById("shopMount");
+    if (!mount) return;
+    var chips = ["All"].concat(CATEGORIES).map(function (c) {
+      return '<button class="chip' + (shopState.cat === c ? " active" : "") + '" data-cat="' + c + '">' + c + '</button>';
+    }).join("");
+    var sorts = { featured: "Featured", "price-asc": "Price: Low to High", "price-desc": "Price: High to Low", name: "Alphabetical" };
+    var opts = Object.keys(sorts).map(function (k) { return '<option value="' + k + '"' + (shopState.sort === k ? " selected" : "") + '>' + sorts[k] + '</option>'; }).join("");
+    var list = shopState.cat === "All" ? PRODUCTS.slice() : PRODUCTS.filter(function (p) { return p.category === shopState.cat; });
+    if (shopState.sort === "price-asc") list.sort(function (a, b) { return a.price - b.price; });
+    else if (shopState.sort === "price-desc") list.sort(function (a, b) { return b.price - a.price; });
+    else if (shopState.sort === "name") list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    else list.sort(function (a, b) { return (b.featured ? 1 : 0) - (a.featured ? 1 : 0); });
+
+    mount.innerHTML = '<div class="toolbar"><div class="chips">' + chips + '</div>' +
+      '<div style="display:flex;align-items:center;gap:8px"><label for="sortSel" class="muted" style="font-size:12px">Sort</label>' +
+      '<select class="sort" id="sortSel">' + opts + '</select></div></div>' +
+      '<p class="muted" style="font-size:14px;margin-bottom:22px">' + list.length + ' ' + (list.length === 1 ? "product" : "products") + '</p>' +
+      gridHTML(list);
+
+    mount.querySelectorAll("[data-cat]").forEach(function (b) { b.addEventListener("click", function () { shopState.cat = b.getAttribute("data-cat"); renderShop(); }); });
+    var sel = document.getElementById("sortSel");
+    sel.addEventListener("change", function () { shopState.sort = sel.value; renderShop(); });
+  }
+
+  function viewCollection(handle) {
+    var c = getCollection(handle);
+    if (!c) return view404();
+    var items = inCollection(handle);
+    return '<div class="banner" style="background:linear-gradient(120deg,' + c.accent + '14,transparent 70%)"><div class="wrap inner">' +
+      '<p class="eyebrow">Collection</p><h1 style="font-size:clamp(32px,5vw,50px);margin-top:8px">' + c.title + '</h1>' +
+      '<p class="muted" style="max-width:40rem;margin-top:16px">' + c.description + '</p></div></div>' +
+      '<div class="wrap" style="padding:48px 0"><p class="muted" style="font-size:14px;margin-bottom:22px">' + items.length + ' ' + (items.length === 1 ? "product" : "products") + '</p>' + gridHTML(items) + '</div>';
+  }
+
+  var pdpState = {};
+  function viewProduct(handle) {
+    var p = getProduct(handle);
+    if (!p) return view404();
+    pdpState = { color: p.colors[0], size: p.sizes.length === 1 ? p.sizes[0] : "", qty: 1 };
+    var onSale = p.compareAtPrice && p.compareAtPrice > p.price;
+    var thumbs = p.colors.slice(0, 3).map(function (c) { return '<div class="tile">' + media(p.category, c.hex, p.handle) + '</div>'; }).join("");
+    var details = p.details.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join("");
+
+    return '<div class="wrap">' +
+      '<div class="crumb"><a href="#/">Home</a><span class="sep">/</span><a href="#/shop">Shop</a><span class="sep">/</span><span style="color:var(--ink)">' + esc(p.name) + '</span></div>' +
+      '<div class="pdp">' +
+        '<div class="pdp-gallery"><div class="main">' + media(p.category, p.colors[0].hex, p.handle) + '</div><div class="pdp-thumbs">' + thumbs + '</div></div>' +
+        '<div>' +
+          '<div class="mobile-media" id="pdpMobileMedia">' + media(p.category, pdpState.color.hex, p.handle) + '</div>' +
+          '<p class="eyebrow">' + esc(p.category) + '</p><h1>' + esc(p.name) + '</h1><p class="tagline">' + esc(p.tagline) + '</p>' +
+          '<div class="price-row"><span class="now">' + money(p.price) + '</span>' + (onSale ? '<span class="was">' + money(p.compareAtPrice) + '</span><span class="save-pill">Save ' + money(p.compareAtPrice - p.price) + '</span>' : '') + '</div>' +
+          '<p class="desc">' + esc(p.description) + '</p>' +
+          '<div style="margin-top:26px">' +
+            '<div class="opt-label"><span>Color</span><span class="sel" id="colorSel">' + esc(pdpState.color.name) + '</span></div>' +
+            '<div class="color-opts" id="colorOpts">' + p.colors.map(function (c, i) { return '<button class="color-dot' + (i === 0 ? " active" : "") + '" data-color="' + i + '" style="background:' + c.hex + '" aria-label="' + esc(c.name) + '"></button>'; }).join("") + '</div>' +
+          '</div>' +
+          '<div style="margin-top:22px">' +
+            '<div class="opt-label"><span>Size</span></div>' +
+            '<div class="size-opts" id="sizeOpts">' + p.sizes.map(function (s) { return '<button class="size-btn' + (pdpState.size === s ? " active" : "") + '" data-size="' + esc(s) + '">' + esc(s) + '</button>'; }).join("") + '</div>' +
+            '<p class="size-err" id="sizeErr">Please select a size.</p>' +
+          '</div>' +
+          '<div class="buy-row"><div class="qty"><button id="qMinus" aria-label="Decrease">&minus;</button><span id="qVal">1</span><button id="qPlus" aria-label="Increase">+</button></div>' +
+          '<button class="btn btn-primary" style="flex:1" id="addBtn">Add to cart</button></div>' +
+          '<div class="stock"><span class="dot-sage"></span>In stock — ships within 1–2 business days</div>' +
+          '<div class="detail-block"><div><h4>Details</h4><ul>' + details + '</ul></div>' +
+          '<div><h4>Materials &amp; Care</h4><p class="muted" style="font-size:14px;margin:0">' + esc(p.materials) + '</p><p class="muted" style="font-size:14px;margin:4px 0 0">Machine wash cold, tumble dry low. Wash with like colors.</p></div>' +
+          '<div class="perks"><span>✓ Free shipping over $75</span><span>✓ 30-day returns</span></div></div>' +
+        '</div>' +
+      '</div>' +
+      '<section class="block"><h2 style="font-size:24px;margin-bottom:30px">You might also like</h2>' + gridHTML(related(p)) + '</section>' +
+      '</div>';
+  }
+  function wireProduct(handle) {
+    var p = getProduct(handle);
+    if (!p) return;
+    var mobileMedia = document.getElementById("pdpMobileMedia");
+    document.querySelectorAll("#colorOpts [data-color]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var idx = +b.getAttribute("data-color");
+        pdpState.color = p.colors[idx];
+        document.querySelectorAll("#colorOpts .color-dot").forEach(function (d) { d.classList.remove("active"); });
+        b.classList.add("active");
+        document.getElementById("colorSel").textContent = pdpState.color.name;
+        if (mobileMedia) mobileMedia.innerHTML = media(p.category, pdpState.color.hex, p.handle);
+      });
+    });
+    document.querySelectorAll("#sizeOpts [data-size]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        pdpState.size = b.getAttribute("data-size");
+        document.querySelectorAll("#sizeOpts .size-btn").forEach(function (d) { d.classList.remove("active"); });
+        b.classList.add("active");
+        document.getElementById("sizeErr").classList.remove("show");
+      });
+    });
+    document.getElementById("qMinus").addEventListener("click", function () { pdpState.qty = Math.max(1, pdpState.qty - 1); document.getElementById("qVal").textContent = pdpState.qty; });
+    document.getElementById("qPlus").addEventListener("click", function () { pdpState.qty += 1; document.getElementById("qVal").textContent = pdpState.qty; });
+    document.getElementById("addBtn").addEventListener("click", function () {
+      if (!pdpState.size) { document.getElementById("sizeErr").classList.add("show"); return; }
+      addLine({ productId: p.id, handle: p.handle, name: p.name, price: p.price, color: pdpState.color.name, size: pdpState.size, qty: pdpState.qty });
+    });
+  }
+
+  function viewCart() {
+    if (!cart.length) {
+      return '<div class="wrap"><div class="empty"><h1>Your cart is empty</h1><p class="muted" style="max-width:22rem">Looks like you haven\'t added anything yet. Let\'s fix that.</p><a href="#/shop" class="btn btn-primary">Shop the collection</a></div></div>';
+    }
+    var sub = subtotal(), ship = sub >= FREE_SHIP ? 0 : SHIP_FLAT, tax = Math.round(sub * 0.0825 * 100) / 100, total = sub + ship + tax;
+    var lines = cart.map(function (l) {
+      var k = lineKey(l);
+      return '<li><a href="#/product/' + l.handle + '" class="cart-thumb" style="background:' + (SWATCH[l.color] || "#D6CBB6") + '"></a>' +
+        '<div style="flex:1;display:flex;flex-direction:column">' +
+        '<div style="display:flex;justify-content:space-between;gap:14px"><div><a href="#/product/' + l.handle + '" style="font-weight:500">' + esc(l.name) + '</a><p class="muted" style="font-size:14px;margin:4px 0 0">' + esc(l.color) + ' &middot; ' + esc(l.size) + '</p></div><span style="font-weight:500">' + money(l.price * l.qty) + '</span></div>' +
+        '<div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:16px">' +
+        '<div class="mini-qty"><button data-dq="' + k + '" aria-label="Decrease">&minus;</button><span>' + l.qty + '</span><button data-iq="' + k + '" aria-label="Increase">+</button></div>' +
+        '<button class="link-remove" data-rm="' + k + '">Remove</button></div></div></li>';
+    }).join("");
+    return '<div class="wrap" style="padding:48px 0"><h1 style="font-size:clamp(32px,5vw,44px)">Your Cart</h1><p class="muted" style="margin-top:8px">' + cartCount() + ' ' + (cartCount() === 1 ? "item" : "items") + '</p>' +
+      '<div class="cart-layout"><ul class="cart-lines">' + lines + '</ul>' +
+      '<aside class="summary"><h2>Order Summary</h2>' +
+      '<div class="sum-row"><span class="muted">Subtotal</span><span>' + money(sub) + '</span></div>' +
+      '<div class="sum-row"><span class="muted">Shipping</span><span>' + (ship === 0 ? "Free" : money(ship)) + '</span></div>' +
+      '<div class="sum-row"><span class="muted">Estimated tax</span><span>' + money(tax) + '</span></div>' +
+      '<div class="sum-total"><span>Total</span><span>' + money(total) + '</span></div>' +
+      '<a href="#/checkout" class="btn btn-primary btn-block" style="margin-top:22px">Proceed to checkout</a>' +
+      '<a href="#/shop" class="muted" style="display:block;text-align:center;font-size:14px;margin-top:12px;text-decoration:underline">Continue shopping</a></aside></div></div>';
+  }
+
+  function viewCheckout() {
+    if (!cart.length) {
+      return '<div class="wrap"><div class="empty"><h1>Nothing to check out</h1><p class="muted">Your cart is empty.</p><a href="#/shop" class="btn btn-primary">Shop the collection</a></div></div>';
+    }
+    var sub = subtotal(), ship = sub >= FREE_SHIP ? 0 : SHIP_FLAT, tax = Math.round(sub * 0.0825 * 100) / 100, total = sub + ship + tax;
+    function field(label, name, type, ph, full, req) {
+      return '<label class="field' + (full ? " full" : "") + '"><span>' + label + '</span><input name="' + name + '" type="' + (type || "text") + '"' + (ph ? ' placeholder="' + ph + '"' : "") + (req === false ? "" : " required") + '></label>';
+    }
+    var lines = cart.map(function (l) {
+      return '<li class="co-line"><div class="co-thumb" style="background:' + (SWATCH[l.color] || "#D6CBB6") + '"><span class="co-badge">' + l.qty + '</span></div>' +
+        '<div style="flex:1;display:flex;justify-content:space-between;font-size:14px"><div><div style="font-weight:500">' + esc(l.name) + '</div><div class="muted" style="font-size:12px">' + esc(l.color) + ' &middot; ' + esc(l.size) + '</div></div><span>' + money(l.price * l.qty) + '</span></div></li>';
+    }).join("");
+    return '<div class="wrap" style="padding:48px 0"><a href="#/cart" class="muted" style="font-size:14px;text-decoration:underline">&larr; Back to cart</a><h1 style="font-size:clamp(32px,5vw,44px);margin-top:14px">Checkout</h1>' +
+      '<form id="checkoutForm" class="checkout-grid"><div>' +
+        '<fieldset><h3>Contact</h3><div class="fields">' + field("Email", "email", "email", "you@example.com", true) + '</div></fieldset>' +
+        '<fieldset><h3>Shipping address</h3><div class="fields">' + field("First name", "firstName") + field("Last name", "lastName") + field("Address", "address", "text", "123 Main St", true) + field("Apartment, suite (optional)", "apt", "text", "", true, false) + field("City", "city") +
+        '<div class="field"><span>State</span><input name="state" required></div><div class="field"><span>ZIP</span><input name="zip" required></div></div></fieldset>' +
+        '<fieldset><h3>Payment</h3><div class="fields"><div class="demo-note"><b><span class="dot-sage"></span>Demo payment — no card required</b><small>This storefront is a demo. Placing the order simulates a successful checkout without processing any payment.</small></div>' +
+        field("Name on card", "cardName", "text", "Full name", true, false) + field("Card number", "card", "text", "4242 4242 4242 4242", true, false) + field("Expiry", "exp", "text", "MM / YY", false, false) + field("CVC", "cvc", "text", "123", false, false) + '</div></fieldset>' +
+        '<button type="submit" class="btn btn-primary" style="margin-top:20px">Place order &middot; ' + money(total) + '</button>' +
+      '</div>' +
+      '<aside class="summary"><h2>Order Summary</h2><ul style="list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:16px">' + lines + '</ul>' +
+      '<div style="border-top:1px solid var(--line);margin-top:20px;padding-top:16px">' +
+      '<div class="sum-row" style="margin-top:0"><span class="muted">Subtotal</span><span>' + money(sub) + '</span></div>' +
+      '<div class="sum-row"><span class="muted">Shipping</span><span>' + (ship === 0 ? "Free" : money(ship)) + '</span></div>' +
+      '<div class="sum-row"><span class="muted">Estimated tax</span><span>' + money(tax) + '</span></div>' +
+      '<div class="sum-total"><span>Total</span><span>' + money(total) + '</span></div></div></aside></form></div>';
+  }
+  function wireCheckout() {
+    var form = document.getElementById("checkoutForm");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var seed = cart.reduce(function (a, l) { return a + l.name.length * l.qty; }, subtotal() | 0);
+      var id = "MER-" + String(Math.abs(seed)).padStart(6, "0").slice(0, 6);
+      clearCart();
+      location.hash = "/confirmed?id=" + id;
+    });
+  }
+
+  function viewConfirmed(id) {
+    return '<div class="wrap"><div class="confirm"><div class="check"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
+      '<h1>Thank you for your order</h1><p>Your order <b style="color:var(--ink)">' + esc(id || "MER-000000") + '</b> is confirmed. We\'ve sent a receipt to your email and you\'ll get tracking as soon as it ships.</p>' +
+      '<div style="display:flex;gap:12px;margin-top:30px"><a href="#/shop" class="btn btn-primary">Keep shopping</a><a href="#/" class="btn btn-secondary">Back home</a></div>' +
+      '<p class="muted" style="font-size:12px;max-width:24rem;margin-top:40px">This is a demo storefront — no payment was processed and no real order was placed.</p></div></div>';
+  }
+
+  function viewAbout() {
+    var values = [["Considered design","We release a tight collection of pieces designed to work together. No noise, no logos — just honest cuts and quiet color."],
+      ["Natural materials","Organic cotton, extra-fine merino, and European linen. Fibers that feel good, breathe well, and age gracefully."],
+      ["Made responsibly","We partner with a small number of factories we've visited and vetted, and we design out waste wherever we can."]]
+      .map(function (v) { return '<div><div class="rule"></div><h3>' + v[0] + '</h3><p>' + v[1] + '</p></div>'; }).join("");
+    var sus = [["Natural & recycled fibers","Over 90% of our line is natural or recycled materials."],
+      ["Low-impact dyeing","Garment-dyed in facilities that recycle water."],
+      ["Built to last","We design for durability, then repair rather than replace."],
+      ["Plastic-free shipping","Recycled, recyclable mailers — no single-use plastic."]]
+      .map(function (s) { return '<div class="item"><h4>' + s[0] + '</h4><small>' + s[1] + '</small></div>'; }).join("");
+    return '<section class="banner" style="background:var(--cloud)"><div class="wrap" style="padding:64px 0"><p class="eyebrow">Our Story</p>' +
+      '<h1 style="font-size:clamp(34px,5vw,50px);max-width:46rem;margin-top:12px;line-height:1.08">We started Meridian to make clothes worth keeping.</h1>' +
+      '<p class="muted" style="max-width:38rem;margin-top:22px;font-size:18px">In a world of fast fashion and disposable trends, we chose a different path: a small, considered collection of essentials, built from natural fibers and made to last for years, not seasons.</p></div></section>' +
+      '<div class="wrap"><div class="about-values">' + values + '</div></div>' +
+      '<section class="band"><div class="wrap grid"><div><p class="eyebrow">Sustainability</p><h2 style="font-size:34px;margin-top:14px">Better by design, not by accident.</h2></div><div class="sus-list">' + sus + '</div></div></section>' +
+      '<div class="wrap"><div style="text-align:center;padding:70px 0"><h2 style="font-size:30px">Questions? We\'re here.</h2>' +
+      '<p class="muted" style="max-width:26rem;margin:16px auto 0">Reach us at <a href="mailto:hello@meridian.example.com" class="ul-link" style="color:var(--ink)">hello@meridian.example.com</a>. We answer every message within one business day.</p>' +
+      '<a href="#/shop" class="btn btn-primary" style="margin-top:28px">Explore the collection</a></div></div>';
+  }
+
+  function view404() {
+    return '<div class="wrap"><div class="empty"><p class="eyebrow">404</p><h1>This page went out of stock</h1><p class="muted" style="max-width:22rem">We couldn\'t find the page you were looking for. It may have moved or never existed.</p>' +
+      '<div style="display:flex;gap:12px"><a href="#/" class="btn btn-primary">Back home</a><a href="#/shop" class="btn btn-secondary">Shop all</a></div></div></div>';
+  }
+
+  /* ----------------------------- Nav ------------------------------ */
+  var NAV = [{ label: "Shop All", href: "#/shop" }].concat(COLLECTIONS.map(function (c) { return { label: c.title, href: "#/collection/" + c.handle }; })).concat([{ label: "About", href: "#/about" }]);
+  function renderNav(current) {
+    document.getElementById("mainNav").innerHTML = NAV.map(function (n) { return '<a href="' + n.href + '"' + (n.href === current ? ' class="active"' : "") + '>' + n.label + '</a>'; }).join("");
+    document.getElementById("mobileNavInner").innerHTML = NAV.map(function (n) { return '<a href="' + n.href + '">' + n.label + '</a>'; }).join("");
+  }
+
+  function renderFooter() {
+    var shop = '<li><a href="#/shop">All Products</a></li>' + COLLECTIONS.map(function (c) { return '<li><a href="#/collection/' + c.handle + '">' + c.title + '</a></li>'; }).join("");
+    document.getElementById("site-footer").innerHTML =
+      '<div class="wrap foot-grid"><div><p class="logo" style="font-size:20px">MERIDIAN</p><p class="muted" style="max-width:20rem;margin-top:16px;font-size:14px">Considered, well-made apparel built to be worn on repeat. Designed in Portland, made responsibly.</p></div>' +
+      '<div><h4>Shop</h4><ul>' + shop + '</ul></div>' +
+      '<div><h4>Company</h4><ul><li><a href="#/about">Our Story</a></li><li><a href="#/about">Sustainability</a></li><li><a href="#/shop">Size Guide</a></li><li><a href="#/about">Contact</a></li></ul></div>' +
+      '<div><h4>Stay in the loop</h4><p class="muted" style="margin-top:14px;font-size:14px">Early access to drops and 10% off your first order.</p>' +
+      '<form class="news" id="newsForm"><input type="email" placeholder="Email address" required aria-label="Email address"><button type="submit" aria-label="Subscribe">&rarr;</button></form><p class="muted" id="newsMsg" style="font-size:13px;margin-top:10px;display:none;color:var(--sage)">Thanks — check your inbox for a welcome code.</p></div></div>' +
+      '<div class="foot-bottom"><div class="wrap"><p>© 2026 Meridian Supply Co. All rights reserved.</p><div class="links"><a href="#/about">Privacy</a><a href="#/about">Terms</a><a href="#/about">Returns</a></div></div></div>';
+    var nf = document.getElementById("newsForm");
+    nf.addEventListener("submit", function (e) { e.preventDefault(); nf.style.display = "none"; document.getElementById("newsMsg").style.display = "block"; });
+  }
+
+  /* --------------------------- Router ----------------------------- */
+  function parseHash() {
+    var raw = location.hash.slice(1) || "/";
+    var q = "", qi = raw.indexOf("?");
+    if (qi > -1) { q = raw.slice(qi + 1); raw = raw.slice(0, qi); }
+    return { path: raw, query: q };
+  }
+  function queryParam(q, key) {
+    var parts = q.split("&");
+    for (var i = 0; i < parts.length; i++) { var kv = parts[i].split("="); if (kv[0] === key) return decodeURIComponent(kv[1] || ""); }
+    return "";
+  }
+
+  function render() {
+    var r = parseHash(), path = r.path, app = document.getElementById("app"), navCurrent = null, html, after = null;
+    var seg = path.split("/").filter(Boolean); // e.g. ["product","handle"]
+
+    if (path === "/" || path === "") { html = viewHome(); }
+    else if (seg[0] === "shop") { html = viewShop(); navCurrent = "#/shop"; after = renderShop; }
+    else if (seg[0] === "collection" && seg[1]) { html = viewCollection(seg[1]); navCurrent = "#/collection/" + seg[1]; }
+    else if (seg[0] === "product" && seg[1]) { var ph = seg[1]; html = viewProduct(ph); after = function () { wireProduct(ph); }; }
+    else if (path === "/cart") { html = viewCart(); }
+    else if (path === "/checkout") { html = viewCheckout(); after = wireCheckout; }
+    else if (path === "/confirmed") { html = viewConfirmed(queryParam(r.query, "id")); }
+    else if (path === "/about") { html = viewAbout(); navCurrent = "#/about"; }
+    else { html = view404(); }
+
+    closeDrawer();
+    app.innerHTML = html;
+    renderNav(navCurrent);
+    document.getElementById("mobile-nav").classList.remove("open");
+    document.getElementById("menuToggle").setAttribute("aria-expanded", "false");
+    if (after) after();
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  /* --------------------------- Events ----------------------------- */
+  document.getElementById("cartBtn").addEventListener("click", openDrawer);
+  overlay.addEventListener("click", closeDrawer);
+  document.getElementById("menuToggle").addEventListener("click", function () {
+    var mn = document.getElementById("mobile-nav"), open = mn.classList.toggle("open");
+    this.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+
+  // Delegated events inside the drawer.
+  drawer.addEventListener("click", function (e) {
+    var t = e.target;
+    if (t.closest("[data-close]")) { closeDrawer(); return; }
+    var dq = t.getAttribute("data-dq"), iq = t.getAttribute("data-iq"), rm = t.getAttribute("data-rm");
+    if (dq) { var l = cart.filter(function (x) { return lineKey(x) === dq; })[0]; if (l) setQty(dq, l.qty - 1); }
+    else if (iq) { var l2 = cart.filter(function (x) { return lineKey(x) === iq; })[0]; if (l2) setQty(iq, l2.qty + 1); }
+    else if (rm) { removeLine(rm); }
+  });
+
+  // Delegated qty/remove on the cart page.
+  document.getElementById("app").addEventListener("click", function (e) {
+    var t = e.target, dq = t.getAttribute("data-dq"), iq = t.getAttribute("data-iq"), rm = t.getAttribute("data-rm");
+    if (dq) { var l = cart.filter(function (x) { return lineKey(x) === dq; })[0]; if (l) setQty(dq, l.qty - 1); }
+    else if (iq) { var l2 = cart.filter(function (x) { return lineKey(x) === iq; })[0]; if (l2) setQty(iq, l2.qty + 1); }
+    else if (rm) { removeLine(rm); }
+  });
+
+  window.addEventListener("hashchange", render);
+
+  /* ----------------------------- Init ----------------------------- */
+  renderFooter();
+  syncCart();
+  render();
+})();
+</script>
+</body>
+</html>
