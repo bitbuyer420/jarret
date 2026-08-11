@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier buffalo badge">
+  <!-- BUFFALO BADGE. Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2. -->
+  <defs>
+    <path id="arc-top-buffalo" d="M 84 200 A 116 116 0 0 1 316 200" />
+    <path id="arc-bot-buffalo" d="M 92 200 A 108 108 0 0 0 308 200" />
+  </defs>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
+  <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
+  <circle cx="200" cy="200" r="120" fill="none" stroke="#1E1B17" stroke-width="1.5"/>
+  <g transform="translate(0,-12)"><path d="M164 204 C 152 224 170 256 200 258 C 230 256 248 224 236 204 C 216 194 184 194 164 204 Z" fill="#1E1B17"/><path d="M182 256 L190 276 L200 264 L210 276 L218 256 Z" fill="#1E1B17"/><path d="M191 198 L200 210 L209 198" fill="none" stroke="#FBF8F2" stroke-width="2.5" opacity="0.5"/><circle cx="210" cy="220" r="2.6" fill="#FBF8F2"/><circle cx="190" cy="220" r="2.6" fill="#FBF8F2"/><path d="M232 206 C 248 200 260 206 259 218 C 255 210 244 210 233 213 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M232 206 C 248 200 260 206 259 218 C 255 210 244 210 233 213 Z" fill="#1E1B17"/></g></g>
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-top-buffalo" startOffset="50%" text-anchor="middle" font-size="24" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath></text>
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-bot-buffalo" startOffset="50%" text-anchor="middle" font-size="17" letter-spacing="6">★ BUFFALO ★</textPath></text>
+</svg>

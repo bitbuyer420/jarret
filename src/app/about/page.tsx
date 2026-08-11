@@ -33,8 +33,8 @@ export default function AboutPage() {
             d: "A single structured six-panel snapback with a flat brim and a true one-size fit. We got it right, then stopped fiddling with the cap.",
           },
           {
-            t: "Graphics worth stitching",
-            d: "Every front graphic is drawn in-house and built for embroidery — bold, tonal, and made to last as long as the cap it's on.",
+            t: "Animals of the range",
+            d: "Buffalo, elk, and longhorn — drawn in-house and built for embroidery. Bold, tonal, and made to last as long as the cap they're on.",
           },
           {
             t: "Made responsibly",

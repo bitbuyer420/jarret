@@ -24,11 +24,10 @@ export type Product = {
 };
 
 export type ProductCategory =
-  | "Emblem"
-  | "Wordmark"
-  | "Icon"
-  | "Monogram"
-  | "Patch";
+  | "Buffalo"
+  | "Elk"
+  | "Longhorn"
+  | "Frontier";
 
 export type Collection = {
   handle: string;

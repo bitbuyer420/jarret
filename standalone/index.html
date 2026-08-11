@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Merchant Frontier — Snapback Caps</title>
-<meta name="description" content="Merchant Frontier makes one thing — a great snapback — and a growing set of front graphics to put on it.">
+<meta name="description" content="Merchant Frontier makes one thing — a great snapback — stitched with the animals of the range: buffalo, elk, and longhorn.">
 </head>
 <body>
 <style>
@@ -400,28 +400,28 @@
 
   /* ----------------------------- Data ----------------------------- */
   var COLLECTIONS = [
-    { handle: "new-arrivals", title: "New Arrivals", accent: "#AC4E38", description: "The newest snapbacks off the line — fresh front graphics and seasonal colorways." },
-    { handle: "frontier-series", title: "Frontier Series", accent: "#AC4E38", description: "Our flagship emblem caps, built around the Merchant Frontier crest. Bold fronts, structured crowns." },
-    { handle: "trail-series", title: "Trail Series", accent: "#4B5240", description: "Made for the long way round — clean icons and earthy colorways for the trail." },
-    { handle: "everyday", title: "Everyday", accent: "#7C8C6C", description: "Clean wordmarks and monograms for the daily rotation. Grab-and-go snapbacks that never shout." }
+    { handle: "new-arrivals", title: "New Arrivals", accent: "#AC4E38", description: "The newest snapbacks off the line — fresh animal marks and seasonal colorways." },
+    { handle: "the-herd", title: "The Herd", accent: "#4B5240", description: "Buffalo, elk, and longhorn — the animal marks that run the range, embroidered front and center." },
+    { handle: "frontier-series", title: "Frontier Series", accent: "#C19A6B", description: "The heritage marks — emblem, compass, and wordmark — for a cleaner graphic front." },
+    { handle: "everyday", title: "Everyday", accent: "#7C8C6C", description: "The daily rotation — earthy colorways you'll reach for on repeat." }
   ];
 
   var PRODUCTS = [
-    { id:"1", handle:"frontier-emblem-snapback", name:"Frontier Emblem Snapback", price:42, category:"Emblem", collections:["new-arrivals","frontier-series"], colors:[{name:"Black",hex:"#211E1B"},{name:"Navy",hex:"#2C3444"},{name:"Loden",hex:"#4B5240"}], sizes:["One Size"], tagline:"The flagship crest, stitched front and center", description:"Our signature snapback: a structured six-panel crown with a flat brim and the full Merchant Frontier emblem embroidered across the front. The one that started it all.", details:["Structured 6-panel crown, flat brim","3D-embroidered front emblem","Snapback closure — one size fits most","Green undervisor, woven back label"], materials:"Cotton twill with wool-blend front panels", featured:true, bestSeller:true },
-    { id:"2", handle:"trade-post-emblem-snapback", name:"Trade Post Emblem Snapback", price:42, category:"Emblem", collections:["frontier-series"], colors:[{name:"Charcoal",hex:"#3A3733"},{name:"Sand",hex:"#D9C9AE"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"A tonal take on the frontier crest", description:"The emblem, dialed back. A tonal embroidered crest on a clean crown for a subtler everyday version of the flagship. Same structure, quieter finish.", details:["Structured 6-panel crown, flat brim","Tonal embroidered crest","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
-    { id:"3", handle:"summit-emblem-snapback", name:"Summit Emblem Snapback", price:44, category:"Emblem", collections:["new-arrivals","trail-series"], colors:[{name:"Forest",hex:"#33463A"},{name:"Bone",hex:"#EDE6D8"}], sizes:["One Size"], tagline:"The crest, reworked for the backcountry", description:"A trail-ready emblem cap with a woven summit patch and earthy colorways. Built for the miles between trailhead and trading post.", details:["Structured 6-panel crown, flat brim","Woven summit patch","Snapback closure — one size fits most","Moisture-wicking sweatband"], materials:"Cotton twill with recycled backing" },
-    { id:"4", handle:"merchant-wordmark-snapback", name:"Merchant Wordmark Snapback", price:38, category:"Wordmark", collections:["everyday","new-arrivals"], colors:[{name:"Black",hex:"#211E1B"},{name:"Bone",hex:"#EDE6D8"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"The full name, stacked and clean", description:"The Merchant Frontier wordmark stacked across the front in bold, letter-spaced embroidery. Minimal, confident, and endlessly wearable.", details:["Structured 6-panel crown, flat brim","Stacked wordmark embroidery","Snapback closure — one size fits most","Flat-brim, wear it as-is or curved"], materials:"100% cotton twill", bestSeller:true },
-    { id:"5", handle:"frontier-script-snapback", name:"Frontier Script Snapback", price:38, category:"Wordmark", collections:["everyday"], colors:[{name:"Navy",hex:"#2C3444"},{name:"Camel",hex:"#C19A6B"}], sizes:["One Size"], tagline:"A looser script across the front", description:"A relaxed script wordmark for a warmer, more casual take. The frontier name in a flowing hand, embroidered edge to edge.", details:["Structured 6-panel crown, flat brim","Script wordmark embroidery","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
-    { id:"6", handle:"sun-and-horizon-snapback", name:"Sun & Horizon Snapback", price:36, category:"Icon", collections:["trail-series","everyday"], colors:[{name:"Loden",hex:"#4B5240"},{name:"Black",hex:"#211E1B"},{name:"Stone",hex:"#B7A98D"}], sizes:["One Size"], tagline:"The frontier icon — a sun on the horizon", description:"Our core icon: a rising sun crossing the frontier line, embroidered small and centered. Quiet, ownable, and the easiest cap to reach for.", details:["Structured 6-panel crown, flat brim","Embroidered sun-and-horizon icon","Snapback closure — one size fits most","Tonal undervisor"], materials:"100% cotton twill", featured:true },
-    { id:"7", handle:"horizon-line-snapback", name:"Horizon Line Snapback", price:36, category:"Icon", collections:["everyday"], colors:[{name:"Sky",hex:"#6E8B8E"},{name:"Sand",hex:"#D9C9AE"}], sizes:["One Size"], tagline:"Just the line — minimal to the core", description:"The icon stripped to a single embroidered horizon line and a low sun. The most minimal cap in the range for people who like it plain.", details:["Structured 6-panel crown, flat brim","Single-line embroidered icon","Snapback closure — one size fits most","Lightweight cotton build"], materials:"100% cotton twill" },
-    { id:"8", handle:"trail-marker-snapback", name:"Trail Marker Snapback", price:38, category:"Icon", collections:["trail-series","new-arrivals"], colors:[{name:"Rust",hex:"#A0522D"},{name:"Charcoal",hex:"#3A3733"}], sizes:["One Size"], tagline:"A blazed-trail marker for the outdoors", description:"A trail-blaze marker icon — the little painted rectangle that keeps you on-path — embroidered front and center. Made for the trail series.", details:["Structured 6-panel crown, flat brim","Embroidered trail-marker icon","Snapback closure — one size fits most","Moisture-wicking sweatband"], materials:"Cotton twill with recycled backing" },
-    { id:"9", handle:"mf-monogram-snapback", name:"MF Monogram Snapback", price:38, category:"Monogram", collections:["everyday"], colors:[{name:"Black",hex:"#211E1B"},{name:"Cream",hex:"#E8DFCB"}], sizes:["One Size"], tagline:"Interlocked initials, clean and bold", description:"The interlocked MF monogram, embroidered large on the front. A clean, badge-free way to rep the frontier.", details:["Structured 6-panel crown, flat brim","Interlocked MF monogram embroidery","Snapback closure — one size fits most","Flat brim, green undervisor"], materials:"100% cotton twill", bestSeller:true },
-    { id:"10", handle:"stacked-mf-snapback", name:"Stacked MF Snapback", price:40, category:"Monogram", collections:["new-arrivals","everyday"], colors:[{name:"Forest",hex:"#33463A"},{name:"Camel",hex:"#C19A6B"},{name:"Navy",hex:"#2C3444"}], sizes:["One Size"], tagline:"The initials, stacked in a block", description:"A blocky stacked-MF monogram with a boxed outline, for a heavier, more collegiate feel. A little louder than the interlocked version.", details:["Structured 6-panel crown, flat brim","Boxed stacked-MF embroidery","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
-    { id:"11", handle:"compass-star-patch-snapback", name:"Compass Star Patch Snapback", price:44, compareAtPrice:50, category:"Patch", collections:["frontier-series","new-arrivals"], colors:[{name:"Black",hex:"#211E1B"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"A woven compass patch for the wanderers", description:"A woven compass-star patch stitched to a structured crown. Point it any direction — it always reads north. The centerpiece of the patch line.", details:["Structured 6-panel crown, flat brim","Woven compass-star patch","Snapback closure — one size fits most","Merrow-edge patch, green undervisor"], materials:"Cotton twill, woven-fabric patch", featured:true, bestSeller:true },
-    { id:"12", handle:"north-star-patch-snapback", name:"North Star Patch Snapback", price:44, category:"Patch", collections:["trail-series"], colors:[{name:"Navy",hex:"#2C3444"},{name:"Bone",hex:"#EDE6D8"}], sizes:["One Size"], tagline:"A single guiding star, woven and stitched", description:"A lone north-star patch on a clean crown — a quieter cousin to the compass. For following your own line to the frontier.", details:["Structured 6-panel crown, flat brim","Woven north-star patch","Snapback closure — one size fits most","Merrow-edge patch"], materials:"Cotton twill, woven-fabric patch" }
+    { id:"1", handle:"buffalo-head-snapback", name:"Buffalo Head Snapback", price:42, category:"Buffalo", collections:["new-arrivals","the-herd"], colors:[{name:"Black",hex:"#211E1B"},{name:"Loden",hex:"#4B5240"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"The head of the herd, stitched front and center", description:"Our flagship animal cap: a bold buffalo head embroidered across the front of a structured flat-brim snapback. Shaggy, horned, and unmistakable.", details:["Structured 6-panel crown, flat brim","3D-embroidered buffalo head","Snapback closure — one size fits most","Green undervisor, woven back label"], materials:"Cotton twill with wool-blend front panels", featured:true, bestSeller:true },
+    { id:"2", handle:"great-plains-bison-snapback", name:"Great Plains Bison Snapback", price:42, category:"Buffalo", collections:["the-herd","everyday"], colors:[{name:"Charcoal",hex:"#3A3733"},{name:"Sand",hex:"#D9C9AE"}], sizes:["One Size"], tagline:"The bison, in earthy plains colorways", description:"The buffalo mark in tonal, sun-bleached colors built for the open range. A subtler take on the flagship for everyday wear.", details:["Structured 6-panel crown, flat brim","Tonal embroidered bison head","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
+    { id:"3", handle:"standing-bison-snapback", name:"Standing Bison Snapback", price:40, category:"Buffalo", collections:["the-herd","everyday"], colors:[{name:"Forest",hex:"#33463A"},{name:"Camel",hex:"#C19A6B"}], sizes:["One Size"], tagline:"A rugged bison for the backcountry", description:"The buffalo head on deep forest and camel crowns, with a recycled backing and a moisture-wicking band. Built for the trail.", details:["Structured 6-panel crown, flat brim","Embroidered bison head","Snapback closure — one size fits most","Moisture-wicking sweatband"], materials:"Cotton twill with recycled backing" },
+    { id:"4", handle:"bull-elk-snapback", name:"Bull Elk Snapback", price:44, category:"Elk", collections:["new-arrivals","the-herd"], colors:[{name:"Loden",hex:"#4B5240"},{name:"Black",hex:"#211E1B"}], sizes:["One Size"], tagline:"Full rack, front and center", description:"A bull elk with a full branching rack, embroidered large on a structured snapback. The crown jewel of the herd.", details:["Structured 6-panel crown, flat brim","3D-embroidered bull elk","Snapback closure — one size fits most","Green undervisor, woven back label"], materials:"Cotton twill with wool-blend front panels", featured:true, bestSeller:true },
+    { id:"5", handle:"bugling-elk-snapback", name:"Bugling Elk Snapback", price:44, category:"Elk", collections:["the-herd"], colors:[{name:"Charcoal",hex:"#3A3733"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"The call of the rut, in thread", description:"The elk mark in charcoal and rust — earthy autumn colorways for the season the woods come alive.", details:["Structured 6-panel crown, flat brim","Embroidered elk head","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
+    { id:"6", handle:"elk-ridge-snapback", name:"Elk Ridge Snapback", price:42, category:"Elk", collections:["the-herd","everyday"], colors:[{name:"Navy",hex:"#2C3444"},{name:"Bone",hex:"#EDE6D8"}], sizes:["One Size"], tagline:"A cleaner elk for the daily rotation", description:"The elk head on navy and bone crowns for an everyday, dress-it-up-or-down take. Tonal stitching, quiet color.", details:["Structured 6-panel crown, flat brim","Tonal embroidered elk head","Snapback closure — one size fits most","Cotton sweatband"], materials:"100% cotton twill" },
+    { id:"7", handle:"longhorn-snapback", name:"Longhorn Snapback", price:44, category:"Longhorn", collections:["new-arrivals","the-herd"], colors:[{name:"Rust",hex:"#A0522D"},{name:"Black",hex:"#211E1B"}], sizes:["One Size"], tagline:"Horns from ear to ear", description:"A wide-horn longhorn steer embroidered across the front — horns sweeping nearly the full width of the crown. Big, bold, and Texas-proud.", details:["Structured 6-panel crown, flat brim","3D-embroidered longhorn, wide horns","Snapback closure — one size fits most","Green undervisor, woven back label"], materials:"Cotton twill with wool-blend front panels", featured:true, bestSeller:true },
+    { id:"8", handle:"texas-longhorn-snapback", name:"Texas Longhorn Snapback", price:44, category:"Longhorn", collections:["the-herd"], colors:[{name:"Charcoal",hex:"#3A3733"},{name:"Sand",hex:"#D9C9AE"}], sizes:["One Size"], tagline:"The steer, in dust-and-leather tones", description:"The longhorn in charcoal and sand — colors pulled straight from the cattle trail. Tonal embroidery, everyday build.", details:["Structured 6-panel crown, flat brim","Tonal embroidered longhorn","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
+    { id:"9", handle:"longhorn-steer-snapback", name:"Longhorn Steer Snapback", price:46, category:"Longhorn", collections:["the-herd","everyday"], colors:[{name:"Black",hex:"#211E1B"},{name:"Bone",hex:"#EDE6D8"}], sizes:["One Size"], tagline:"Contrast horns on a clean crown", description:"A high-contrast longhorn — ivory horns on black, or ink horns on bone. The dressed-up steer for the everyday range.", details:["Structured 6-panel crown, flat brim","Two-color embroidered longhorn","Snapback closure — one size fits most","Cotton sweatband"], materials:"100% cotton twill" },
+    { id:"10", handle:"frontier-emblem-snapback", name:"Frontier Emblem Snapback", price:42, category:"Frontier", collections:["frontier-series","new-arrivals"], colors:[{name:"Black",hex:"#211E1B"},{name:"Navy",hex:"#2C3444"},{name:"Loden",hex:"#4B5240"}], sizes:["One Size"], tagline:"The heritage crest — sun over the frontier", description:"The Merchant Frontier crest: a sun rising over the frontier, ringed by the name. The heritage mark for a cleaner, graphic front.", details:["Structured 6-panel crown, flat brim","3D-embroidered frontier crest","Snapback closure — one size fits most","Green undervisor, woven back label"], materials:"Cotton twill with wool-blend front panels", featured:true },
+    { id:"11", handle:"compass-star-snapback", name:"Compass Star Snapback", price:44, compareAtPrice:50, category:"Frontier", collections:["frontier-series","new-arrivals"], colors:[{name:"Black",hex:"#211E1B"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"A woven compass patch for the wanderers", description:"A woven compass-star patch stitched to a structured crown. Point it any direction — it always reads north.", details:["Structured 6-panel crown, flat brim","Woven compass-star patch","Snapback closure — one size fits most","Merrow-edge patch, green undervisor"], materials:"Cotton twill, woven-fabric patch", bestSeller:true },
+    { id:"12", handle:"frontier-wordmark-snapback", name:"Frontier Wordmark Snapback", price:38, category:"Frontier", collections:["frontier-series","everyday"], colors:[{name:"Black",hex:"#211E1B"},{name:"Bone",hex:"#EDE6D8"}], sizes:["One Size"], tagline:"The name, stacked and clean", description:"The Merchant Frontier wordmark stacked across the front in bold, letter-spaced embroidery. Minimal and endlessly wearable.", details:["Structured 6-panel crown, flat brim","Stacked wordmark embroidery","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" }
   ];
 
-  var CATEGORIES = ["Emblem", "Wordmark", "Icon", "Monogram", "Patch"];
+  var CATEGORIES = ["Buffalo", "Elk", "Longhorn", "Frontier"];
   var FREE_SHIP = 75, SHIP_FLAT = 8;
 
   var SWATCH = {};
@@ -452,29 +452,55 @@
     return "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
   var BG = {
-    Emblem: "linear-gradient(160deg,#F4EFE6,#EAE2D3)", Wordmark: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
-    Icon: "linear-gradient(160deg,#ECEBE6,#DCD9CF)", Monogram: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
-    Patch: "linear-gradient(160deg,#F5F0E7,#EBE2D0)"
+    Buffalo: "linear-gradient(160deg,#F4EFE6,#EAE2D3)", Elk: "linear-gradient(160deg,#ECEBE6,#DCD9CF)",
+    Longhorn: "linear-gradient(160deg,#F3EFE8,#E7DECE)", Frontier: "linear-gradient(160deg,#F5F0E7,#EBE2D0)"
   };
-  // A snapback silhouette (flat brim + structured crown) plus the front graphic for the category.
+  var CLOUD2 = "#FBF8F2";
+  function mirrored(s){ return s + '<g transform="translate(400,0) scale(-1,1)">'+s+'</g>'; }
+  function longhornMark(c){
+    return '<path d="M182 208 C 181 232 194 252 200 252 C 206 252 219 232 218 208 C 211 213 189 213 182 208 Z" fill="'+c+'"/>'+
+      '<circle cx="194" cy="226" r="2.6" fill="'+CLOUD2+'"/><circle cx="206" cy="226" r="2.6" fill="'+CLOUD2+'"/>'+
+      mirrored('<path d="M200 208 C 226 206 250 202 264 188 C 267 191 266 197 259 202 C 244 212 220 214 200 213 Z" fill="'+c+'"/>')+
+      mirrored('<path d="M215 210 L230 205 L223 218 Z" fill="'+c+'"/>');
+  }
+  function buffaloMark(c){
+    return '<path d="M164 204 C 152 224 170 256 200 258 C 230 256 248 224 236 204 C 216 194 184 194 164 204 Z" fill="'+c+'"/>'+
+      '<path d="M182 256 L190 276 L200 264 L210 276 L218 256 Z" fill="'+c+'"/>'+
+      '<path d="M191 198 L200 210 L209 198" fill="none" stroke="'+CLOUD2+'" stroke-width="2.5" opacity="0.5"/>'+
+      '<circle cx="210" cy="220" r="2.6" fill="'+CLOUD2+'"/><circle cx="190" cy="220" r="2.6" fill="'+CLOUD2+'"/>'+
+      mirrored('<path d="M232 206 C 248 200 260 206 259 218 C 255 210 244 210 233 213 Z" fill="'+c+'"/>');
+  }
+  function elkMark(c){
+    return '<path d="M187 204 C 185 226 196 252 200 252 C 204 252 215 226 213 204 C 208 200 192 200 187 204 Z" fill="'+c+'"/>'+
+      '<circle cx="207" cy="220" r="2.6" fill="'+CLOUD2+'"/><circle cx="193" cy="220" r="2.6" fill="'+CLOUD2+'"/>'+
+      mirrored('<path d="M209 202 C 222 185 230 170 233 150" fill="none" stroke="'+c+'" stroke-width="6" stroke-linecap="round"/>'+
+        '<path d="M221 178 L238 170" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>'+
+        '<path d="M226 166 L243 160" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>'+
+        '<path d="M233 150 L240 141" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>')+
+      mirrored('<path d="M212 206 L225 200 L219 213 Z" fill="'+c+'"/>');
+  }
+  function animalScaled(inner){ return '<g transform="translate(200,216) scale(0.66) translate(-200,-216)">'+inner+'</g>'; }
+
+  // A snapback silhouette (wide flat brim + structured crown) plus the front graphic.
   function snapbackBody(line) {
-    return '<path d="M104 250 L96 292 C 150 302 250 302 304 292 L296 250 Z"/>' +
+    return '<path d="M84 250 L84 286 C 130 297 270 297 316 286 L316 250 Z"/>' +
       '<path d="M122 252 A 78 78 0 0 1 278 252 Z"/>' +
       '<circle cx="200" cy="172" r="6"/>' +
       '<path d="M200 174 L200 252 M166 184 L174 252 M234 184 L226 252" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.45"/>' +
       '<path d="M104 252 C 150 262 250 262 296 252" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.5"/>' +
-      '<path d="M112 286 C 155 295 245 295 288 286" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.4"/>';
+      '<path d="M104 284 C 150 293 250 293 316 284" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.35"/>';
   }
-  function frontGraphic(cat, line) {
-    if (cat === "Wordmark") return '<g fill="'+line+'" opacity="0.9" stroke="none"><rect x="170" y="202" width="60" height="7" rx="3"/><rect x="164" y="216" width="72" height="7" rx="3"/><rect x="182" y="230" width="36" height="4" rx="2" opacity="0.6"/></g>';
-    if (cat === "Icon") return '<g stroke="'+line+'" stroke-width="3" stroke-linecap="round" opacity="0.9"><path d="M172 222 H228"/><path d="M186 222 A14 14 0 0 1 214 222 Z" fill="'+line+'" stroke="none"/><path d="M200 200 V194 M215 210 L219 206 M185 210 L181 206" stroke-width="2"/></g>';
-    if (cat === "Monogram") return '<text x="200" y="228" text-anchor="middle" font-family="Georgia,\'Times New Roman\',serif" font-size="42" font-weight="700" letter-spacing="-2" fill="'+line+'" stroke="none" opacity="0.92">MF</text>';
-    if (cat === "Patch") return '<g fill="'+line+'" opacity="0.9" stroke="none"><path d="M200 188 L208 208 L228 214 L208 220 L200 240 L192 220 L172 214 L192 208 Z"/><circle cx="200" cy="214" r="3" fill="#FBF8F2"/></g>';
-    // Emblem (default)
+  function frontGraphic(cat, line, handle) {
+    if (cat === "Buffalo") return animalScaled(buffaloMark(line));
+    if (cat === "Elk") return animalScaled(elkMark(line));
+    if (cat === "Longhorn") return animalScaled(longhornMark(line));
+    // Frontier — heritage marks, keyed by handle
+    if (handle && handle.indexOf("compass") > -1) return '<g fill="'+line+'" opacity="0.9" stroke="none"><path d="M200 188 L208 208 L228 214 L208 220 L200 240 L192 220 L172 214 L192 208 Z"/><circle cx="200" cy="214" r="3" fill="#FBF8F2"/></g>';
+    if (handle && handle.indexOf("wordmark") > -1) return '<g fill="'+line+'" opacity="0.9" stroke="none"><rect x="170" y="202" width="60" height="7" rx="3"/><rect x="164" y="216" width="72" height="7" rx="3"/><rect x="182" y="230" width="36" height="4" rx="2" opacity="0.6"/></g>';
     return '<g fill="none" stroke="'+line+'" stroke-width="3" opacity="0.9"><circle cx="200" cy="214" r="26"/><circle cx="200" cy="214" r="20" stroke-width="1.5" opacity="0.6"/><path d="M182 214 H218" stroke-width="2.5"/><path d="M191 214 A9 9 0 0 1 209 214 Z" fill="'+line+'" stroke="none"/><path d="M200 198 V204 M188 204 L191 208 M212 204 L209 208" stroke-width="2"/></g>';
   }
   function garment(cat, handle, line) {
-    return snapbackBody(line) + frontGraphic(cat, line);
+    return snapbackBody(line) + frontGraphic(cat, line, handle);
   }
   function media(cat, hex, handle, cls) {
     var dark = shade(hex, -18), light = shade(hex, 16), uid = handle + "-" + hex.replace("#", "");
@@ -568,7 +594,7 @@
     var featured = PRODUCTS.filter(function (p) { return p.featured; }).slice(0, 8);
     var best = PRODUCTS.filter(function (p) { return p.bestSeller; }).slice(0, 4);
     var heroTiles = PRODUCTS.slice(0, 2).map(function (p) { return '<a class="tile" href="#/product/' + p.handle + '">' + media(p.category, p.colors[0].hex, p.handle) + '</a>'; }).join("");
-    var valueItems = [["Built to last","Structured crowns, flat brims"],["One size fits most","Snapback closure, always"],["Free shipping","On orders over $75"],["30-day returns","Easy, no-fuss exchanges"]]
+    var valueItems = [["Animals of the range","Buffalo, elk & longhorn marks"],["One size fits most","Snapback closure, always"],["Free shipping","On orders over $75"],["30-day returns","Easy, no-fuss exchanges"]]
       .map(function (v) { return '<div><b>' + v[0] + '</b><small>' + v[1] + '</small></div>'; }).join("");
     var collCards = COLLECTIONS.map(function (c) {
       return '<a class="coll-card" href="#/collection/' + c.handle + '" style="background:linear-gradient(180deg,' + c.accent + '00 30%,' + c.accent + ' 100%),' + c.accent + '">' +
@@ -578,8 +604,8 @@
 
     return '' +
       '<section class="hero"><div class="wrap grid">' +
-        '<div><p class="eyebrow">Snapbacks · Fall 2026</p><h1>One shape,<br>done right.</h1>' +
-        '<p class="lead">Merchant Frontier makes one thing — the snapback — and makes it well. Structured crowns, flat brims, and front graphics worth stitching. Pick your mark.</p>' +
+        '<div><p class="eyebrow">Snapbacks · Fall 2026</p><h1>Wear the<br>wild.</h1>' +
+        '<p class="lead">Merchant Frontier makes one thing — a structured flat-brim snapback — stitched with the animals of the range. Buffalo, elk, longhorn. Pick your mark.</p>' +
         '<div class="hero-cta"><a href="#/shop" class="btn btn-primary">Shop the collection</a><a href="#/collection/new-arrivals" class="btn btn-secondary">New arrivals</a></div></div>' +
         '<div class="hero-tiles">' + heroTiles + '</div>' +
       '</div></section>' +
@@ -587,15 +613,15 @@
       '<section class="block"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Just landed</p><h2>Featured</h2></div><a href="#/shop" class="ul-link muted" style="font-size:14px">View all &rarr;</a></div>' + gridHTML(featured) + '</div></section>' +
       '<section class="block tint"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Shop by category</p><h2>Collections</h2></div></div><div class="colls">' + collCards + '</div></div></section>' +
       '<section class="block"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Tried &amp; true</p><h2>Best sellers</h2></div><a href="#/shop" class="ul-link muted" style="font-size:14px">View all &rarr;</a></div>' + gridHTML(best) + '</div></section>' +
-      '<section class="band"><div class="wrap grid"><div><p class="eyebrow">The Merchant Frontier promise</p><h2>One cap. Every mark.</h2>' +
-      '<p>We believe in doing one thing well. A single, perfected snapback — then a growing set of front graphics, from the frontier emblem to the compass patch. Same great cap, your choice of mark.</p>' +
+      '<section class="band"><div class="wrap grid"><div><p class="eyebrow">The Merchant Frontier promise</p><h2>One cap. The whole herd.</h2>' +
+      '<p>We believe in doing one thing well. A single, perfected snapback — then the animals of the frontier stitched across the front: buffalo, elk, and longhorn, plus our heritage marks. Same great cap, your choice of beast.</p>' +
       '<a href="#/about" class="btn btn-ghost" style="margin-top:28px">Read our story</a></div><div class="band-tiles">' + bandTiles + '</div></div></section>';
   }
 
   var shopState = { cat: "All", sort: "featured" };
   function viewShop() {
     return '<div class="wrap"><div class="page-head"><p class="eyebrow">Everything</p><h1>Shop All</h1>' +
-      '<p>One snapback, every mark. The complete Merchant Frontier lineup — filter by the front graphic to find your cap.</p></div>' +
+      '<p>One snapback, the whole herd. The complete Merchant Frontier lineup — filter by animal or heritage mark to find your cap.</p></div>' +
       '<div style="padding:24px 0" id="shopMount"></div></div>';
   }
   function renderShop() {
@@ -775,7 +801,7 @@
 
   function viewAbout() {
     var values = [["One perfected cap","A single structured six-panel snapback with a flat brim and a true one-size fit. We got it right, then stopped fiddling with the cap."],
-      ["Graphics worth stitching","Every front graphic is drawn in-house and built for embroidery — bold, tonal, and made to last as long as the cap it's on."],
+      ["Animals of the range","Buffalo, elk, and longhorn — drawn in-house and built for embroidery. Bold, tonal, and made to last as long as the cap they're on."],
       ["Made responsibly","We partner with a small number of workshops we've visited and vetted, and we design out waste wherever we can."]]
       .map(function (v) { return '<div><div class="rule"></div><h3>' + v[0] + '</h3><p>' + v[1] + '</p></div>'; }).join("");
     var sus = [["Natural & recycled materials","Organic cotton twill and recycled backing across the line."],

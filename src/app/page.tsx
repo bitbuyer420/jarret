@@ -15,14 +15,14 @@ export default function HomePage() {
           <div className="animate-fade-up">
             <p className="eyebrow">Snapbacks · Fall 2026</p>
             <h1 className="mt-4 font-serif text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-              One shape,
+              Wear the
               <br />
-              done right.
+              wild.
             </h1>
             <p className="mt-6 max-w-md text-base text-stone">
-              Merchant Frontier makes one thing — the snapback — and makes it
-              well. Structured crowns, flat brims, and front graphics worth
-              stitching. Pick your mark.
+              Merchant Frontier makes one thing — a structured flat-brim snapback
+              — stitched with the animals of the range. Buffalo, elk, longhorn.
+              Pick your mark.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/shop" className="btn-primary">
@@ -59,7 +59,7 @@ export default function HomePage() {
       <section className="border-y border-ink/10">
         <div className="container-site grid grid-cols-2 gap-6 py-8 text-center md:grid-cols-4">
           {[
-            { t: "Built to last", d: "Structured crowns, flat brims" },
+            { t: "Animals of the range", d: "Buffalo, elk & longhorn marks" },
             { t: "One size fits most", d: "Snapback closure, always" },
             { t: "Free shipping", d: "On orders over $75" },
             { t: "30-day returns", d: "Easy, no-fuss exchanges" },
@@ -140,12 +140,13 @@ export default function HomePage() {
               The Merchant Frontier promise
             </p>
             <h2 className="mt-4 font-serif text-3xl sm:text-4xl">
-              One cap. Every mark.
+              One cap. The whole herd.
             </h2>
             <p className="mt-5 max-w-md text-cloud/70">
               We believe in doing one thing well. A single, perfected snapback —
-              then a growing set of front graphics, from the frontier emblem to
-              the compass patch. Same great cap, your choice of mark.
+              then the animals of the frontier stitched across the front:
+              buffalo, elk, and longhorn, plus our heritage marks. Same great
+              cap, your choice of beast.
             </p>
             <Link href="/about" className="btn mt-8 border border-cloud/30 text-cloud hover:bg-cloud hover:text-ink">
               Read our story

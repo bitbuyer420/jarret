@@ -6,8 +6,10 @@ snapback-cap brand, **Merchant Frontier**, built with **Next.js (App Router)**,
 no external services, accounts, or API keys required.
 
 The brand makes one thing — a structured flat-brim snapback — and differentiates
-products by the **front graphic**. The catalog is organized by mark type, using
-the same brand-mark system documented in [`designs/`](designs/).
+products by the **embroidered front graphic**. The catalog is organized by that
+graphic: the animals of the range (**Buffalo, Elk, Longhorn**) plus heritage
+**Frontier** marks, using the brand-mark system documented in
+[`designs/`](designs/).
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-3-38bdf8)
 
@@ -15,10 +17,10 @@ the same brand-mark system documented in [`designs/`](designs/).
 
 - **Home page** — hero, value props, featured products, shoppable collections,
   best sellers, and an editorial brand section.
-- **Shop All** — client-side filtering by front graphic (Emblem, Wordmark, Icon,
-  Monogram, Patch) and sorting (price, name, featured).
-- **Collections** — dynamic pages for New Arrivals, Frontier Series, Trail
-  Series, and Everyday.
+- **Shop All** — client-side filtering by front graphic (Buffalo, Elk, Longhorn,
+  Frontier) and sorting (price, name, featured).
+- **Collections** — dynamic pages for New Arrivals, The Herd, Frontier Series,
+  and Everyday.
 - **Product detail pages** — image gallery, colorway/size selectors with a live
   preview, quantity, product details, materials, and related products.
 - **Cart** — slide-out drawer **and** a full cart page, with quantity controls,
@@ -62,17 +64,20 @@ npm start
 
 ## Brand marks
 
-The [`designs/`](designs/) folder holds the Merchant Frontier brand-mark system —
-five embroidery-ready SVGs built on a single idea, *the sun crossing the
-frontier*:
+The [`designs/`](designs/) folder holds the Merchant Frontier brand-mark
+system — embroidery-ready SVGs. The three animal marks lead; the frontier marks
+(built on *the sun crossing the frontier*) round out the set.
 
 | File | Mark | Used on |
 | ---- | ---- | ------- |
-| `mf-emblem-roundel.svg` | Frontier Emblem (crest) | Emblem snapbacks |
-| `mf-compass-patch.svg` | Compass Star (woven patch) | Patch snapbacks |
-| `mf-wordmark.svg` | Stacked wordmark | Wordmark snapbacks |
-| `mf-monogram.svg` | Interlocked MF | Monogram snapbacks |
-| `mf-icon-sun-horizon.svg` | Sun & Horizon (core icon) | Icon snapbacks |
+| `mf-buffalo.svg` | Buffalo (badge) | Buffalo snapbacks |
+| `mf-elk.svg` | Elk (badge) | Elk snapbacks |
+| `mf-longhorn.svg` | Longhorn (badge) | Longhorn snapbacks |
+| `mf-emblem-roundel.svg` | Frontier Emblem (crest) | Frontier snapbacks |
+| `mf-compass-patch.svg` | Compass Star (woven patch) | Frontier snapbacks |
+| `mf-wordmark.svg` | Stacked wordmark | Frontier snapbacks |
+| `mf-icon-sun-horizon.svg` | Sun & Horizon (core icon) | — heritage bug |
+| `mf-monogram.svg` | Interlocked MF | — heritage mark |
 
 `designs/brand-board.html` is a self-contained page presenting all five marks
 with their thread colors, placements, and on-cap mockups — open it in any

@@ -14,8 +14,8 @@ export default function ShopPage() {
         <p className="eyebrow">Everything</p>
         <h1 className="mt-2 font-serif text-4xl">Shop All</h1>
         <p className="mt-3 max-w-xl text-stone">
-          One snapback, every mark. The complete Merchant Frontier lineup —
-          filter by the front graphic to find your cap.
+          One snapback, the whole herd. The complete Merchant Frontier lineup —
+          filter by animal or heritage mark to find your cap.
         </p>
       </header>
 

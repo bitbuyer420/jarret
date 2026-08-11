@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier longhorn badge">
+  <!-- LONGHORN BADGE. Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2. -->
+  <defs>
+    <path id="arc-top-longhorn" d="M 84 200 A 116 116 0 0 1 316 200" />
+    <path id="arc-bot-longhorn" d="M 92 200 A 108 108 0 0 0 308 200" />
+  </defs>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
+  <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
+  <circle cx="200" cy="200" r="120" fill="none" stroke="#1E1B17" stroke-width="1.5"/>
+  <g transform="translate(0,-6)"><path d="M182 208 C 181 232 194 252 200 252 C 206 252 219 232 218 208 C 211 213 189 213 182 208 Z" fill="#1E1B17"/><circle cx="194" cy="226" r="2.6" fill="#FBF8F2"/><circle cx="206" cy="226" r="2.6" fill="#FBF8F2"/><path d="M200 208 C 226 206 250 202 264 188 C 267 191 266 197 259 202 C 244 212 220 214 200 213 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M200 208 C 226 206 250 202 264 188 C 267 191 266 197 259 202 C 244 212 220 214 200 213 Z" fill="#1E1B17"/></g><path d="M215 210 L230 205 L223 218 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M215 210 L230 205 L223 218 Z" fill="#1E1B17"/></g></g>
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-top-longhorn" startOffset="50%" text-anchor="middle" font-size="24" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath></text>
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-bot-longhorn" startOffset="50%" text-anchor="middle" font-size="17" letter-spacing="6">★ LONGHORN ★</textPath></text>
+</svg>
