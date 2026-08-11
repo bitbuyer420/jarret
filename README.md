@@ -79,9 +79,24 @@ system — embroidery-ready SVGs. The three animal marks lead; the frontier mark
 | `mf-icon-sun-horizon.svg` | Sun & Horizon (core icon) | — heritage bug |
 | `mf-monogram.svg` | Interlocked MF | — heritage mark |
 
-`designs/brand-board.html` is a self-contained page presenting all five marks
-with their thread colors, placements, and on-cap mockups — open it in any
-browser.
+`designs/brand-board.html` is a self-contained page presenting the marks with
+their thread colors, placements, and on-cap mockups — open it in any browser.
+
+### Animal design explorations
+
+Six further directions for the animal line live alongside them — three
+signature **skull mounts** and three **creative studies**:
+
+| File | Design | Kind |
+| ---- | ------ | ---- |
+| `mf-bison-skull.svg` | Bison skull mount | Signature |
+| `mf-elk-skull.svg` | Elk skull mount | Signature |
+| `mf-longhorn-skull.svg` | Longhorn skull mount | Signature |
+| `mf-bison-geometric.svg` | Faceted low-poly bison | Creative |
+| `mf-elk-constellation.svg` | Elk-rack constellation | Creative |
+| `mf-longhorn-sunburst.svg` | Longhorn on a frontier sun | Creative |
+
+`designs/explorations-board.html` presents all six with treatment notes.
 
 ## Two ways to run it
 
