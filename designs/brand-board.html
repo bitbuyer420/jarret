@@ -1,0 +1,363 @@
+<style>
+  :root{
+    --board:#E9E2D3; --card:#FBF8F2; --ink:#1E1B17; --ink70:rgba(30,27,23,.68);
+    --stone:#8B8172; --clay:#AC4E38; --loden:#4B5240; --camel:#C19A6B; --line:rgba(30,27,23,.14);
+    --serif:Georgia,'Iowan Old Style',Cambria,serif;
+    --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--board);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;margin:0;text-wrap:balance}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin:0}
+  svg{display:block}
+
+  /* Masthead */
+  .mast{border-bottom:1px solid var(--line)}
+  .mast .wrap{padding:64px 28px 48px}
+  .mast h1{font-family:var(--sans);font-weight:700;letter-spacing:.14em;font-size:clamp(26px,5vw,46px);margin-top:14px}
+  .mast p.lede{max-width:44rem;margin-top:20px;font-size:18px;color:var(--ink70)}
+  .concept{display:flex;gap:16px;align-items:center;margin-top:32px;flex-wrap:wrap}
+  .concept .chip{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px}
+
+  section{padding:56px 0}
+  .sec-label{display:flex;align-items:baseline;gap:14px;margin-bottom:28px}
+  .sec-label span{font-size:12px;font-weight:700;color:var(--clay)}
+  .sec-label h2{font-size:26px}
+
+  /* Palette */
+  .threads{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:720px){.threads{grid-template-columns:repeat(5,1fr)}}
+  .thread{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .thread .sw{height:84px}
+  .thread .meta{padding:12px 14px}
+  .thread .meta b{font-size:14px}
+  .thread .meta code{display:block;font-size:12px;color:var(--stone);margin-top:2px;font-variant-numeric:tabular-nums}
+
+  /* Mark cards */
+  .marks{display:grid;gap:22px}
+  .mark{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid}
+  @media(min-width:760px){.mark{grid-template-columns:340px 1fr}}
+  .art{background:
+      linear-gradient(0deg,rgba(30,27,23,.04),rgba(30,27,23,.04)),
+      repeating-linear-gradient(45deg,#F4F0E7 0 12px,#F0EBE0 12px 24px);
+    display:flex;align-items:center;justify-content:center;padding:34px;border-bottom:1px solid var(--line)}
+  @media(min-width:760px){.art{border-bottom:none;border-right:1px solid var(--line)}}
+  .art svg{width:100%;max-width:220px;height:auto}
+  .info{padding:26px 28px}
+  .info .role{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+  .info h3{font-size:23px;margin-top:6px}
+  .info p{color:var(--ink70);margin:12px 0 0;font-size:15px}
+  .info dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:20px 0 0;font-size:13px}
+  .info dt{color:var(--stone);font-weight:600}
+  .info dd{margin:0}
+  .tdots{display:inline-flex;gap:6px;vertical-align:middle}
+  .tdots i{width:14px;height:14px;border-radius:999px;border:1px solid var(--line);display:inline-block}
+  .oncap{display:flex;align-items:center;gap:10px;margin-top:18px;padding-top:16px;border-top:1px dashed var(--line)}
+  .oncap .cap{width:78px;height:78px;flex:none}
+  .oncap small{font-size:12px;color:var(--stone)}
+
+  /* On-cap row */
+  .caprow{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:720px){.caprow{grid-template-columns:repeat(5,1fr)}}
+  .capcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+  .capcard .cap{width:100%;height:150px}
+  .capcard b{display:block;font-size:13px;margin-top:6px}
+  .capcard small{font-size:11px;color:var(--stone)}
+
+  /* Specs */
+  .specs{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:720px){.specs{grid-template-columns:repeat(3,1fr)}}
+  .spec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .spec h4{font-family:var(--sans);font-size:14px;font-weight:700;margin:0 0 8px}
+  .spec ul{margin:0;padding-left:18px;color:var(--ink70);font-size:14px}
+  .spec ul li{margin:5px 0}
+
+  footer{border-top:1px solid var(--line);margin-top:24px}
+  footer .wrap{padding:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--stone)}
+</style>
+
+<div class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Brand Mark System · v1</p>
+    <h1>MERCHANT&nbsp;FRONTIER</h1>
+    <p class="lede">One perfected snapback, a growing set of front graphics. Every mark is built on a single idea — <em>the sun crossing the frontier</em> — and drawn for embroidery: flat shapes, limited thread colors, bold enough to stitch clean at 2 inches.</p>
+    <div class="concept">
+      <span class="chip"><svg width="26" height="20" viewBox="0 0 220 170"><!-- CORE ICON — a rising sun crossing the frontier line, with two peaks.
+       Thread colors: Ink #1E1B17, Clay #AC4E38. -->
+  <!-- rays -->
+  <g stroke="#1E1B17" stroke-width="5" stroke-linecap="round">
+    <path d="M110 66 V52" />
+    <path d="M140 74 L149 63" />
+    <path d="M80 74 L71 63" />
+  </g>
+  <!-- half sun -->
+  <path d="M68 118 A42 42 0 0 1 152 118 Z" fill="#AC4E38" />
+  <!-- frontier peaks in front of the sun -->
+  <path d="M62 118 L92 82 L122 118 Z" fill="#1E1B17" />
+  <path d="M104 118 L140 74 L176 118 Z" fill="#1E1B17" />
+  <!-- horizon / meridian line + tick -->
+  <g stroke="#1E1B17" stroke-width="6" stroke-linecap="round">
+    <path d="M26 118 H194" />
+    <path d="M110 118 V138" stroke-width="5" />
+  </g></svg> The sun-on-the-horizon idea</span>
+      <span class="chip" style="color:var(--ink70)">5 marks · 5 thread colors · 1 cap</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <div class="sec-label"><span>01</span><h2>Thread palette</h2></div>
+    <div class="threads">
+      <div class="thread"><div class="sw" style="background:#1E1B17"></div><div class="meta"><b>Frontier Ink</b><code>#1E1B17</code></div></div>
+      <div class="thread"><div class="sw" style="background:#AC4E38"></div><div class="meta"><b>Trail Clay</b><code>#AC4E38</code></div></div>
+      <div class="thread"><div class="sw" style="background:#4B5240"></div><div class="meta"><b>Loden</b><code>#4B5240</code></div></div>
+      <div class="thread"><div class="sw" style="background:#C19A6B"></div><div class="meta"><b>Camel</b><code>#C19A6B</code></div></div>
+      <div class="thread"><div class="sw" style="background:#FBF8F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)"></div><div class="meta"><b>Ivory</b><code>#FBF8F2</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>02</span><h2>The marks</h2></div>
+    <div class="marks">
+
+      <div class="mark">
+        <div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Merchant Frontier emblem crest">
+  <!-- FLAGSHIP EMBLEM — the frontier crest.
+       Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2 (backing). -->
+  <defs>
+    <path id="mf-arc-top" d="M 44 150 A 106 106 0 0 1 256 150" />
+    <path id="mf-arc-bottom" d="M 54 150 A 96 96 0 0 0 246 150" />
+  </defs>
+
+  <!-- rings -->
+  <circle cx="150" cy="150" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="5" />
+  <circle cx="150" cy="150" r="120" fill="none" stroke="#1E1B17" stroke-width="2" />
+
+  <!-- arced lettering -->
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17">
+    <textPath href="#mf-arc-top" startOffset="50%" text-anchor="middle" font-size="24" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath>
+  </text>
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17">
+    <textPath href="#mf-arc-bottom" startOffset="50%" text-anchor="middle" font-size="15" letter-spacing="4">★ EST&#160;2026 ★ PORTLAND ★</textPath>
+  </text>
+
+  <!-- center scene: sun rising over the frontier -->
+  <g>
+    <!-- rays -->
+    <g stroke="#1E1B17" stroke-width="4" stroke-linecap="round">
+      <path d="M150 128 V116" />
+      <path d="M176 136 L184 127" />
+      <path d="M124 136 L116 127" />
+    </g>
+    <!-- sun -->
+    <path d="M110 178 A40 40 0 0 1 190 178 Z" fill="#AC4E38" />
+    <!-- peaks -->
+    <path d="M104 178 L132 146 L160 178 Z" fill="#1E1B17" />
+    <path d="M144 178 L178 138 L212 178 Z" fill="#1E1B17" />
+    <!-- ground line -->
+    <path d="M78 178 H222" stroke="#1E1B17" stroke-width="5" stroke-linecap="round" />
+  </g>
+</svg></div>
+        <div class="info">
+          <p class="role">Primary emblem · crest</p>
+          <h3>Frontier Emblem</h3>
+          <p>The flagship crest — the sun rising over the frontier, ringed by the full name. The most detailed mark, for a bold 3D-embroidered or flat front hit.</p>
+          <dl>
+            <dt>Threads</dt><dd><span class="tdots"><i style="background:#1E1B17"></i><i style="background:#AC4E38"></i><i style="background:#FBF8F2"></i></span> Ink · Clay · Ivory</dd>
+            <dt>Placement</dt><dd>Front &amp; center, ~2.4&#8243; wide</dd>
+            <dt>Used on</dt><dd>Frontier Emblem · Trade Post Emblem</dd>
+          </dl>
+          <div class="oncap"><div class="cap" data-cap="Emblem" data-color="#211E1B"></div><small>On a Black snapback</small></div>
+        </div>
+      </div>
+
+      <div class="mark">
+        <div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Merchant Frontier compass patch">
+  <!-- COMPASS PATCH — a woven compass-star badge.
+       Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2. Merrow-edge border. -->
+  <defs>
+    <path id="mf-comp-top" d="M 50 150 A 100 100 0 0 1 250 150" />
+    <path id="mf-comp-bottom" d="M 60 150 A 90 90 0 0 0 240 150" />
+  </defs>
+
+  <!-- merrow border + field -->
+  <circle cx="150" cy="150" r="142" fill="none" stroke="#AC4E38" stroke-width="8" />
+  <circle cx="150" cy="150" r="132" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4" />
+  <circle cx="150" cy="150" r="112" fill="none" stroke="#1E1B17" stroke-width="1.5" />
+
+  <!-- diagonal short rays -->
+  <g fill="#1E1B17" opacity="0.85">
+    <path d="M150 150 L196 104 L172 128 Z" />
+    <path d="M150 150 L104 104 L128 128 Z" />
+    <path d="M150 150 L196 196 L172 172 Z" />
+    <path d="M150 150 L104 196 L128 172 Z" />
+  </g>
+  <!-- cardinal compass star (4 long points) -->
+  <path d="M150 62 L164 136 L238 150 L164 164 L150 238 L136 164 L62 150 L136 136 Z" fill="#1E1B17" />
+  <!-- inner hub -->
+  <circle cx="150" cy="150" r="12" fill="#AC4E38" />
+  <circle cx="150" cy="150" r="4" fill="#FBF8F2" />
+
+  <!-- arced lettering -->
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17">
+    <textPath href="#mf-comp-top" startOffset="50%" text-anchor="middle" font-size="20" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath>
+  </text>
+  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17">
+    <textPath href="#mf-comp-bottom" startOffset="50%" text-anchor="middle" font-size="15" letter-spacing="5">★ TRUE&#160;NORTH ★</textPath>
+  </text>
+</svg></div>
+        <div class="info">
+          <p class="role">Woven patch</p>
+          <h3>Compass Star</h3>
+          <p>A woven compass-star badge with a merrow edge. Point it any direction — it always reads north. The centerpiece of the patch line.</p>
+          <dl>
+            <dt>Threads</dt><dd><span class="tdots"><i style="background:#1E1B17"></i><i style="background:#AC4E38"></i><i style="background:#FBF8F2"></i></span> Ink · Clay · Ivory</dd>
+            <dt>Placement</dt><dd>Front, merrow-edge woven patch</dd>
+            <dt>Used on</dt><dd>Compass Star Patch · North Star Patch</dd>
+          </dl>
+          <div class="oncap"><div class="cap" data-cap="Patch" data-color="#211E1B"></div><small>On a Black snapback</small></div>
+        </div>
+      </div>
+
+      <div class="mark">
+        <div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 210" width="460" height="210" role="img" aria-label="Merchant Frontier wordmark">
+  <!-- STACKED WORDMARK — the full name, letter-spaced, with a sun-on-the-line divider.
+       Thread colors: Ink #1E1B17, Clay #AC4E38. -->
+  <text x="230" y="72" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="56" letter-spacing="6" fill="#1E1B17">MERCHANT</text>
+  <text x="230" y="132" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="56" letter-spacing="6" fill="#1E1B17">FRONTIER</text>
+
+  <!-- divider line with a rising sun at the meridian -->
+  <g stroke="#1E1B17" stroke-width="4" stroke-linecap="round">
+    <path d="M96 168 H206" />
+    <path d="M254 168 H364" />
+  </g>
+  <path d="M212 168 A18 18 0 0 1 248 168 Z" fill="#AC4E38" />
+  <path d="M230 168 V184" stroke="#1E1B17" stroke-width="4" stroke-linecap="round" />
+</svg></div>
+        <div class="info">
+          <p class="role">Stacked wordmark</p>
+          <h3>The Wordmark</h3>
+          <p>The full name stacked and letter-spaced, split by a sun-on-the-line divider. The clean, type-only expression of the brand.</p>
+          <dl>
+            <dt>Threads</dt><dd><span class="tdots"><i style="background:#1E1B17"></i><i style="background:#AC4E38"></i></span> Ink · Clay</dd>
+            <dt>Placement</dt><dd>Front, or across the back / strap</dd>
+            <dt>Used on</dt><dd>Merchant Wordmark · Frontier Script</dd>
+          </dl>
+          <div class="oncap"><div class="cap" data-cap="Wordmark" data-color="#EDE6D8"></div><small>On a Bone snapback</small></div>
+        </div>
+      </div>
+
+      <div class="mark">
+        <div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Merchant Frontier MF monogram">
+  <!-- INTERLOCKED MONOGRAM — an M and F sharing space.
+       Thread colors: Ink #1E1B17, Clay #AC4E38. -->
+  <!-- keyline box (optional stitch border) -->
+  <rect x="18" y="18" width="204" height="204" rx="20" fill="none" stroke="#1E1B17" stroke-width="3" opacity="0.25" />
+  <!-- M behind, in ink -->
+  <text x="104" y="176" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="168" letter-spacing="-6" fill="#1E1B17">M</text>
+  <!-- F in front, in clay, overlapping the M's right shoulder -->
+  <text x="150" y="176" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="168" letter-spacing="-6" fill="#AC4E38">F</text>
+</svg></div>
+        <div class="info">
+          <p class="role">Interlocked monogram</p>
+          <h3>MF Monogram</h3>
+          <p>An interlocked M and F — ink over clay. A badge-free, everyday way to rep the frontier. Scales down cleanly to a side-panel hit.</p>
+          <dl>
+            <dt>Threads</dt><dd><span class="tdots"><i style="background:#1E1B17"></i><i style="background:#AC4E38"></i></span> Ink · Clay</dd>
+            <dt>Placement</dt><dd>Front center, or left side panel</dd>
+            <dt>Used on</dt><dd>MF Monogram · Stacked MF</dd>
+          </dl>
+          <div class="oncap"><div class="cap" data-cap="Monogram" data-color="#33463A"></div><small>On a Forest snapback</small></div>
+        </div>
+      </div>
+
+      <div class="mark">
+        <div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 170" width="220" height="170" role="img" aria-label="Merchant Frontier sun-and-horizon icon">
+  <!-- CORE ICON — a rising sun crossing the frontier line, with two peaks.
+       Thread colors: Ink #1E1B17, Clay #AC4E38. -->
+  <!-- rays -->
+  <g stroke="#1E1B17" stroke-width="5" stroke-linecap="round">
+    <path d="M110 66 V52" />
+    <path d="M140 74 L149 63" />
+    <path d="M80 74 L71 63" />
+  </g>
+  <!-- half sun -->
+  <path d="M68 118 A42 42 0 0 1 152 118 Z" fill="#AC4E38" />
+  <!-- frontier peaks in front of the sun -->
+  <path d="M62 118 L92 82 L122 118 Z" fill="#1E1B17" />
+  <path d="M104 118 L140 74 L176 118 Z" fill="#1E1B17" />
+  <!-- horizon / meridian line + tick -->
+  <g stroke="#1E1B17" stroke-width="6" stroke-linecap="round">
+    <path d="M26 118 H194" />
+    <path d="M110 118 V138" stroke-width="5" />
+  </g>
+</svg></div>
+        <div class="info">
+          <p class="role">Core icon · bug</p>
+          <h3>Sun &amp; Horizon</h3>
+          <p>The idea distilled: a rising sun crossing the frontier line. The smallest, most flexible mark — a tonal bug for fronts, sides, and backs.</p>
+          <dl>
+            <dt>Threads</dt><dd><span class="tdots"><i style="background:#1E1B17"></i><i style="background:#AC4E38"></i></span> Ink · Clay</dd>
+            <dt>Placement</dt><dd>Small front-center, side, or back</dd>
+            <dt>Used on</dt><dd>Sun &amp; Horizon · Horizon Line · Trail Marker</dd>
+          </dl>
+          <div class="oncap"><div class="cap" data-cap="Icon" data-color="#4B5240"></div><small>On a Loden snapback</small></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>03</span><h2>On the cap</h2></div>
+    <div class="caprow">
+      <div class="capcard"><div class="cap" data-cap="Emblem" data-color="#211E1B"></div><b>Emblem</b><small>Frontier crest</small></div>
+      <div class="capcard"><div class="cap" data-cap="Wordmark" data-color="#EDE6D8"></div><b>Wordmark</b><small>Stacked name</small></div>
+      <div class="capcard"><div class="cap" data-cap="Icon" data-color="#4B5240"></div><b>Icon</b><small>Sun &amp; horizon</small></div>
+      <div class="capcard"><div class="cap" data-cap="Monogram" data-color="#2C3444"></div><b>Monogram</b><small>Interlocked MF</small></div>
+      <div class="capcard"><div class="cap" data-cap="Patch" data-color="#A0522D"></div><b>Patch</b><small>Compass star</small></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>04</span><h2>Embroidery notes</h2></div>
+    <div class="specs">
+      <div class="spec"><h4>Do</h4><ul><li>Keep to the five thread colors</li><li>Min. size 1.5&#8243; for the icon, 2&#8243; for the emblem</li><li>Use Ivory as the backing/knockout color on dark caps</li><li>Tonal (single-thread) versions for subtle colorways</li></ul></div>
+      <div class="spec"><h4>Don't</h4><ul><li>Add gradients or fine detail that won't stitch</li><li>Recolor the marks outside the palette</li><li>Stretch or condense the wordmark</li><li>Outline the monogram — let the two colors read</li></ul></div>
+      <div class="spec"><h4>Files</h4><ul><li>mf-emblem-roundel.svg</li><li>mf-compass-patch.svg</li><li>mf-wordmark.svg</li><li>mf-monogram.svg</li><li>mf-icon-sun-horizon.svg</li></ul></div>
+    </div>
+  </section>
+
+</div>
+
+<footer><div class="wrap"><span>Merchant Frontier — Brand Mark System v1</span><span>Sun on the frontier · Portland, OR</span></div></footer>
+
+<script>
+  // Draw the on-cap mockups with the exact snapback illustration from the store.
+  function shade(hex,pct){var n=hex.replace('#','');if(n.length===3)n=n[0]+n[0]+n[1]+n[1]+n[2]+n[2];var num=parseInt(n,16),amt=Math.round(2.55*pct);var r=Math.max(0,Math.min(255,(num>>16)+amt)),g=Math.max(0,Math.min(255,((num>>8)&255)+amt)),b=Math.max(0,Math.min(255,(num&255)+amt));return '#'+(0x1000000+(r<<16)+(g<<8)+b).toString(16).slice(1);}
+  function frontGraphic(cat,line){
+    if(cat==='Wordmark')return '<g fill="'+line+'" opacity="0.9"><rect x="170" y="202" width="60" height="7" rx="3"/><rect x="164" y="216" width="72" height="7" rx="3"/><rect x="182" y="230" width="36" height="4" rx="2" opacity="0.6"/></g>';
+    if(cat==='Icon')return '<g stroke="'+line+'" stroke-width="3" stroke-linecap="round" opacity="0.9"><path d="M172 222 H228"/><path d="M186 222 A14 14 0 0 1 214 222 Z" fill="'+line+'" stroke="none"/><path d="M200 200 V194 M215 210 L219 206 M185 210 L181 206" stroke-width="2"/></g>';
+    if(cat==='Monogram')return '<text x="200" y="228" text-anchor="middle" font-family="Georgia,serif" font-size="42" font-weight="700" letter-spacing="-2" fill="'+line+'" opacity="0.92">MF</text>';
+    if(cat==='Patch')return '<g fill="'+line+'" opacity="0.9"><path d="M200 188 L208 208 L228 214 L208 220 L200 240 L192 220 L172 214 L192 208 Z"/><circle cx="200" cy="214" r="3" fill="#FBF8F2"/></g>';
+    return '<g fill="none" stroke="'+line+'" stroke-width="3" opacity="0.9"><circle cx="200" cy="214" r="26"/><circle cx="200" cy="214" r="20" stroke-width="1.5" opacity="0.6"/><path d="M182 214 H218" stroke-width="2.5"/><path d="M191 214 A9 9 0 0 1 209 214 Z" fill="'+line+'" stroke="none"/><path d="M200 198 V204 M188 204 L191 208 M212 204 L209 208" stroke-width="2"/></g>';
+  }
+  function capSVG(cat,hex){
+    var dark=shade(hex,-18),light=shade(hex,16),uid=cat+hex.replace('#','');
+    return '<svg viewBox="0 0 400 340" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">'+
+      '<defs><linearGradient id="cg'+uid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+light+'"/><stop offset="100%" stop-color="'+dark+'"/></linearGradient>'+
+      '<filter id="cs'+uid+'" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.14"/></filter></defs>'+
+      '<g fill="url(#cg'+uid+')" stroke="'+dark+'" stroke-width="2" stroke-linejoin="round" filter="url(#cs'+uid+')">'+
+      '<path d="M104 250 L96 292 C 150 302 250 302 304 292 L296 250 Z"/><path d="M122 252 A 78 78 0 0 1 278 252 Z"/><circle cx="200" cy="172" r="6"/>'+
+      '<path d="M200 174 L200 252 M166 184 L174 252 M234 184 L226 252" fill="none" stroke="'+dark+'" stroke-width="2" opacity="0.45"/>'+
+      '<path d="M104 252 C 150 262 250 262 296 252" fill="none" stroke="'+dark+'" stroke-width="2" opacity="0.5"/>'+
+      frontGraphic(cat,dark)+'</g></svg>';
+  }
+  document.querySelectorAll('[data-cap]').forEach(function(el){
+    el.innerHTML=capSVG(el.getAttribute('data-cap'),el.getAttribute('data-color'));
+  });
+</script>

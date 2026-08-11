@@ -9,8 +9,9 @@ type Props = {
 };
 
 /**
- * Renders a stylized SVG garment illustration in the product's color.
- * Keeps the storefront fully self-contained — no external image hosting.
+ * Renders a stylized SVG snapback illustration — a flat-brim cap with the
+ * product's front graphic — in the selected colorway. Keeps the storefront
+ * fully self-contained, with no external image hosting.
  */
 export default function ProductImage({
   category,
@@ -59,109 +60,103 @@ export default function ProductImage({
 }
 
 function renderHat(category: ProductCategory, line: string) {
-  switch (category) {
-    case "Caps":
-      return cap(line);
-    case "Beanies":
-      return beanie();
-    case "Brimmed":
-      return brimmed(line);
-    case "Bucket":
-      return bucket(line);
-    case "Straw":
-      return straw(line);
-    default:
-      return cap(line);
-  }
-}
-
-/* ---------- Hat paths (front view, 400×480 viewBox) ---------- */
-
-function cap(line: string) {
   return (
     <>
-      {/* curved brim */}
-      <path d="M112 250 C 150 306 250 306 288 250 C 250 272 150 272 112 250 Z" />
-      {/* crown dome */}
-      <path d="M120 250 A 80 80 0 0 1 280 250 Z" />
+      {snapback(line)}
+      {frontGraphic(category, line)}
+    </>
+  );
+}
+
+/* ---------- Snapback silhouette (front view, 400×480 viewBox) ---------- */
+
+function snapback(line: string) {
+  return (
+    <>
+      {/* flat brim */}
+      <path d="M104 250 L96 292 C 150 302 250 302 304 292 L296 250 Z" />
+      {/* structured crown */}
+      <path d="M122 252 A 78 78 0 0 1 278 252 Z" />
       {/* top button */}
-      <circle cx="200" cy="170" r="6" />
+      <circle cx="200" cy="172" r="6" />
       {/* panel seams */}
-      <path d="M200 172 L200 250 M164 182 L172 250 M236 182 L228 250" fill="none" stroke={line} strokeWidth="2" opacity="0.55" />
-      {/* brim edge stitch */}
-      <path d="M124 253 C 156 296 244 296 276 253" fill="none" stroke={line} strokeWidth="2" opacity="0.5" />
+      <path d="M200 174 L200 252 M166 184 L174 252 M234 184 L226 252" fill="none" stroke={line} strokeWidth="2" opacity="0.45" />
+      {/* brim top edge + stitch */}
+      <path d="M104 252 C 150 262 250 262 296 252" fill="none" stroke={line} strokeWidth="2" opacity="0.5" />
+      <path d="M112 286 C 155 295 245 295 288 286" fill="none" stroke={line} strokeWidth="2" opacity="0.4" />
     </>
   );
 }
 
-function beanie() {
-  return (
-    <>
-      <path d="M120 300 C120 190 280 190 280 300 Z" />
-      <rect x="112" y="298" width="176" height="46" rx="14" />
-      <path d="M120 300 L120 240 M160 300 L160 214 M200 300 L200 206 M240 300 L240 214 M280 300 L280 240" fill="none" stroke="#00000022" strokeWidth="4" />
-    </>
-  );
-}
-
-function brimmed(line: string) {
-  return (
-    <>
-      {/* wide brim ellipse */}
-      <path d="M64 292 C 64 268 336 268 336 292 C 336 316 64 316 64 292 Z" />
-      {/* crown with pinched top */}
-      <path d="M142 290 C 140 212 158 190 200 190 C 242 190 260 212 258 290 Z" />
-      {/* band */}
-      <path d="M144 266 L256 266 L256 284 L144 284 Z" fill={line} opacity="0.85" />
-      {/* teardrop dent */}
-      <path d="M174 200 C 186 210 214 210 226 200" fill="none" stroke={line} strokeWidth="2.5" opacity="0.6" />
-      {/* brim edge */}
-      <path d="M78 292 C 120 306 280 306 322 292" fill="none" stroke={line} strokeWidth="2" opacity="0.45" />
-    </>
-  );
-}
-
-function bucket(line: string) {
-  return (
-    <>
-      {/* downturned brim */}
-      <path d="M100 250 C 118 300 282 300 300 250 C 250 266 150 266 100 250 Z" />
-      {/* rounded crown */}
-      <path d="M142 252 C 142 196 258 196 258 252 Z" />
-      {/* crown topstitch */}
-      <path d="M150 224 C 180 214 220 214 250 224" fill="none" stroke={line} strokeWidth="2" opacity="0.5" />
-      {/* brim stitch lines */}
-      <path d="M116 256 C 150 288 250 288 284 256 M132 260 C 160 280 240 280 268 260" fill="none" stroke={line} strokeWidth="2" opacity="0.4" />
-    </>
-  );
-}
-
-function straw(line: string) {
-  return (
-    <>
-      {/* very wide shade brim */}
-      <path d="M52 296 C 52 266 348 266 348 296 C 348 326 52 326 52 296 Z" />
-      {/* low rounded crown */}
-      <path d="M150 294 C 148 226 158 208 200 208 C 242 208 252 226 250 294 Z" />
-      {/* band */}
-      <path d="M152 272 L248 272 L248 286 L152 286 Z" fill={line} opacity="0.8" />
-      {/* woven straw texture — concentric brim lines */}
-      <path d="M74 296 C 118 312 282 312 326 296 M92 296 C 128 308 272 308 308 296 M110 296 C 140 305 260 305 290 296" fill="none" stroke={line} strokeWidth="1.5" opacity="0.35" />
-      {/* crown weave */}
-      <path d="M160 232 C 186 224 214 224 240 232 M158 250 C 186 244 214 244 242 250" fill="none" stroke={line} strokeWidth="1.5" opacity="0.35" />
-    </>
-  );
+/**
+ * The embroidered front graphic — the design that identifies the cap.
+ * Rendered tonally in the dark shade so it reads like stitching on the crown.
+ */
+function frontGraphic(category: ProductCategory, line: string) {
+  switch (category) {
+    case "Emblem":
+      return (
+        <g fill="none" stroke={line} strokeWidth="3" opacity="0.9">
+          <circle cx="200" cy="214" r="26" />
+          <circle cx="200" cy="214" r="20" strokeWidth="1.5" opacity="0.6" />
+          <path d="M182 214 H218" strokeWidth="2.5" />
+          <path d="M191 214 A9 9 0 0 1 209 214 Z" fill={line} stroke="none" />
+          <path d="M200 198 V204 M188 204 L191 208 M212 204 L209 208" strokeWidth="2" />
+        </g>
+      );
+    case "Wordmark":
+      return (
+        <g fill={line} opacity="0.9">
+          <rect x="170" y="202" width="60" height="7" rx="3" />
+          <rect x="164" y="216" width="72" height="7" rx="3" />
+          <rect x="182" y="230" width="36" height="4" rx="2" opacity="0.6" />
+        </g>
+      );
+    case "Icon":
+      return (
+        <g stroke={line} strokeWidth="3" strokeLinecap="round" opacity="0.9">
+          <path d="M172 222 H228" />
+          <path d="M186 222 A14 14 0 0 1 214 222 Z" fill={line} stroke="none" />
+          <path d="M200 200 V194 M215 210 L219 206 M185 210 L181 206" strokeWidth="2" />
+        </g>
+      );
+    case "Monogram":
+      return (
+        <g fill={line} opacity="0.92" stroke="none">
+          <text
+            x="200"
+            y="228"
+            textAnchor="middle"
+            fontFamily="Georgia, 'Times New Roman', serif"
+            fontSize="42"
+            fontWeight="700"
+            letterSpacing="-2"
+          >
+            MF
+          </text>
+        </g>
+      );
+    case "Patch":
+      return (
+        <g fill={line} opacity="0.9">
+          <path d="M200 188 L208 208 L228 214 L208 220 L200 240 L192 220 L172 214 L192 208 Z" />
+          <circle cx="200" cy="214" r="3" fill="#FBF8F2" />
+        </g>
+      );
+    default:
+      return null;
+  }
 }
 
 /* ---------- Helpers ---------- */
 
 function backgroundFor(category: ProductCategory): string {
   const map: Record<ProductCategory, string> = {
-    Caps: "linear-gradient(160deg,#F4EFE6,#EAE2D3)",
-    Beanies: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
-    Brimmed: "linear-gradient(160deg,#ECEBE6,#DCD9CF)",
-    Bucket: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
-    Straw: "linear-gradient(160deg,#F5F0E7,#EBE2D0)",
+    Emblem: "linear-gradient(160deg,#F4EFE6,#EAE2D3)",
+    Wordmark: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
+    Icon: "linear-gradient(160deg,#ECEBE6,#DCD9CF)",
+    Monogram: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
+    Patch: "linear-gradient(160deg,#F5F0E7,#EBE2D0)",
   };
   return map[category];
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Our Story",
   description:
-    "Meridian makes fewer, better hats — considered headwear in natural materials, made responsibly.",
+    "Merchant Frontier makes one thing — a great snapback — and a growing set of front graphics to put on it.",
 };
 
 export default function AboutPage() {
@@ -15,12 +15,12 @@ export default function AboutPage() {
         <div className="container-site py-16 md:py-24">
           <p className="eyebrow">Our Story</p>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-            We started Meridian to make hats worth keeping.
+            We started Merchant Frontier to perfect one cap.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-stone">
-            In a world of fast fashion and disposable trends, we chose a
-            different path: a small, considered collection of headwear, built
-            from natural materials and made to last for years, not seasons.
+            Most brands make everything. We chose the opposite: one snapback,
+            obsessed over until it was right — the crown, the brim, the fit —
+            then a growing set of front graphics to make it yours.
           </p>
         </div>
       </section>
@@ -29,12 +29,12 @@ export default function AboutPage() {
       <section className="container-site grid gap-10 py-16 md:grid-cols-3">
         {[
           {
-            t: "Considered design",
-            d: "We make a tight collection of hats designed to work with everything. No noise, no loud logos — just clean shapes and quiet color.",
+            t: "One perfected cap",
+            d: "A single structured six-panel snapback with a flat brim and a true one-size fit. We got it right, then stopped fiddling with the cap.",
           },
           {
-            t: "Natural materials",
-            d: "Wool felt, merino knits, and woven straw. Materials that feel good, wear in beautifully, and age with character.",
+            t: "Graphics worth stitching",
+            d: "Every front graphic is drawn in-house and built for embroidery — bold, tonal, and made to last as long as the cap it's on.",
           },
           {
             t: "Made responsibly",
@@ -62,7 +62,7 @@ export default function AboutPage() {
           </div>
           <div className="space-y-6">
             {[
-              ["Natural & recycled fibers", "Over 90% of our line is natural or recycled materials."],
+              ["Natural & recycled materials", "Organic cotton twill and recycled backing across the line."],
               ["Low-impact dyeing", "Piece-dyed in facilities that recycle water."],
               ["Built to last", "We design for durability, then repair rather than replace."],
               ["Plastic-free shipping", "Recycled, recyclable mailers — no single-use plastic."],
@@ -81,8 +81,8 @@ export default function AboutPage() {
         <h2 className="font-serif text-3xl">Questions? We&apos;re here.</h2>
         <p className="mx-auto mt-4 max-w-md text-stone">
           Reach us at{" "}
-          <a href="mailto:hello@meridian.example.com" className="link-underline text-ink">
-            hello@meridian.example.com
+          <a href="mailto:hello@merchantfrontier.example.com" className="link-underline text-ink">
+            hello@merchantfrontier.example.com
           </a>
           . We answer every message within one business day.
         </p>

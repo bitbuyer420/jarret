@@ -36,10 +36,10 @@ export default function Header() {
 
         <Link
           href="/"
-          className="text-xl font-semibold tracking-[0.28em] md:text-2xl"
-          aria-label="Meridian home"
+          className="whitespace-nowrap text-sm font-semibold tracking-[0.18em] sm:text-base md:text-lg md:tracking-[0.22em]"
+          aria-label="Merchant Frontier home"
         >
-          MERIDIAN
+          MERCHANT&nbsp;FRONTIER
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

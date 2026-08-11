@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Meridian — Modern Headwear</title>
-<meta name="description" content="Meridian makes considered, well-made hats built to be worn on repeat.">
+<title>Merchant Frontier — Snapback Caps</title>
+<meta name="description" content="Merchant Frontier makes one thing — a great snapback — and a growing set of front graphics to put on it.">
 </head>
 <body>
 <style>
@@ -111,7 +111,7 @@
     border-bottom: 1px solid var(--line);
   }
   #site-header .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 66px; }
-  .logo { font-family: var(--sans); font-weight: 600; font-size: 22px; letter-spacing: 0.28em; }
+  .logo { font-family: var(--sans); font-weight: 600; font-size: clamp(13px, 3.4vw, 18px); letter-spacing: 0.16em; white-space: nowrap; }
   .nav { display: none; gap: 28px; }
   @media (min-width: 900px) { .nav { display: flex; } .menu-toggle { display: none; } }
   .nav a { font-size: 14px; color: var(--ink-80); }
@@ -375,7 +375,7 @@
     <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
     </button>
-    <a href="#/" class="logo" aria-label="Meridian home">MERIDIAN</a>
+    <a href="#/" class="logo" aria-label="Merchant Frontier home">MERCHANT&nbsp;FRONTIER</a>
     <nav class="nav" id="mainNav"></nav>
     <div class="header-actions">
       <button class="icon-btn" id="cartBtn" aria-label="Open cart">
@@ -400,28 +400,28 @@
 
   /* ----------------------------- Data ----------------------------- */
   var COLLECTIONS = [
-    { handle: "new-arrivals", title: "New Arrivals", accent: "#AC4E38", description: "The latest additions to the Meridian lineup — fresh shapes, seasonal materials, and quiet color." },
-    { handle: "everyday", title: "Everyday", accent: "#7C8C6C", description: "Caps and knits built for the daily rotation. Grab-and-go headwear that never shouts." },
-    { handle: "cold-weather", title: "Cold Weather", accent: "#5B6B7B", description: "Wool felt and warm knits for when the temperature drops. Built to layer and last." },
-    { handle: "sun-straw", title: "Sun & Straw", accent: "#B08D57", description: "Breathable straw and packable brims for long days in the sun." }
+    { handle: "new-arrivals", title: "New Arrivals", accent: "#AC4E38", description: "The newest snapbacks off the line — fresh front graphics and seasonal colorways." },
+    { handle: "frontier-series", title: "Frontier Series", accent: "#AC4E38", description: "Our flagship emblem caps, built around the Merchant Frontier crest. Bold fronts, structured crowns." },
+    { handle: "trail-series", title: "Trail Series", accent: "#4B5240", description: "Made for the long way round — clean icons and earthy colorways for the trail." },
+    { handle: "everyday", title: "Everyday", accent: "#7C8C6C", description: "Clean wordmarks and monograms for the daily rotation. Grab-and-go snapbacks that never shout." }
   ];
 
   var PRODUCTS = [
-    { id:"1", handle:"wool-six-panel-ball-cap", name:"Wool 6-Panel Ball Cap", price:42, category:"Caps", collections:["new-arrivals","everyday"], colors:[{name:"Navy",hex:"#2C3444"},{name:"Olive",hex:"#5F6647"},{name:"Charcoal",hex:"#3A3733"}], sizes:["S/M","L/XL"], tagline:"The cap you'll reach for daily", description:"A structured six-panel cap in brushed wool with a curved brim and an adjustable strap. Holds its shape, sits low, and only gets better with wear.", details:["Brushed wool-blend outer","Structured six-panel crown, curved brim","Adjustable antique-brass strap","Cotton sweatband"], materials:"80% wool, 20% nylon", featured:true, bestSeller:true },
-    { id:"2", handle:"washed-cotton-dad-cap", name:"Washed Cotton Dad Cap", price:34, category:"Caps", collections:["everyday"], colors:[{name:"Stone",hex:"#B7A98D"},{name:"Black",hex:"#211E1B"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"Soft, unstructured, broken-in from day one", description:"An unstructured six-panel in garment-washed cotton twill. The low profile and pre-softened fabric make it feel like an old favorite the moment you put it on.", details:["Garment-washed cotton twill","Unstructured low-profile crown","Curved brim","Adjustable metal buckle strap"], materials:"100% washed cotton twill", bestSeller:true },
-    { id:"3", handle:"corduroy-trucker-cap", name:"Corduroy Trucker Cap", price:40, category:"Caps", collections:["new-arrivals","everyday"], colors:[{name:"Camel",hex:"#C19A6B"},{name:"Forest",hex:"#33463A"},{name:"Ecru",hex:"#E2D8C3"}], sizes:["One Size"], tagline:"Fine-wale cord with a breathable mesh back", description:"A classic trucker built from fine-wale corduroy up front with a breathable mesh back and a snapback closure. Warm-weather ventilation, cool-weather texture.", details:["Fine-wale corduroy front panels","Breathable mesh back","Mid-profile structured crown","Snapback closure"], materials:"Cotton corduroy front, polyester mesh back", featured:true },
-    { id:"4", handle:"ribbed-merino-beanie", name:"Ribbed Merino Beanie", price:32, category:"Beanies", collections:["everyday","cold-weather"], colors:[{name:"Oat",hex:"#D6CBB6"},{name:"Clay",hex:"#B5533A"},{name:"Charcoal",hex:"#3A3733"},{name:"Sage",hex:"#8A9A7B"}], sizes:["One Size"], tagline:"Soft merino, cuffed and cozy", description:"A classic cuffed beanie knit from soft merino wool. Warm, itch-free, and endlessly wearable — the one you'll lose and immediately re-buy.", details:["Soft merino wool rib knit","Double-layer cuff","One size, stretches to fit"], materials:"100% merino wool", bestSeller:true },
-    { id:"5", handle:"chunky-fisherman-beanie", name:"Chunky Fisherman Beanie", price:46, category:"Beanies", collections:["new-arrivals","cold-weather"], colors:[{name:"Ecru",hex:"#E2D8C3"},{name:"Navy",hex:"#2C3444"},{name:"Moss",hex:"#5A6350"}], sizes:["One Size"], tagline:"A hand-feel knit with a short, snug cuff", description:"A heavyweight fisherman knit with a short roll cuff that sits high on the head. Built from a lambswool blend for warmth without the itch.", details:["Chunky lambswool-blend knit","Short roll cuff","Sits high and snug","Fully-fashioned crown"], materials:"70% lambswool, 30% nylon", featured:true },
-    { id:"6", handle:"cuffed-waffle-beanie", name:"Cuffed Waffle Beanie", price:36, category:"Beanies", collections:["cold-weather"], colors:[{name:"Fog",hex:"#C7C3BA"},{name:"Rust",hex:"#A0522D"},{name:"Black",hex:"#201D1A"}], sizes:["One Size"], tagline:"Textured waffle knit with a deep cuff", description:"A waffle-textured beanie with a deep cuff you can wear rolled or slouched. Cotton-forward for milder days and layering.", details:["Thermal waffle-knit cotton blend","Deep fold cuff","Slouch or roll it"], materials:"95% cotton, 5% elastane" },
-    { id:"7", handle:"wide-brim-wool-fedora", name:"Wide-Brim Wool Fedora", price:128, compareAtPrice:148, category:"Brimmed", collections:["new-arrivals"], colors:[{name:"Charcoal",hex:"#3A3733"},{name:"Camel",hex:"#C19A6B"},{name:"Black",hex:"#211E1B"}], sizes:["S/M","L/XL"], tagline:"A structured felt brim with a pinched crown", description:"A wide-brim fedora blocked from 100% wool felt, with a teardrop pinch and a grosgrain band. Structured enough to hold its shape, soft enough to pack loosely.", details:["100% wool felt, hand-blocked","Wide 3\" brim","Teardrop pinched crown","Grosgrain ribbon band"], materials:"100% wool felt", featured:true },
-    { id:"8", handle:"teardrop-felt-hat", name:"Teardrop Felt Hat", price:118, category:"Brimmed", collections:["new-arrivals","cold-weather"], colors:[{name:"Slate",hex:"#4A4F57"},{name:"Tobacco",hex:"#7C5A3C"}], sizes:["S/M","L/XL"], tagline:"A medium brim that works with everything", description:"A versatile medium-brim felt hat with a classic teardrop crown. The everyday brimmed hat — dressed up or thrown on with a tee.", details:["Wool felt body","Medium 2.5\" brim","Teardrop crown","Tonal grosgrain band"], materials:"100% wool felt" },
-    { id:"9", handle:"wool-felt-bucket-hat", name:"Wool-Felt Bucket Hat", price:68, category:"Bucket", collections:["everyday","cold-weather"], colors:[{name:"Moss",hex:"#5A6350"},{name:"Charcoal",hex:"#3A3733"},{name:"Camel",hex:"#C19A6B"}], sizes:["S/M","L/XL"], tagline:"The bucket, warmed up in wool felt", description:"A bucket hat blocked from soft wool felt for cooler days. A downturned brim and a clean crown make it the season's most versatile shape.", details:["Soft wool-felt body","Downturned brim","Topstitched crown","Sits close to the head"], materials:"100% wool felt", bestSeller:true },
-    { id:"10", handle:"washed-cotton-bucket-hat", name:"Washed Cotton Bucket Hat", price:48, category:"Bucket", collections:["new-arrivals","sun-straw"], colors:[{name:"Sand",hex:"#D9C9AE"},{name:"Olive",hex:"#6E7355"},{name:"Black",hex:"#211E1B"}], sizes:["One Size"], tagline:"Lightweight cotton for everyday shade", description:"A garment-washed cotton bucket with a soft, packable brim. Throw it in a bag, pull it out sun-ready. Broken-in from the first wear.", details:["Garment-washed cotton twill","Soft packable brim","Ventilation eyelets","Interior drawcord"], materials:"100% washed cotton twill", featured:true },
-    { id:"11", handle:"packable-straw-sun-hat", name:"Packable Straw Sun Hat", price:72, category:"Straw", collections:["sun-straw"], colors:[{name:"Natural",hex:"#E2D8C3"},{name:"Wheat",hex:"#D8C9A9"}], sizes:["One Size"], tagline:"Wide shade that rolls up and travels", description:"A wide-brim sun hat woven from flexible paper straw that packs flat and springs back. Real coverage for the beach, the garden, or the long walk home.", details:["Woven paper straw","Wide 4\" shade brim","Packs flat, springs back","Adjustable inner band"], materials:"100% paper straw" },
-    { id:"12", handle:"panama-straw-hat", name:"Panama Straw Hat", price:110, category:"Straw", collections:["new-arrivals","sun-straw"], colors:[{name:"Ivory",hex:"#EDE6D8"},{name:"Straw",hex:"#D6C199"}], sizes:["S/M","L/XL"], tagline:"A hand-woven brim with a grosgrain band", description:"A finely hand-woven panama with a structured brim and a pinched crown. The dressed-up straw hat — for weddings, terraces, and warm evenings.", details:["Hand-woven toquilla-style straw","Structured 3\" brim","Pinched crown","Grosgrain band"], materials:"100% woven straw", featured:true }
+    { id:"1", handle:"frontier-emblem-snapback", name:"Frontier Emblem Snapback", price:42, category:"Emblem", collections:["new-arrivals","frontier-series"], colors:[{name:"Black",hex:"#211E1B"},{name:"Navy",hex:"#2C3444"},{name:"Loden",hex:"#4B5240"}], sizes:["One Size"], tagline:"The flagship crest, stitched front and center", description:"Our signature snapback: a structured six-panel crown with a flat brim and the full Merchant Frontier emblem embroidered across the front. The one that started it all.", details:["Structured 6-panel crown, flat brim","3D-embroidered front emblem","Snapback closure — one size fits most","Green undervisor, woven back label"], materials:"Cotton twill with wool-blend front panels", featured:true, bestSeller:true },
+    { id:"2", handle:"trade-post-emblem-snapback", name:"Trade Post Emblem Snapback", price:42, category:"Emblem", collections:["frontier-series"], colors:[{name:"Charcoal",hex:"#3A3733"},{name:"Sand",hex:"#D9C9AE"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"A tonal take on the frontier crest", description:"The emblem, dialed back. A tonal embroidered crest on a clean crown for a subtler everyday version of the flagship. Same structure, quieter finish.", details:["Structured 6-panel crown, flat brim","Tonal embroidered crest","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
+    { id:"3", handle:"summit-emblem-snapback", name:"Summit Emblem Snapback", price:44, category:"Emblem", collections:["new-arrivals","trail-series"], colors:[{name:"Forest",hex:"#33463A"},{name:"Bone",hex:"#EDE6D8"}], sizes:["One Size"], tagline:"The crest, reworked for the backcountry", description:"A trail-ready emblem cap with a woven summit patch and earthy colorways. Built for the miles between trailhead and trading post.", details:["Structured 6-panel crown, flat brim","Woven summit patch","Snapback closure — one size fits most","Moisture-wicking sweatband"], materials:"Cotton twill with recycled backing" },
+    { id:"4", handle:"merchant-wordmark-snapback", name:"Merchant Wordmark Snapback", price:38, category:"Wordmark", collections:["everyday","new-arrivals"], colors:[{name:"Black",hex:"#211E1B"},{name:"Bone",hex:"#EDE6D8"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"The full name, stacked and clean", description:"The Merchant Frontier wordmark stacked across the front in bold, letter-spaced embroidery. Minimal, confident, and endlessly wearable.", details:["Structured 6-panel crown, flat brim","Stacked wordmark embroidery","Snapback closure — one size fits most","Flat-brim, wear it as-is or curved"], materials:"100% cotton twill", bestSeller:true },
+    { id:"5", handle:"frontier-script-snapback", name:"Frontier Script Snapback", price:38, category:"Wordmark", collections:["everyday"], colors:[{name:"Navy",hex:"#2C3444"},{name:"Camel",hex:"#C19A6B"}], sizes:["One Size"], tagline:"A looser script across the front", description:"A relaxed script wordmark for a warmer, more casual take. The frontier name in a flowing hand, embroidered edge to edge.", details:["Structured 6-panel crown, flat brim","Script wordmark embroidery","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
+    { id:"6", handle:"sun-and-horizon-snapback", name:"Sun & Horizon Snapback", price:36, category:"Icon", collections:["trail-series","everyday"], colors:[{name:"Loden",hex:"#4B5240"},{name:"Black",hex:"#211E1B"},{name:"Stone",hex:"#B7A98D"}], sizes:["One Size"], tagline:"The frontier icon — a sun on the horizon", description:"Our core icon: a rising sun crossing the frontier line, embroidered small and centered. Quiet, ownable, and the easiest cap to reach for.", details:["Structured 6-panel crown, flat brim","Embroidered sun-and-horizon icon","Snapback closure — one size fits most","Tonal undervisor"], materials:"100% cotton twill", featured:true },
+    { id:"7", handle:"horizon-line-snapback", name:"Horizon Line Snapback", price:36, category:"Icon", collections:["everyday"], colors:[{name:"Sky",hex:"#6E8B8E"},{name:"Sand",hex:"#D9C9AE"}], sizes:["One Size"], tagline:"Just the line — minimal to the core", description:"The icon stripped to a single embroidered horizon line and a low sun. The most minimal cap in the range for people who like it plain.", details:["Structured 6-panel crown, flat brim","Single-line embroidered icon","Snapback closure — one size fits most","Lightweight cotton build"], materials:"100% cotton twill" },
+    { id:"8", handle:"trail-marker-snapback", name:"Trail Marker Snapback", price:38, category:"Icon", collections:["trail-series","new-arrivals"], colors:[{name:"Rust",hex:"#A0522D"},{name:"Charcoal",hex:"#3A3733"}], sizes:["One Size"], tagline:"A blazed-trail marker for the outdoors", description:"A trail-blaze marker icon — the little painted rectangle that keeps you on-path — embroidered front and center. Made for the trail series.", details:["Structured 6-panel crown, flat brim","Embroidered trail-marker icon","Snapback closure — one size fits most","Moisture-wicking sweatband"], materials:"Cotton twill with recycled backing" },
+    { id:"9", handle:"mf-monogram-snapback", name:"MF Monogram Snapback", price:38, category:"Monogram", collections:["everyday"], colors:[{name:"Black",hex:"#211E1B"},{name:"Cream",hex:"#E8DFCB"}], sizes:["One Size"], tagline:"Interlocked initials, clean and bold", description:"The interlocked MF monogram, embroidered large on the front. A clean, badge-free way to rep the frontier.", details:["Structured 6-panel crown, flat brim","Interlocked MF monogram embroidery","Snapback closure — one size fits most","Flat brim, green undervisor"], materials:"100% cotton twill", bestSeller:true },
+    { id:"10", handle:"stacked-mf-snapback", name:"Stacked MF Snapback", price:40, category:"Monogram", collections:["new-arrivals","everyday"], colors:[{name:"Forest",hex:"#33463A"},{name:"Camel",hex:"#C19A6B"},{name:"Navy",hex:"#2C3444"}], sizes:["One Size"], tagline:"The initials, stacked in a block", description:"A blocky stacked-MF monogram with a boxed outline, for a heavier, more collegiate feel. A little louder than the interlocked version.", details:["Structured 6-panel crown, flat brim","Boxed stacked-MF embroidery","Snapback closure — one size fits most","Woven back label"], materials:"100% cotton twill" },
+    { id:"11", handle:"compass-star-patch-snapback", name:"Compass Star Patch Snapback", price:44, compareAtPrice:50, category:"Patch", collections:["frontier-series","new-arrivals"], colors:[{name:"Black",hex:"#211E1B"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"A woven compass patch for the wanderers", description:"A woven compass-star patch stitched to a structured crown. Point it any direction — it always reads north. The centerpiece of the patch line.", details:["Structured 6-panel crown, flat brim","Woven compass-star patch","Snapback closure — one size fits most","Merrow-edge patch, green undervisor"], materials:"Cotton twill, woven-fabric patch", featured:true, bestSeller:true },
+    { id:"12", handle:"north-star-patch-snapback", name:"North Star Patch Snapback", price:44, category:"Patch", collections:["trail-series"], colors:[{name:"Navy",hex:"#2C3444"},{name:"Bone",hex:"#EDE6D8"}], sizes:["One Size"], tagline:"A single guiding star, woven and stitched", description:"A lone north-star patch on a clean crown — a quieter cousin to the compass. For following your own line to the frontier.", details:["Structured 6-panel crown, flat brim","Woven north-star patch","Snapback closure — one size fits most","Merrow-edge patch"], materials:"Cotton twill, woven-fabric patch" }
   ];
 
-  var CATEGORIES = ["Caps", "Beanies", "Brimmed", "Bucket", "Straw"];
+  var CATEGORIES = ["Emblem", "Wordmark", "Icon", "Monogram", "Patch"];
   var FREE_SHIP = 75, SHIP_FLAT = 8;
 
   var SWATCH = {};
@@ -452,16 +452,29 @@
     return "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
   var BG = {
-    Caps: "linear-gradient(160deg,#F4EFE6,#EAE2D3)", Beanies: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
-    Brimmed: "linear-gradient(160deg,#ECEBE6,#DCD9CF)", Bucket: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
-    Straw: "linear-gradient(160deg,#F5F0E7,#EBE2D0)"
+    Emblem: "linear-gradient(160deg,#F4EFE6,#EAE2D3)", Wordmark: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
+    Icon: "linear-gradient(160deg,#ECEBE6,#DCD9CF)", Monogram: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
+    Patch: "linear-gradient(160deg,#F5F0E7,#EBE2D0)"
   };
+  // A snapback silhouette (flat brim + structured crown) plus the front graphic for the category.
+  function snapbackBody(line) {
+    return '<path d="M104 250 L96 292 C 150 302 250 302 304 292 L296 250 Z"/>' +
+      '<path d="M122 252 A 78 78 0 0 1 278 252 Z"/>' +
+      '<circle cx="200" cy="172" r="6"/>' +
+      '<path d="M200 174 L200 252 M166 184 L174 252 M234 184 L226 252" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.45"/>' +
+      '<path d="M104 252 C 150 262 250 262 296 252" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.5"/>' +
+      '<path d="M112 286 C 155 295 245 295 288 286" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.4"/>';
+  }
+  function frontGraphic(cat, line) {
+    if (cat === "Wordmark") return '<g fill="'+line+'" opacity="0.9" stroke="none"><rect x="170" y="202" width="60" height="7" rx="3"/><rect x="164" y="216" width="72" height="7" rx="3"/><rect x="182" y="230" width="36" height="4" rx="2" opacity="0.6"/></g>';
+    if (cat === "Icon") return '<g stroke="'+line+'" stroke-width="3" stroke-linecap="round" opacity="0.9"><path d="M172 222 H228"/><path d="M186 222 A14 14 0 0 1 214 222 Z" fill="'+line+'" stroke="none"/><path d="M200 200 V194 M215 210 L219 206 M185 210 L181 206" stroke-width="2"/></g>';
+    if (cat === "Monogram") return '<text x="200" y="228" text-anchor="middle" font-family="Georgia,\'Times New Roman\',serif" font-size="42" font-weight="700" letter-spacing="-2" fill="'+line+'" stroke="none" opacity="0.92">MF</text>';
+    if (cat === "Patch") return '<g fill="'+line+'" opacity="0.9" stroke="none"><path d="M200 188 L208 208 L228 214 L208 220 L200 240 L192 220 L172 214 L192 208 Z"/><circle cx="200" cy="214" r="3" fill="#FBF8F2"/></g>';
+    // Emblem (default)
+    return '<g fill="none" stroke="'+line+'" stroke-width="3" opacity="0.9"><circle cx="200" cy="214" r="26"/><circle cx="200" cy="214" r="20" stroke-width="1.5" opacity="0.6"/><path d="M182 214 H218" stroke-width="2.5"/><path d="M191 214 A9 9 0 0 1 209 214 Z" fill="'+line+'" stroke="none"/><path d="M200 198 V204 M188 204 L191 208 M212 204 L209 208" stroke-width="2"/></g>';
+  }
   function garment(cat, handle, line) {
-    if (cat === "Beanies") return '<path d="M120 300 C120 190 280 190 280 300 Z"/><rect x="112" y="298" width="176" height="46" rx="14"/><path d="M120 300 L120 240 M160 300 L160 214 M200 300 L200 206 M240 300 L240 214 M280 300 L280 240" fill="none" stroke="#00000022" stroke-width="4"/>';
-    if (cat === "Brimmed") return '<path d="M64 292 C 64 268 336 268 336 292 C 336 316 64 316 64 292 Z"/><path d="M142 290 C 140 212 158 190 200 190 C 242 190 260 212 258 290 Z"/><path d="M144 266 L256 266 L256 284 L144 284 Z" fill="'+line+'" opacity="0.85"/><path d="M174 200 C 186 210 214 210 226 200" fill="none" stroke="'+line+'" stroke-width="2.5" opacity="0.6"/><path d="M78 292 C 120 306 280 306 322 292" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.45"/>';
-    if (cat === "Bucket") return '<path d="M100 250 C 118 300 282 300 300 250 C 250 266 150 266 100 250 Z"/><path d="M142 252 C 142 196 258 196 258 252 Z"/><path d="M150 224 C 180 214 220 214 250 224" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.5"/><path d="M116 256 C 150 288 250 288 284 256 M132 260 C 160 280 240 280 268 260" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.4"/>';
-    if (cat === "Straw") return '<path d="M52 296 C 52 266 348 266 348 296 C 348 326 52 326 52 296 Z"/><path d="M150 294 C 148 226 158 208 200 208 C 242 208 252 226 250 294 Z"/><path d="M152 272 L248 272 L248 286 L152 286 Z" fill="'+line+'" opacity="0.8"/><path d="M74 296 C 118 312 282 312 326 296 M92 296 C 128 308 272 308 308 296 M110 296 C 140 305 260 305 290 296" fill="none" stroke="'+line+'" stroke-width="1.5" opacity="0.35"/><path d="M160 232 C 186 224 214 224 240 232 M158 250 C 186 244 214 244 242 250" fill="none" stroke="'+line+'" stroke-width="1.5" opacity="0.35"/>';
-    return '<path d="M112 250 C 150 306 250 306 288 250 C 250 272 150 272 112 250 Z"/><path d="M120 250 A 80 80 0 0 1 280 250 Z"/><circle cx="200" cy="170" r="6"/><path d="M200 172 L200 250 M164 182 L172 250 M236 182 L228 250" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.55"/><path d="M124 253 C 156 296 244 296 276 253" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.5"/>';
+    return snapbackBody(line) + frontGraphic(cat, line);
   }
   function media(cat, hex, handle, cls) {
     var dark = shade(hex, -18), light = shade(hex, 16), uid = handle + "-" + hex.replace("#", "");
@@ -474,7 +487,7 @@
   }
 
   /* ----------------------------- Cart ----------------------------- */
-  var KEY = "meridian-cart-v1";
+  var KEY = "merchant-frontier-cart-v1";
   var cart = load();
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} }
@@ -555,7 +568,7 @@
     var featured = PRODUCTS.filter(function (p) { return p.featured; }).slice(0, 8);
     var best = PRODUCTS.filter(function (p) { return p.bestSeller; }).slice(0, 4);
     var heroTiles = PRODUCTS.slice(0, 2).map(function (p) { return '<a class="tile" href="#/product/' + p.handle + '">' + media(p.category, p.colors[0].hex, p.handle) + '</a>'; }).join("");
-    var valueItems = [["Natural materials","Wool felt, straw & cotton"],["Made responsibly","Fair factories, less waste"],["Free shipping","On orders over $75"],["30-day returns","Easy, no-fuss exchanges"]]
+    var valueItems = [["Built to last","Structured crowns, flat brims"],["One size fits most","Snapback closure, always"],["Free shipping","On orders over $75"],["30-day returns","Easy, no-fuss exchanges"]]
       .map(function (v) { return '<div><b>' + v[0] + '</b><small>' + v[1] + '</small></div>'; }).join("");
     var collCards = COLLECTIONS.map(function (c) {
       return '<a class="coll-card" href="#/collection/' + c.handle + '" style="background:linear-gradient(180deg,' + c.accent + '00 30%,' + c.accent + ' 100%),' + c.accent + '">' +
@@ -565,8 +578,8 @@
 
     return '' +
       '<section class="hero"><div class="wrap grid">' +
-        '<div><p class="eyebrow">Fall Headwear 2026</p><h1>Good hats,<br>made to last.</h1>' +
-        '<p class="lead">Considered headwear in wool felt, straw, and cotton. No loud logos, no noise — just hats you\'ll reach for until they wear in.</p>' +
+        '<div><p class="eyebrow">Snapbacks · Fall 2026</p><h1>One shape,<br>done right.</h1>' +
+        '<p class="lead">Merchant Frontier makes one thing — the snapback — and makes it well. Structured crowns, flat brims, and front graphics worth stitching. Pick your mark.</p>' +
         '<div class="hero-cta"><a href="#/shop" class="btn btn-primary">Shop the collection</a><a href="#/collection/new-arrivals" class="btn btn-secondary">New arrivals</a></div></div>' +
         '<div class="hero-tiles">' + heroTiles + '</div>' +
       '</div></section>' +
@@ -574,15 +587,15 @@
       '<section class="block"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Just landed</p><h2>Featured</h2></div><a href="#/shop" class="ul-link muted" style="font-size:14px">View all &rarr;</a></div>' + gridHTML(featured) + '</div></section>' +
       '<section class="block tint"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Shop by category</p><h2>Collections</h2></div></div><div class="colls">' + collCards + '</div></div></section>' +
       '<section class="block"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Tried &amp; true</p><h2>Best sellers</h2></div><a href="#/shop" class="ul-link muted" style="font-size:14px">View all &rarr;</a></div>' + gridHTML(best) + '</div></section>' +
-      '<section class="band"><div class="wrap grid"><div><p class="eyebrow">The Meridian promise</p><h2>Fewer, better hats.</h2>' +
-      '<p>We make a tight collection of hats meant to work with everything you own and outlast trends. Every piece is built from natural materials in workshops we\'ve visited and vetted.</p>' +
+      '<section class="band"><div class="wrap grid"><div><p class="eyebrow">The Merchant Frontier promise</p><h2>One cap. Every mark.</h2>' +
+      '<p>We believe in doing one thing well. A single, perfected snapback — then a growing set of front graphics, from the frontier emblem to the compass patch. Same great cap, your choice of mark.</p>' +
       '<a href="#/about" class="btn btn-ghost" style="margin-top:28px">Read our story</a></div><div class="band-tiles">' + bandTiles + '</div></div></section>';
   }
 
   var shopState = { cat: "All", sort: "featured" };
   function viewShop() {
     return '<div class="wrap"><div class="page-head"><p class="eyebrow">Everything</p><h1>Shop All</h1>' +
-      '<p>The complete Meridian lineup — considered hats in natural materials, designed to work with everything and worn often.</p></div>' +
+      '<p>One snapback, every mark. The complete Merchant Frontier lineup — filter by the front graphic to find your cap.</p></div>' +
       '<div style="padding:24px 0" id="shopMount"></div></div>';
   }
   function renderShop() {
@@ -747,7 +760,7 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var seed = cart.reduce(function (a, l) { return a + l.name.length * l.qty; }, subtotal() | 0);
-      var id = "MER-" + String(Math.abs(seed)).padStart(6, "0").slice(0, 6);
+      var id = "MF-" + String(Math.abs(seed)).padStart(6, "0").slice(0, 6);
       clearCart();
       location.hash = "/confirmed?id=" + id;
     });
@@ -755,28 +768,28 @@
 
   function viewConfirmed(id) {
     return '<div class="wrap"><div class="confirm"><div class="check"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
-      '<h1>Thank you for your order</h1><p>Your order <b style="color:var(--ink)">' + esc(id || "MER-000000") + '</b> is confirmed. We\'ve sent a receipt to your email and you\'ll get tracking as soon as it ships.</p>' +
+      '<h1>Thank you for your order</h1><p>Your order <b style="color:var(--ink)">' + esc(id || "MF-000000") + '</b> is confirmed. We\'ve sent a receipt to your email and you\'ll get tracking as soon as it ships.</p>' +
       '<div style="display:flex;gap:12px;margin-top:30px"><a href="#/shop" class="btn btn-primary">Keep shopping</a><a href="#/" class="btn btn-secondary">Back home</a></div>' +
       '<p class="muted" style="font-size:12px;max-width:24rem;margin-top:40px">This is a demo storefront — no payment was processed and no real order was placed.</p></div></div>';
   }
 
   function viewAbout() {
-    var values = [["Considered design","We make a tight collection of hats designed to work with everything. No noise, no loud logos — just clean shapes and quiet color."],
-      ["Natural materials","Wool felt, merino knits, and woven straw. Materials that feel good, wear in beautifully, and age with character."],
+    var values = [["One perfected cap","A single structured six-panel snapback with a flat brim and a true one-size fit. We got it right, then stopped fiddling with the cap."],
+      ["Graphics worth stitching","Every front graphic is drawn in-house and built for embroidery — bold, tonal, and made to last as long as the cap it's on."],
       ["Made responsibly","We partner with a small number of workshops we've visited and vetted, and we design out waste wherever we can."]]
       .map(function (v) { return '<div><div class="rule"></div><h3>' + v[0] + '</h3><p>' + v[1] + '</p></div>'; }).join("");
-    var sus = [["Natural & recycled materials","Over 90% of our line is natural or recycled materials."],
+    var sus = [["Natural & recycled materials","Organic cotton twill and recycled backing across the line."],
       ["Low-impact dyeing","Piece-dyed in facilities that recycle water."],
       ["Built to last","We design for durability, then repair rather than replace."],
       ["Plastic-free shipping","Recycled, recyclable mailers — no single-use plastic."]]
       .map(function (s) { return '<div class="item"><h4>' + s[0] + '</h4><small>' + s[1] + '</small></div>'; }).join("");
     return '<section class="banner" style="background:var(--cloud)"><div class="wrap" style="padding:64px 0"><p class="eyebrow">Our Story</p>' +
-      '<h1 style="font-size:clamp(34px,5vw,50px);max-width:46rem;margin-top:12px;line-height:1.08">We started Meridian to make hats worth keeping.</h1>' +
-      '<p class="muted" style="max-width:38rem;margin-top:22px;font-size:18px">In a world of fast fashion and disposable trends, we chose a different path: a small, considered collection of headwear, built from natural materials and made to last for years, not seasons.</p></div></section>' +
+      '<h1 style="font-size:clamp(34px,5vw,50px);max-width:46rem;margin-top:12px;line-height:1.08">We started Merchant Frontier to perfect one cap.</h1>' +
+      '<p class="muted" style="max-width:38rem;margin-top:22px;font-size:18px">Most brands make everything. We chose the opposite: one snapback, obsessed over until it was right — the crown, the brim, the fit — then a growing set of front graphics to make it yours.</p></div></section>' +
       '<div class="wrap"><div class="about-values">' + values + '</div></div>' +
       '<section class="band"><div class="wrap grid"><div><p class="eyebrow">Sustainability</p><h2 style="font-size:34px;margin-top:14px">Better by design, not by accident.</h2></div><div class="sus-list">' + sus + '</div></div></section>' +
       '<div class="wrap"><div style="text-align:center;padding:70px 0"><h2 style="font-size:30px">Questions? We\'re here.</h2>' +
-      '<p class="muted" style="max-width:26rem;margin:16px auto 0">Reach us at <a href="mailto:hello@meridian.example.com" class="ul-link" style="color:var(--ink)">hello@meridian.example.com</a>. We answer every message within one business day.</p>' +
+      '<p class="muted" style="max-width:26rem;margin:16px auto 0">Reach us at <a href="mailto:hello@merchantfrontier.example.com" class="ul-link" style="color:var(--ink)">hello@merchantfrontier.example.com</a>. We answer every message within one business day.</p>' +
       '<a href="#/shop" class="btn btn-primary" style="margin-top:28px">Explore the collection</a></div></div>';
   }
 
@@ -795,12 +808,12 @@
   function renderFooter() {
     var shop = '<li><a href="#/shop">All Products</a></li>' + COLLECTIONS.map(function (c) { return '<li><a href="#/collection/' + c.handle + '">' + c.title + '</a></li>'; }).join("");
     document.getElementById("site-footer").innerHTML =
-      '<div class="wrap foot-grid"><div><p class="logo" style="font-size:20px">MERIDIAN</p><p class="muted" style="max-width:20rem;margin-top:16px;font-size:14px">Considered, well-made headwear built to be worn on repeat. Designed in Portland, made responsibly.</p></div>' +
+      '<div class="wrap foot-grid"><div><p class="logo" style="font-size:16px">MERCHANT FRONTIER</p><p class="muted" style="max-width:20rem;margin-top:16px;font-size:14px">One snapback, done right — with a growing set of front graphics. Designed in Portland, built to last.</p></div>' +
       '<div><h4>Shop</h4><ul>' + shop + '</ul></div>' +
       '<div><h4>Company</h4><ul><li><a href="#/about">Our Story</a></li><li><a href="#/about">Sustainability</a></li><li><a href="#/shop">Size Guide</a></li><li><a href="#/about">Contact</a></li></ul></div>' +
       '<div><h4>Stay in the loop</h4><p class="muted" style="margin-top:14px;font-size:14px">Early access to drops and 10% off your first order.</p>' +
       '<form class="news" id="newsForm"><input type="email" placeholder="Email address" required aria-label="Email address"><button type="submit" aria-label="Subscribe">&rarr;</button></form><p class="muted" id="newsMsg" style="font-size:13px;margin-top:10px;display:none;color:var(--sage)">Thanks — check your inbox for a welcome code.</p></div></div>' +
-      '<div class="foot-bottom"><div class="wrap"><p>© 2026 Meridian Supply Co. All rights reserved.</p><div class="links"><a href="#/about">Privacy</a><a href="#/about">Terms</a><a href="#/about">Returns</a></div></div></div>';
+      '<div class="foot-bottom"><div class="wrap"><p>© 2026 Merchant Frontier Cap Co. All rights reserved.</p><div class="links"><a href="#/about">Privacy</a><a href="#/about">Terms</a><a href="#/about">Returns</a></div></div></div>';
     var nf = document.getElementById("newsForm");
     nf.addEventListener("submit", function (e) { e.preventDefault(); nf.style.display = "none"; document.getElementById("newsMsg").style.display = "block"; });
   }

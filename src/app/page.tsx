@@ -13,15 +13,16 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-cloud">
         <div className="container-site grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
           <div className="animate-fade-up">
-            <p className="eyebrow">Fall Headwear 2026</p>
+            <p className="eyebrow">Snapbacks · Fall 2026</p>
             <h1 className="mt-4 font-serif text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-              Good hats,
+              One shape,
               <br />
-              made to last.
+              done right.
             </h1>
             <p className="mt-6 max-w-md text-base text-stone">
-              Considered headwear in wool felt, straw, and cotton. No loud logos,
-              no noise — just hats you&apos;ll reach for until they wear in.
+              Merchant Frontier makes one thing — the snapback — and makes it
+              well. Structured crowns, flat brims, and front graphics worth
+              stitching. Pick your mark.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/shop" className="btn-primary">
@@ -58,8 +59,8 @@ export default function HomePage() {
       <section className="border-y border-ink/10">
         <div className="container-site grid grid-cols-2 gap-6 py-8 text-center md:grid-cols-4">
           {[
-            { t: "Natural materials", d: "Wool felt, straw & cotton" },
-            { t: "Made responsibly", d: "Fair factories, less waste" },
+            { t: "Built to last", d: "Structured crowns, flat brims" },
+            { t: "One size fits most", d: "Snapback closure, always" },
             { t: "Free shipping", d: "On orders over $75" },
             { t: "30-day returns", d: "Easy, no-fuss exchanges" },
           ].map((v) => (
@@ -136,15 +137,15 @@ export default function HomePage() {
         <div className="container-site grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
-              The Meridian promise
+              The Merchant Frontier promise
             </p>
             <h2 className="mt-4 font-serif text-3xl sm:text-4xl">
-              Fewer, better hats.
+              One cap. Every mark.
             </h2>
             <p className="mt-5 max-w-md text-cloud/70">
-              We make a tight collection of hats meant to work with everything
-              you own and outlast trends. Every piece is built from natural
-              materials in workshops we&apos;ve visited and vetted.
+              We believe in doing one thing well. A single, perfected snapback —
+              then a growing set of front graphics, from the frontier emblem to
+              the compass patch. Same great cap, your choice of mark.
             </p>
             <Link href="/about" className="btn mt-8 border border-cloud/30 text-cloud hover:bg-cloud hover:text-ink">
               Read our story

@@ -1,31 +1,37 @@
-# Meridian — Headwear Storefront
+# Merchant Frontier — Snapback Storefront
 
-A complete, production-quality e-commerce storefront for a fictional modern
-hat & headwear brand, built with **Next.js (App Router)**, **React**, **TypeScript**,
-and **Tailwind CSS**. It runs entirely on its own — no external services,
-accounts, or API keys required.
+A complete, production-quality e-commerce storefront for a fictional
+snapback-cap brand, **Merchant Frontier**, built with **Next.js (App Router)**,
+**React**, **TypeScript**, and **Tailwind CSS**. It runs entirely on its own —
+no external services, accounts, or API keys required.
 
-![Meridian](https://img.shields.io/badge/Next.js-14-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-3-38bdf8)
+The brand makes one thing — a structured flat-brim snapback — and differentiates
+products by the **front graphic**. The catalog is organized by mark type, using
+the same brand-mark system documented in [`designs/`](designs/).
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-3-38bdf8)
 
 ## Features
 
 - **Home page** — hero, value props, featured products, shoppable collections,
   best sellers, and an editorial brand section.
-- **Shop All** — client-side category filtering and sorting (price, name,
-  featured).
-- **Collections** — dynamic pages for New Arrivals, Essentials, Outerwear, and
-  Accessories.
-- **Product detail pages** — image gallery, color/size selectors with a live
-  preview, quantity, product details, materials & care, and related products.
+- **Shop All** — client-side filtering by front graphic (Emblem, Wordmark, Icon,
+  Monogram, Patch) and sorting (price, name, featured).
+- **Collections** — dynamic pages for New Arrivals, Frontier Series, Trail
+  Series, and Everyday.
+- **Product detail pages** — image gallery, colorway/size selectors with a live
+  preview, quantity, product details, materials, and related products.
 - **Cart** — slide-out drawer **and** a full cart page, with quantity controls,
   a free-shipping progress meter, and live totals.
 - **Checkout** — a complete shipping/payment form with an order summary and a
   simulated order confirmation (no real payment is processed).
 - **Persistent cart** — cart state is saved to `localStorage`, so it survives
   refreshes.
-- **Self-contained imagery** — every product "photo" is a generated SVG garment
-  illustration rendered in the selected color, so there are no external image
-  dependencies.
+- **Self-contained imagery** — every product "photo" is a generated SVG snapback
+  illustration that renders the selected colorway and the product's front
+  graphic, so there are no external image dependencies.
+- **Brand mark system** — five embroidery-ready vector marks in
+  [`designs/`](designs/), plus a hosted brand board (`designs/brand-board.html`).
 - **Responsive & accessible** — mobile menu, keyboard-focusable controls, ARIA
   labels, and a light, consistent design system.
 
@@ -53,6 +59,24 @@ npm run dev
 npm run build
 npm start
 ```
+
+## Brand marks
+
+The [`designs/`](designs/) folder holds the Merchant Frontier brand-mark system —
+five embroidery-ready SVGs built on a single idea, *the sun crossing the
+frontier*:
+
+| File | Mark | Used on |
+| ---- | ---- | ------- |
+| `mf-emblem-roundel.svg` | Frontier Emblem (crest) | Emblem snapbacks |
+| `mf-compass-patch.svg` | Compass Star (woven patch) | Patch snapbacks |
+| `mf-wordmark.svg` | Stacked wordmark | Wordmark snapbacks |
+| `mf-monogram.svg` | Interlocked MF | Monogram snapbacks |
+| `mf-icon-sun-horizon.svg` | Sun & Horizon (core icon) | Icon snapbacks |
+
+`designs/brand-board.html` is a self-contained page presenting all five marks
+with their thread colors, placements, and on-cap mockups — open it in any
+browser.
 
 ## Two ways to run it
 

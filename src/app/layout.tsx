@@ -8,16 +8,16 @@ import Announcement from "@/components/Announcement";
 
 export const metadata: Metadata = {
   title: {
-    default: "Meridian — Modern Headwear",
-    template: "%s · Meridian",
+    default: "Merchant Frontier — Snapback Caps",
+    template: "%s · Merchant Frontier",
   },
   description:
-    "Meridian makes considered, well-made hats built to be worn on repeat. Free shipping over $75.",
-  metadataBase: new URL("https://meridian.example.com"),
+    "Merchant Frontier makes considered, well-made snapback caps built to be worn on repeat. Free shipping over $75.",
+  metadataBase: new URL("https://merchantfrontier.example.com"),
   openGraph: {
-    title: "Meridian — Modern Headwear",
+    title: "Merchant Frontier — Snapback Caps",
     description:
-      "Considered, well-made hats built to be worn on repeat.",
+      "Considered, well-made snapback caps built to be worn on repeat.",
     type: "website",
   },
 };

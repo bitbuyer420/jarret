@@ -26,7 +26,7 @@ type CartContextValue = {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const STORAGE_KEY = "meridian-cart-v1";
+const STORAGE_KEY = "merchant-frontier-cart-v1";
 
 function keyFor(line: Pick<CartLine, "productId" | "color" | "size">) {
   return `${line.productId}::${line.color}::${line.size}`;

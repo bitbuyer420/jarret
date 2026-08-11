@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 170" width="220" height="170" role="img" aria-label="Merchant Frontier sun-and-horizon icon">
+  <!-- CORE ICON — a rising sun crossing the frontier line, with two peaks.
+       Thread colors: Ink #1E1B17, Clay #AC4E38. -->
+  <!-- rays -->
+  <g stroke="#1E1B17" stroke-width="5" stroke-linecap="round">
+    <path d="M110 66 V52" />
+    <path d="M140 74 L149 63" />
+    <path d="M80 74 L71 63" />
+  </g>
+  <!-- half sun -->
+  <path d="M68 118 A42 42 0 0 1 152 118 Z" fill="#AC4E38" />
+  <!-- frontier peaks in front of the sun -->
+  <path d="M62 118 L92 82 L122 118 Z" fill="#1E1B17" />
+  <path d="M104 118 L140 74 L176 118 Z" fill="#1E1B17" />
+  <!-- horizon / meridian line + tick -->
+  <g stroke="#1E1B17" stroke-width="6" stroke-linecap="round">
+    <path d="M26 118 H194" />
+    <path d="M110 118 V138" stroke-width="5" />
+  </g>
+</svg>

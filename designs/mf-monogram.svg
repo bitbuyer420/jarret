@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Merchant Frontier MF monogram">
+  <!-- INTERLOCKED MONOGRAM — an M and F sharing space.
+       Thread colors: Ink #1E1B17, Clay #AC4E38. -->
+  <!-- keyline box (optional stitch border) -->
+  <rect x="18" y="18" width="204" height="204" rx="20" fill="none" stroke="#1E1B17" stroke-width="3" opacity="0.25" />
+  <!-- M behind, in ink -->
+  <text x="104" y="176" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="168" letter-spacing="-6" fill="#1E1B17">M</text>
+  <!-- F in front, in clay, overlapping the M's right shoulder -->
+  <text x="150" y="176" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="168" letter-spacing="-6" fill="#AC4E38">F</text>
+</svg>

@@ -7,10 +7,10 @@ export default function Footer() {
     <footer className="mt-24 border-t border-ink/10 bg-cloud">
       <div className="container-site grid gap-12 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
-          <p className="text-xl font-semibold tracking-[0.28em]">MERIDIAN</p>
+          <p className="text-base font-semibold tracking-[0.2em]">MERCHANT FRONTIER</p>
           <p className="mt-4 max-w-xs text-sm text-stone">
-            Considered, well-made headwear built to be worn on repeat. Designed in
-            Portland, made responsibly.
+            One snapback, done right — with a growing set of front graphics.
+            Designed in Portland, built to last.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function Footer() {
 
       <div className="border-t border-ink/10">
         <div className="container-site flex flex-col items-center justify-between gap-3 py-6 text-xs text-stone sm:flex-row">
-          <p>© {new Date().getFullYear()} Meridian Supply Co. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Merchant Frontier Cap Co. All rights reserved.</p>
           <div className="flex gap-5">
             <Link href="/about" className="link-underline">
               Privacy

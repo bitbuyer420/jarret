@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 210" width="460" height="210" role="img" aria-label="Merchant Frontier wordmark">
+  <!-- STACKED WORDMARK — the full name, letter-spaced, with a sun-on-the-line divider.
+       Thread colors: Ink #1E1B17, Clay #AC4E38. -->
+  <text x="230" y="72" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="56" letter-spacing="6" fill="#1E1B17">MERCHANT</text>
+  <text x="230" y="132" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="56" letter-spacing="6" fill="#1E1B17">FRONTIER</text>
+
+  <!-- divider line with a rising sun at the meridian -->
+  <g stroke="#1E1B17" stroke-width="4" stroke-linecap="round">
+    <path d="M96 168 H206" />
+    <path d="M254 168 H364" />
+  </g>
+  <path d="M212 168 A18 18 0 0 1 248 168 Z" fill="#AC4E38" />
+  <path d="M230 168 V184" stroke="#1E1B17" stroke-width="4" stroke-linecap="round" />
+</svg>
