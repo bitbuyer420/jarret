@@ -13,15 +13,15 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-cloud">
         <div className="container-site grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
           <div className="animate-fade-up">
-            <p className="eyebrow">Fall Collection 2026</p>
+            <p className="eyebrow">Fall Headwear 2026</p>
             <h1 className="mt-4 font-serif text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-              Quiet clothes,
+              Good hats,
               <br />
               made to last.
             </h1>
             <p className="mt-6 max-w-md text-base text-stone">
-              Considered essentials in natural fibers and honest cuts. No logos, no
-              noise — just pieces you&apos;ll wear until they wear out.
+              Considered headwear in wool felt, straw, and cotton. No loud logos,
+              no noise — just hats you&apos;ll reach for until they wear in.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/shop" className="btn-primary">
@@ -58,7 +58,7 @@ export default function HomePage() {
       <section className="border-y border-ink/10">
         <div className="container-site grid grid-cols-2 gap-6 py-8 text-center md:grid-cols-4">
           {[
-            { t: "Natural fibers", d: "Organic cotton, merino & linen" },
+            { t: "Natural materials", d: "Wool felt, straw & cotton" },
             { t: "Made responsibly", d: "Fair factories, less waste" },
             { t: "Free shipping", d: "On orders over $75" },
             { t: "30-day returns", d: "Easy, no-fuss exchanges" },
@@ -139,12 +139,12 @@ export default function HomePage() {
               The Meridian promise
             </p>
             <h2 className="mt-4 font-serif text-3xl sm:text-4xl">
-              Fewer, better things.
+              Fewer, better hats.
             </h2>
             <p className="mt-5 max-w-md text-cloud/70">
-              We design a tight collection of pieces meant to work together and
-              outlast trends. Every garment is built from natural fibers in
-              factories we&apos;ve visited and vetted.
+              We make a tight collection of hats meant to work with everything
+              you own and outlast trends. Every piece is built from natural
+              materials in workshops we&apos;ve visited and vetted.
             </p>
             <Link href="/about" className="btn mt-8 border border-cloud/30 text-cloud hover:bg-cloud hover:text-ink">
               Read our story

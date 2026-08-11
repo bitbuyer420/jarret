@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Meridian — Modern Essentials</title>
-<meta name="description" content="Meridian makes considered, well-made apparel built to be worn on repeat.">
+<title>Meridian — Modern Headwear</title>
+<meta name="description" content="Meridian makes considered, well-made hats built to be worn on repeat.">
 </head>
 <body>
 <style>
@@ -400,28 +400,28 @@
 
   /* ----------------------------- Data ----------------------------- */
   var COLLECTIONS = [
-    { handle: "new-arrivals", title: "New Arrivals", accent: "#AC4E38", description: "The latest additions to the Meridian wardrobe — fresh cuts, seasonal fabrics, and quiet color." },
-    { handle: "essentials", title: "The Essentials", accent: "#7C8C6C", description: "Everyday pieces built to be worn on repeat. Considered basics that never shout." },
-    { handle: "outerwear", title: "Outerwear", accent: "#5B6B7B", description: "Layers for the in-between seasons. Structured, durable, and made to travel." },
-    { handle: "accessories", title: "Accessories", accent: "#B08D57", description: "The finishing details — carry, cover, and complete the look." }
+    { handle: "new-arrivals", title: "New Arrivals", accent: "#AC4E38", description: "The latest additions to the Meridian lineup — fresh shapes, seasonal materials, and quiet color." },
+    { handle: "everyday", title: "Everyday", accent: "#7C8C6C", description: "Caps and knits built for the daily rotation. Grab-and-go headwear that never shouts." },
+    { handle: "cold-weather", title: "Cold Weather", accent: "#5B6B7B", description: "Wool felt and warm knits for when the temperature drops. Built to layer and last." },
+    { handle: "sun-straw", title: "Sun & Straw", accent: "#B08D57", description: "Breathable straw and packable brims for long days in the sun." }
   ];
 
   var PRODUCTS = [
-    { id:"1", handle:"everyday-crew-tee", name:"Everyday Crew Tee", price:38, category:"Tees", collections:["new-arrivals","essentials"], colors:[{name:"Sand",hex:"#D9C9AE"},{name:"Ink",hex:"#26221E"},{name:"Sage",hex:"#8A9A7B"}], sizes:["XS","S","M","L","XL"], tagline:"The tee you'll reach for daily", description:"A midweight crewneck cut from long-staple combed cotton. Soft enough to sleep in, structured enough to wear out. The Everyday Crew is our most-loved piece for a reason.", details:["Midweight 190gsm combed cotton","Ribbed crew collar that holds its shape","Pre-shrunk, garment-washed for softness","Relaxed-but-tailored fit"], materials:"100% organic combed cotton", featured:true, bestSeller:true },
-    { id:"2", handle:"heavyweight-pocket-tee", name:"Heavyweight Pocket Tee", price:46, category:"Tees", collections:["essentials"], colors:[{name:"Bone",hex:"#EDE6D8"},{name:"Olive",hex:"#6E7355"},{name:"Charcoal",hex:"#3A3733"}], sizes:["S","M","L","XL"], tagline:"Structured cotton with a clean chest pocket", description:"Built from a dense 240gsm jersey that drapes with weight. A single chest pocket keeps it honest. This is the tee that gets better with every wash.", details:["Heavyweight 240gsm cotton jersey","Reinforced chest pocket","Double-needle hem and sleeves","Boxy, modern silhouette"], materials:"100% heavyweight cotton", bestSeller:true },
-    { id:"3", handle:"merino-crewneck-sweater", name:"Merino Crewneck Sweater", price:128, compareAtPrice:148, category:"Knitwear", collections:["new-arrivals","essentials"], colors:[{name:"Oatmeal",hex:"#D6CBB6"},{name:"Navy",hex:"#2C3444"},{name:"Clay",hex:"#B5533A"}], sizes:["S","M","L","XL"], tagline:"Fine-gauge merino for every season", description:"Knit from extra-fine merino wool that regulates temperature naturally — warm when it's cool, breathable when it's not. A wardrobe cornerstone.", details:["Extra-fine 19.5 micron merino wool","Fully-fashioned, seamless shoulders","Ribbed collar, cuffs, and hem","Naturally odor-resistant"], materials:"100% extra-fine merino wool", featured:true },
-    { id:"4", handle:"waffle-knit-henley", name:"Waffle-Knit Henley", price:72, category:"Knitwear", collections:["essentials"], colors:[{name:"Fog",hex:"#C7C3BA"},{name:"Rust",hex:"#A0522D"},{name:"Black",hex:"#201D1A"}], sizes:["S","M","L","XL"], tagline:"Textured layering with a three-button placket", description:"A waffle-textured henley that traps warmth without bulk. The perfect mid-layer, or a standalone on milder days.", details:["Thermal waffle-knit cotton blend","Three-button corozo placket","Rib-knit cuffs","Slim, layering-friendly fit"], materials:"95% cotton, 5% elastane" },
-    { id:"5", handle:"field-overshirt", name:"Field Overshirt", price:148, category:"Outerwear", collections:["new-arrivals","outerwear"], colors:[{name:"Tobacco",hex:"#7C5A3C"},{name:"Olive",hex:"#5F6647"},{name:"Slate",hex:"#4A4F57"}], sizes:["S","M","L","XL"], tagline:"A shirt-jacket that does the heavy lifting", description:"Part shirt, part jacket — the Field Overshirt is cut from brushed cotton twill with four utility pockets. Throw it over a tee or under a coat.", details:["Brushed 8oz cotton twill","Four button-through pockets","Corozo buttons","Relaxed overshirt fit"], materials:"100% brushed cotton twill", featured:true, bestSeller:true },
-    { id:"6", handle:"quilted-liner-jacket", name:"Quilted Liner Jacket", price:198, category:"Outerwear", collections:["outerwear"], colors:[{name:"Moss",hex:"#5A6350"},{name:"Black",hex:"#211E1B"}], sizes:["S","M","L","XL"], tagline:"Lightweight warmth that packs down small", description:"A diamond-quilted liner jacket with recycled insulation. Wear it solo in the shoulder seasons or zip it under a shell when it turns.", details:["Diamond-quilted recycled shell","Recycled synthetic insulation","Two-way YKK zip","Packs into its own pocket"], materials:"Recycled polyester shell & fill" },
-    { id:"7", handle:"selvedge-denim-jacket", name:"Selvedge Denim Jacket", price:178, category:"Outerwear", collections:["new-arrivals","outerwear"], colors:[{name:"Indigo",hex:"#38455F"},{name:"Washed",hex:"#8592A6"}], sizes:["S","M","L","XL"], tagline:"Raw selvedge denim that ages with you", description:"Cut from 13oz Japanese selvedge denim on vintage shuttle looms. It starts stiff and deep, then fades into something entirely your own.", details:["13oz Japanese selvedge denim","Copper rivets and branded shank buttons","Chain-stitched hems","Classic trucker silhouette"], materials:"100% cotton selvedge denim", featured:true },
-    { id:"8", handle:"tapered-chino", name:"Tapered Chino", price:98, category:"Bottoms", collections:["essentials"], colors:[{name:"Stone",hex:"#B7A98D"},{name:"Navy",hex:"#2C3444"},{name:"Black",hex:"#211E1B"}], sizes:["28","30","32","34","36"], tagline:"A clean chino with just enough stretch", description:"The chino, refined. A tapered leg, a touch of stretch, and a fabric that holds a press without fuss. Dress it up or down.", details:["Peached cotton twill with 2% stretch","Tapered leg, mid rise","Slant front, welt back pockets","Wrinkle-resistant finish"], materials:"98% cotton, 2% elastane", bestSeller:true },
-    { id:"9", handle:"relaxed-linen-trouser", name:"Relaxed Linen Trouser", price:110, category:"Bottoms", collections:["new-arrivals"], colors:[{name:"Flax",hex:"#D8C9A9"},{name:"Clay",hex:"#B5533A"},{name:"Sea",hex:"#6E8B8E"}], sizes:["28","30","32","34","36"], tagline:"Breezy European linen for warm days", description:"A relaxed, drawstring-waist trouser in breathable European linen. Effortless from the beach to dinner.", details:["Garment-dyed European linen","Elastic drawstring waist","Relaxed straight leg","Side seam pockets"], materials:"100% European linen", featured:true },
-    { id:"10", handle:"ribbed-beanie", name:"Ribbed Beanie", price:32, category:"Accessories", collections:["accessories"], colors:[{name:"Oat",hex:"#D6CBB6"},{name:"Clay",hex:"#B5533A"},{name:"Charcoal",hex:"#3A3733"},{name:"Sage",hex:"#8A9A7B"}], sizes:["One Size"], tagline:"Soft merino, cuffed and cozy", description:"A classic cuffed beanie knit from soft merino wool. Warm, itch-free, and endlessly wearable.", details:["Soft merino wool rib knit","Double-layer cuff","One size, stretches to fit"], materials:"100% merino wool" },
-    { id:"11", handle:"canvas-tote", name:"Heavy Canvas Tote", price:44, category:"Accessories", collections:["accessories","essentials"], colors:[{name:"Natural",hex:"#E2D8C3"},{name:"Olive",hex:"#6E7355"},{name:"Black",hex:"#211E1B"}], sizes:["One Size"], tagline:"A do-everything bag built to last", description:"A structured 18oz canvas tote with an interior pocket and reinforced straps. Groceries, laptops, the lot — it carries the day.", details:["18oz heavyweight cotton canvas","Reinforced webbing straps","Interior zip pocket","Flat base holds its shape"], materials:"100% heavyweight cotton canvas", bestSeller:true },
-    { id:"12", handle:"leather-card-holder", name:"Leather Card Holder", price:58, category:"Accessories", collections:["accessories"], colors:[{name:"Tan",hex:"#A9764A"},{name:"Black",hex:"#211E1B"},{name:"Cognac",hex:"#7C4A2D"}], sizes:["One Size"], tagline:"Full-grain leather that patinas beautifully", description:"A slim, four-pocket card holder in vegetable-tanned full-grain leather. It softens and deepens in color with every use.", details:["Vegetable-tanned full-grain leather","Four card slots + center pocket","Edge-painted and hand-finished","Ages to a rich patina"], materials:"Full-grain vegetable-tanned leather" }
+    { id:"1", handle:"wool-six-panel-ball-cap", name:"Wool 6-Panel Ball Cap", price:42, category:"Caps", collections:["new-arrivals","everyday"], colors:[{name:"Navy",hex:"#2C3444"},{name:"Olive",hex:"#5F6647"},{name:"Charcoal",hex:"#3A3733"}], sizes:["S/M","L/XL"], tagline:"The cap you'll reach for daily", description:"A structured six-panel cap in brushed wool with a curved brim and an adjustable strap. Holds its shape, sits low, and only gets better with wear.", details:["Brushed wool-blend outer","Structured six-panel crown, curved brim","Adjustable antique-brass strap","Cotton sweatband"], materials:"80% wool, 20% nylon", featured:true, bestSeller:true },
+    { id:"2", handle:"washed-cotton-dad-cap", name:"Washed Cotton Dad Cap", price:34, category:"Caps", collections:["everyday"], colors:[{name:"Stone",hex:"#B7A98D"},{name:"Black",hex:"#211E1B"},{name:"Rust",hex:"#A0522D"}], sizes:["One Size"], tagline:"Soft, unstructured, broken-in from day one", description:"An unstructured six-panel in garment-washed cotton twill. The low profile and pre-softened fabric make it feel like an old favorite the moment you put it on.", details:["Garment-washed cotton twill","Unstructured low-profile crown","Curved brim","Adjustable metal buckle strap"], materials:"100% washed cotton twill", bestSeller:true },
+    { id:"3", handle:"corduroy-trucker-cap", name:"Corduroy Trucker Cap", price:40, category:"Caps", collections:["new-arrivals","everyday"], colors:[{name:"Camel",hex:"#C19A6B"},{name:"Forest",hex:"#33463A"},{name:"Ecru",hex:"#E2D8C3"}], sizes:["One Size"], tagline:"Fine-wale cord with a breathable mesh back", description:"A classic trucker built from fine-wale corduroy up front with a breathable mesh back and a snapback closure. Warm-weather ventilation, cool-weather texture.", details:["Fine-wale corduroy front panels","Breathable mesh back","Mid-profile structured crown","Snapback closure"], materials:"Cotton corduroy front, polyester mesh back", featured:true },
+    { id:"4", handle:"ribbed-merino-beanie", name:"Ribbed Merino Beanie", price:32, category:"Beanies", collections:["everyday","cold-weather"], colors:[{name:"Oat",hex:"#D6CBB6"},{name:"Clay",hex:"#B5533A"},{name:"Charcoal",hex:"#3A3733"},{name:"Sage",hex:"#8A9A7B"}], sizes:["One Size"], tagline:"Soft merino, cuffed and cozy", description:"A classic cuffed beanie knit from soft merino wool. Warm, itch-free, and endlessly wearable — the one you'll lose and immediately re-buy.", details:["Soft merino wool rib knit","Double-layer cuff","One size, stretches to fit"], materials:"100% merino wool", bestSeller:true },
+    { id:"5", handle:"chunky-fisherman-beanie", name:"Chunky Fisherman Beanie", price:46, category:"Beanies", collections:["new-arrivals","cold-weather"], colors:[{name:"Ecru",hex:"#E2D8C3"},{name:"Navy",hex:"#2C3444"},{name:"Moss",hex:"#5A6350"}], sizes:["One Size"], tagline:"A hand-feel knit with a short, snug cuff", description:"A heavyweight fisherman knit with a short roll cuff that sits high on the head. Built from a lambswool blend for warmth without the itch.", details:["Chunky lambswool-blend knit","Short roll cuff","Sits high and snug","Fully-fashioned crown"], materials:"70% lambswool, 30% nylon", featured:true },
+    { id:"6", handle:"cuffed-waffle-beanie", name:"Cuffed Waffle Beanie", price:36, category:"Beanies", collections:["cold-weather"], colors:[{name:"Fog",hex:"#C7C3BA"},{name:"Rust",hex:"#A0522D"},{name:"Black",hex:"#201D1A"}], sizes:["One Size"], tagline:"Textured waffle knit with a deep cuff", description:"A waffle-textured beanie with a deep cuff you can wear rolled or slouched. Cotton-forward for milder days and layering.", details:["Thermal waffle-knit cotton blend","Deep fold cuff","Slouch or roll it"], materials:"95% cotton, 5% elastane" },
+    { id:"7", handle:"wide-brim-wool-fedora", name:"Wide-Brim Wool Fedora", price:128, compareAtPrice:148, category:"Brimmed", collections:["new-arrivals"], colors:[{name:"Charcoal",hex:"#3A3733"},{name:"Camel",hex:"#C19A6B"},{name:"Black",hex:"#211E1B"}], sizes:["S/M","L/XL"], tagline:"A structured felt brim with a pinched crown", description:"A wide-brim fedora blocked from 100% wool felt, with a teardrop pinch and a grosgrain band. Structured enough to hold its shape, soft enough to pack loosely.", details:["100% wool felt, hand-blocked","Wide 3\" brim","Teardrop pinched crown","Grosgrain ribbon band"], materials:"100% wool felt", featured:true },
+    { id:"8", handle:"teardrop-felt-hat", name:"Teardrop Felt Hat", price:118, category:"Brimmed", collections:["new-arrivals","cold-weather"], colors:[{name:"Slate",hex:"#4A4F57"},{name:"Tobacco",hex:"#7C5A3C"}], sizes:["S/M","L/XL"], tagline:"A medium brim that works with everything", description:"A versatile medium-brim felt hat with a classic teardrop crown. The everyday brimmed hat — dressed up or thrown on with a tee.", details:["Wool felt body","Medium 2.5\" brim","Teardrop crown","Tonal grosgrain band"], materials:"100% wool felt" },
+    { id:"9", handle:"wool-felt-bucket-hat", name:"Wool-Felt Bucket Hat", price:68, category:"Bucket", collections:["everyday","cold-weather"], colors:[{name:"Moss",hex:"#5A6350"},{name:"Charcoal",hex:"#3A3733"},{name:"Camel",hex:"#C19A6B"}], sizes:["S/M","L/XL"], tagline:"The bucket, warmed up in wool felt", description:"A bucket hat blocked from soft wool felt for cooler days. A downturned brim and a clean crown make it the season's most versatile shape.", details:["Soft wool-felt body","Downturned brim","Topstitched crown","Sits close to the head"], materials:"100% wool felt", bestSeller:true },
+    { id:"10", handle:"washed-cotton-bucket-hat", name:"Washed Cotton Bucket Hat", price:48, category:"Bucket", collections:["new-arrivals","sun-straw"], colors:[{name:"Sand",hex:"#D9C9AE"},{name:"Olive",hex:"#6E7355"},{name:"Black",hex:"#211E1B"}], sizes:["One Size"], tagline:"Lightweight cotton for everyday shade", description:"A garment-washed cotton bucket with a soft, packable brim. Throw it in a bag, pull it out sun-ready. Broken-in from the first wear.", details:["Garment-washed cotton twill","Soft packable brim","Ventilation eyelets","Interior drawcord"], materials:"100% washed cotton twill", featured:true },
+    { id:"11", handle:"packable-straw-sun-hat", name:"Packable Straw Sun Hat", price:72, category:"Straw", collections:["sun-straw"], colors:[{name:"Natural",hex:"#E2D8C3"},{name:"Wheat",hex:"#D8C9A9"}], sizes:["One Size"], tagline:"Wide shade that rolls up and travels", description:"A wide-brim sun hat woven from flexible paper straw that packs flat and springs back. Real coverage for the beach, the garden, or the long walk home.", details:["Woven paper straw","Wide 4\" shade brim","Packs flat, springs back","Adjustable inner band"], materials:"100% paper straw" },
+    { id:"12", handle:"panama-straw-hat", name:"Panama Straw Hat", price:110, category:"Straw", collections:["new-arrivals","sun-straw"], colors:[{name:"Ivory",hex:"#EDE6D8"},{name:"Straw",hex:"#D6C199"}], sizes:["S/M","L/XL"], tagline:"A hand-woven brim with a grosgrain band", description:"A finely hand-woven panama with a structured brim and a pinched crown. The dressed-up straw hat — for weddings, terraces, and warm evenings.", details:["Hand-woven toquilla-style straw","Structured 3\" brim","Pinched crown","Grosgrain band"], materials:"100% woven straw", featured:true }
   ];
 
-  var CATEGORIES = ["Tees", "Knitwear", "Outerwear", "Bottoms", "Accessories"];
+  var CATEGORIES = ["Caps", "Beanies", "Brimmed", "Bucket", "Straw"];
   var FREE_SHIP = 75, SHIP_FLAT = 8;
 
   var SWATCH = {};
@@ -452,19 +452,16 @@
     return "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
   var BG = {
-    Tees: "linear-gradient(160deg,#F4EFE6,#EAE2D3)", Knitwear: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
-    Outerwear: "linear-gradient(160deg,#ECEBE6,#DCD9CF)", Bottoms: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
-    Accessories: "linear-gradient(160deg,#F5F0E7,#EBE2D0)"
+    Caps: "linear-gradient(160deg,#F4EFE6,#EAE2D3)", Beanies: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
+    Brimmed: "linear-gradient(160deg,#ECEBE6,#DCD9CF)", Bucket: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
+    Straw: "linear-gradient(160deg,#F5F0E7,#EBE2D0)"
   };
   function garment(cat, handle, line) {
-    if (handle.indexOf("beanie") > -1) return '<path d="M120 300 C120 190 280 190 280 300 Z"/><rect x="112" y="298" width="176" height="46" rx="14"/><path d="M120 300 L120 240 M160 300 L160 214 M200 300 L200 206 M240 300 L240 214 M280 300 L280 240" fill="none" stroke="#00000022" stroke-width="4"/>';
-    if (handle.indexOf("tote") > -1) return '<path d="M132 190 L268 190 L282 400 L118 400 Z"/><path d="M164 190 C164 130 236 130 236 190" fill="none" stroke="'+line+'" stroke-width="8" stroke-linecap="round"/><path d="M118 232 L282 232" fill="none" stroke="'+line+'" stroke-width="2.5" opacity="0.5"/>';
-    if (handle.indexOf("card-holder") > -1) return '<rect x="118" y="196" width="164" height="118" rx="12"/><rect x="140" y="220" width="120" height="70" rx="6" fill="none" stroke="'+line+'" stroke-width="2.5" opacity="0.7"/><path d="M170 220 L170 290 M200 220 L200 290 M230 220 L230 290" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.5"/>';
-    if (handle.indexOf("trouser") > -1 || handle.indexOf("chino") > -1 || cat === "Bottoms") return '<path d="M132 96 L268 96 L262 200 L214 200 L200 420 L156 420 L150 250 L144 420 L100 420 L138 200 L132 96 Z" transform="translate(0,-4)"/><path d="M132 120 L268 120" fill="none" stroke="'+line+'" stroke-width="3"/><path d="M200 116 L200 196" fill="none" stroke="'+line+'" stroke-width="2" stroke-dasharray="3 6" opacity="0.6"/>';
-    if (cat === "Knitwear") return '<path d="M150 108 L96 132 L70 210 L104 228 L120 195 L120 388 L280 388 L280 195 L296 228 L330 210 L304 132 L250 108 C242 136 158 136 150 108 Z"/><path d="M150 108 C158 136 242 136 250 108" fill="none" stroke="'+line+'" stroke-width="3"/><path d="M120 372 L280 372" fill="none" stroke="'+line+'" stroke-width="3" stroke-dasharray="1 7"/>';
-    if (cat === "Outerwear") return '<path d="M150 104 L92 130 L66 214 L100 234 L118 198 L118 392 L282 392 L282 198 L300 234 L334 214 L308 130 L250 104 L206 128 L162 128 Z"/><path d="M200 128 L200 392" fill="none" stroke="'+line+'" stroke-width="2.5" stroke-dasharray="4 6"/><path d="M162 128 L150 104 M238 128 L250 104" fill="none" stroke="'+line+'" stroke-width="3"/><rect x="150" y="300" width="34" height="42" rx="3" fill="none" stroke="'+line+'" stroke-width="2.5"/><rect x="216" y="300" width="34" height="42" rx="3" fill="none" stroke="'+line+'" stroke-width="2.5"/>';
-    var pocket = handle.indexOf("pocket") > -1 ? '<rect x="168" y="205" width="46" height="52" rx="3" fill="none" stroke="'+line+'" stroke-width="2.5"/>' : '';
-    return '<path d="M150 110 L110 130 L88 185 L120 205 L132 175 L132 380 L268 380 L268 175 L280 205 L312 185 L290 130 L250 110 C240 138 160 138 150 110 Z"/><path d="M150 110 C160 138 240 138 250 110" fill="none" stroke="'+line+'" stroke-width="3"/>' + pocket;
+    if (cat === "Beanies") return '<path d="M120 300 C120 190 280 190 280 300 Z"/><rect x="112" y="298" width="176" height="46" rx="14"/><path d="M120 300 L120 240 M160 300 L160 214 M200 300 L200 206 M240 300 L240 214 M280 300 L280 240" fill="none" stroke="#00000022" stroke-width="4"/>';
+    if (cat === "Brimmed") return '<path d="M64 292 C 64 268 336 268 336 292 C 336 316 64 316 64 292 Z"/><path d="M142 290 C 140 212 158 190 200 190 C 242 190 260 212 258 290 Z"/><path d="M144 266 L256 266 L256 284 L144 284 Z" fill="'+line+'" opacity="0.85"/><path d="M174 200 C 186 210 214 210 226 200" fill="none" stroke="'+line+'" stroke-width="2.5" opacity="0.6"/><path d="M78 292 C 120 306 280 306 322 292" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.45"/>';
+    if (cat === "Bucket") return '<path d="M100 250 C 118 300 282 300 300 250 C 250 266 150 266 100 250 Z"/><path d="M142 252 C 142 196 258 196 258 252 Z"/><path d="M150 224 C 180 214 220 214 250 224" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.5"/><path d="M116 256 C 150 288 250 288 284 256 M132 260 C 160 280 240 280 268 260" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.4"/>';
+    if (cat === "Straw") return '<path d="M52 296 C 52 266 348 266 348 296 C 348 326 52 326 52 296 Z"/><path d="M150 294 C 148 226 158 208 200 208 C 242 208 252 226 250 294 Z"/><path d="M152 272 L248 272 L248 286 L152 286 Z" fill="'+line+'" opacity="0.8"/><path d="M74 296 C 118 312 282 312 326 296 M92 296 C 128 308 272 308 308 296 M110 296 C 140 305 260 305 290 296" fill="none" stroke="'+line+'" stroke-width="1.5" opacity="0.35"/><path d="M160 232 C 186 224 214 224 240 232 M158 250 C 186 244 214 244 242 250" fill="none" stroke="'+line+'" stroke-width="1.5" opacity="0.35"/>';
+    return '<path d="M112 250 C 150 306 250 306 288 250 C 250 272 150 272 112 250 Z"/><path d="M120 250 A 80 80 0 0 1 280 250 Z"/><circle cx="200" cy="170" r="6"/><path d="M200 172 L200 250 M164 182 L172 250 M236 182 L228 250" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.55"/><path d="M124 253 C 156 296 244 296 276 253" fill="none" stroke="'+line+'" stroke-width="2" opacity="0.5"/>';
   }
   function media(cat, hex, handle, cls) {
     var dark = shade(hex, -18), light = shade(hex, 16), uid = handle + "-" + hex.replace("#", "");
@@ -558,7 +555,7 @@
     var featured = PRODUCTS.filter(function (p) { return p.featured; }).slice(0, 8);
     var best = PRODUCTS.filter(function (p) { return p.bestSeller; }).slice(0, 4);
     var heroTiles = PRODUCTS.slice(0, 2).map(function (p) { return '<a class="tile" href="#/product/' + p.handle + '">' + media(p.category, p.colors[0].hex, p.handle) + '</a>'; }).join("");
-    var valueItems = [["Natural fibers","Organic cotton, merino & linen"],["Made responsibly","Fair factories, less waste"],["Free shipping","On orders over $75"],["30-day returns","Easy, no-fuss exchanges"]]
+    var valueItems = [["Natural materials","Wool felt, straw & cotton"],["Made responsibly","Fair factories, less waste"],["Free shipping","On orders over $75"],["30-day returns","Easy, no-fuss exchanges"]]
       .map(function (v) { return '<div><b>' + v[0] + '</b><small>' + v[1] + '</small></div>'; }).join("");
     var collCards = COLLECTIONS.map(function (c) {
       return '<a class="coll-card" href="#/collection/' + c.handle + '" style="background:linear-gradient(180deg,' + c.accent + '00 30%,' + c.accent + ' 100%),' + c.accent + '">' +
@@ -568,8 +565,8 @@
 
     return '' +
       '<section class="hero"><div class="wrap grid">' +
-        '<div><p class="eyebrow">Fall Collection 2026</p><h1>Quiet clothes,<br>made to last.</h1>' +
-        '<p class="lead">Considered essentials in natural fibers and honest cuts. No logos, no noise — just pieces you\'ll wear until they wear out.</p>' +
+        '<div><p class="eyebrow">Fall Headwear 2026</p><h1>Good hats,<br>made to last.</h1>' +
+        '<p class="lead">Considered headwear in wool felt, straw, and cotton. No loud logos, no noise — just hats you\'ll reach for until they wear in.</p>' +
         '<div class="hero-cta"><a href="#/shop" class="btn btn-primary">Shop the collection</a><a href="#/collection/new-arrivals" class="btn btn-secondary">New arrivals</a></div></div>' +
         '<div class="hero-tiles">' + heroTiles + '</div>' +
       '</div></section>' +
@@ -577,15 +574,15 @@
       '<section class="block"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Just landed</p><h2>Featured</h2></div><a href="#/shop" class="ul-link muted" style="font-size:14px">View all &rarr;</a></div>' + gridHTML(featured) + '</div></section>' +
       '<section class="block tint"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Shop by category</p><h2>Collections</h2></div></div><div class="colls">' + collCards + '</div></div></section>' +
       '<section class="block"><div class="wrap"><div class="sec-head"><div><p class="eyebrow">Tried &amp; true</p><h2>Best sellers</h2></div><a href="#/shop" class="ul-link muted" style="font-size:14px">View all &rarr;</a></div>' + gridHTML(best) + '</div></section>' +
-      '<section class="band"><div class="wrap grid"><div><p class="eyebrow">The Meridian promise</p><h2>Fewer, better things.</h2>' +
-      '<p>We design a tight collection of pieces meant to work together and outlast trends. Every garment is built from natural fibers in factories we\'ve visited and vetted.</p>' +
+      '<section class="band"><div class="wrap grid"><div><p class="eyebrow">The Meridian promise</p><h2>Fewer, better hats.</h2>' +
+      '<p>We make a tight collection of hats meant to work with everything you own and outlast trends. Every piece is built from natural materials in workshops we\'ve visited and vetted.</p>' +
       '<a href="#/about" class="btn btn-ghost" style="margin-top:28px">Read our story</a></div><div class="band-tiles">' + bandTiles + '</div></div></section>';
   }
 
   var shopState = { cat: "All", sort: "featured" };
   function viewShop() {
     return '<div class="wrap"><div class="page-head"><p class="eyebrow">Everything</p><h1>Shop All</h1>' +
-      '<p>The complete Meridian wardrobe — considered pieces in natural fibers, designed to be worn together and worn often.</p></div>' +
+      '<p>The complete Meridian lineup — considered hats in natural materials, designed to work with everything and worn often.</p></div>' +
       '<div style="padding:24px 0" id="shopMount"></div></div>';
   }
   function renderShop() {
@@ -764,18 +761,18 @@
   }
 
   function viewAbout() {
-    var values = [["Considered design","We release a tight collection of pieces designed to work together. No noise, no logos — just honest cuts and quiet color."],
-      ["Natural materials","Organic cotton, extra-fine merino, and European linen. Fibers that feel good, breathe well, and age gracefully."],
-      ["Made responsibly","We partner with a small number of factories we've visited and vetted, and we design out waste wherever we can."]]
+    var values = [["Considered design","We make a tight collection of hats designed to work with everything. No noise, no loud logos — just clean shapes and quiet color."],
+      ["Natural materials","Wool felt, merino knits, and woven straw. Materials that feel good, wear in beautifully, and age with character."],
+      ["Made responsibly","We partner with a small number of workshops we've visited and vetted, and we design out waste wherever we can."]]
       .map(function (v) { return '<div><div class="rule"></div><h3>' + v[0] + '</h3><p>' + v[1] + '</p></div>'; }).join("");
-    var sus = [["Natural & recycled fibers","Over 90% of our line is natural or recycled materials."],
-      ["Low-impact dyeing","Garment-dyed in facilities that recycle water."],
+    var sus = [["Natural & recycled materials","Over 90% of our line is natural or recycled materials."],
+      ["Low-impact dyeing","Piece-dyed in facilities that recycle water."],
       ["Built to last","We design for durability, then repair rather than replace."],
       ["Plastic-free shipping","Recycled, recyclable mailers — no single-use plastic."]]
       .map(function (s) { return '<div class="item"><h4>' + s[0] + '</h4><small>' + s[1] + '</small></div>'; }).join("");
     return '<section class="banner" style="background:var(--cloud)"><div class="wrap" style="padding:64px 0"><p class="eyebrow">Our Story</p>' +
-      '<h1 style="font-size:clamp(34px,5vw,50px);max-width:46rem;margin-top:12px;line-height:1.08">We started Meridian to make clothes worth keeping.</h1>' +
-      '<p class="muted" style="max-width:38rem;margin-top:22px;font-size:18px">In a world of fast fashion and disposable trends, we chose a different path: a small, considered collection of essentials, built from natural fibers and made to last for years, not seasons.</p></div></section>' +
+      '<h1 style="font-size:clamp(34px,5vw,50px);max-width:46rem;margin-top:12px;line-height:1.08">We started Meridian to make hats worth keeping.</h1>' +
+      '<p class="muted" style="max-width:38rem;margin-top:22px;font-size:18px">In a world of fast fashion and disposable trends, we chose a different path: a small, considered collection of headwear, built from natural materials and made to last for years, not seasons.</p></div></section>' +
       '<div class="wrap"><div class="about-values">' + values + '</div></div>' +
       '<section class="band"><div class="wrap grid"><div><p class="eyebrow">Sustainability</p><h2 style="font-size:34px;margin-top:14px">Better by design, not by accident.</h2></div><div class="sus-list">' + sus + '</div></div></section>' +
       '<div class="wrap"><div style="text-align:center;padding:70px 0"><h2 style="font-size:30px">Questions? We\'re here.</h2>' +
@@ -798,7 +795,7 @@
   function renderFooter() {
     var shop = '<li><a href="#/shop">All Products</a></li>' + COLLECTIONS.map(function (c) { return '<li><a href="#/collection/' + c.handle + '">' + c.title + '</a></li>'; }).join("");
     document.getElementById("site-footer").innerHTML =
-      '<div class="wrap foot-grid"><div><p class="logo" style="font-size:20px">MERIDIAN</p><p class="muted" style="max-width:20rem;margin-top:16px;font-size:14px">Considered, well-made apparel built to be worn on repeat. Designed in Portland, made responsibly.</p></div>' +
+      '<div class="wrap foot-grid"><div><p class="logo" style="font-size:20px">MERIDIAN</p><p class="muted" style="max-width:20rem;margin-top:16px;font-size:14px">Considered, well-made headwear built to be worn on repeat. Designed in Portland, made responsibly.</p></div>' +
       '<div><h4>Shop</h4><ul>' + shop + '</ul></div>' +
       '<div><h4>Company</h4><ul><li><a href="#/about">Our Story</a></li><li><a href="#/about">Sustainability</a></li><li><a href="#/shop">Size Guide</a></li><li><a href="#/about">Contact</a></li></ul></div>' +
       '<div><h4>Stay in the loop</h4><p class="muted" style="margin-top:14px;font-size:14px">Early access to drops and 10% off your first order.</p>' +

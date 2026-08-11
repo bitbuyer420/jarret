@@ -4,7 +4,7 @@ import ShopClient from "@/components/ShopClient";
 
 export const metadata: Metadata = {
   title: "Shop All",
-  description: "Browse the full Meridian collection of modern apparel essentials.",
+  description: "Browse the full Meridian collection of modern hats and headwear.",
 };
 
 export default function ShopPage() {
@@ -14,8 +14,8 @@ export default function ShopPage() {
         <p className="eyebrow">Everything</p>
         <h1 className="mt-2 font-serif text-4xl">Shop All</h1>
         <p className="mt-3 max-w-xl text-stone">
-          The complete Meridian wardrobe — considered pieces in natural fibers,
-          designed to be worn together and worn often.
+          The complete Meridian lineup — considered hats in natural materials,
+          designed to work with everything and worn often.
         </p>
       </header>
 

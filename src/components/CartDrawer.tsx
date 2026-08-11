@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { useCart } from "@/context/CartContext";
-import { formatPrice } from "@/lib/products";
+import { formatPrice, swatchMap } from "@/lib/products";
 
 const FREE_SHIP_THRESHOLD = 75;
 
@@ -98,7 +98,7 @@ export default function CartDrawer() {
                   <li key={key} className="flex gap-4 py-4">
                     <div
                       className="h-20 w-16 shrink-0 rounded-md"
-                      style={{ backgroundColor: colorFor(line.color) }}
+                      style={{ backgroundColor: swatchMap[line.color] ?? "#D6CBB6" }}
                     />
                     <div className="flex flex-1 flex-col">
                       <div className="flex justify-between gap-2">
@@ -172,17 +172,4 @@ export default function CartDrawer() {
       </aside>
     </>
   );
-}
-
-/** Map a color name back to a swatch hex for the mini thumbnail. */
-function colorFor(name: string): string {
-  const map: Record<string, string> = {
-    Sand: "#D9C9AE", Ink: "#26221E", Sage: "#8A9A7B", Bone: "#EDE6D8",
-    Olive: "#6E7355", Charcoal: "#3A3733", Oatmeal: "#D6CBB6", Navy: "#2C3444",
-    Clay: "#B5533A", Fog: "#C7C3BA", Rust: "#A0522D", Black: "#211E1B",
-    Tobacco: "#7C5A3C", Slate: "#4A4F57", Moss: "#5A6350", Indigo: "#38455F",
-    Washed: "#8592A6", Stone: "#B7A98D", Flax: "#D8C9A9", Sea: "#6E8B8E",
-    Oat: "#D6CBB6", Natural: "#E2D8C3", Tan: "#A9764A", Cognac: "#7C4A2D",
-  };
-  return map[name] ?? "#D6CBB6";
 }

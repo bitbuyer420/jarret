@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="md:col-span-1">
           <p className="text-xl font-semibold tracking-[0.28em]">MERIDIAN</p>
           <p className="mt-4 max-w-xs text-sm text-stone">
-            Considered, well-made apparel built to be worn on repeat. Designed in
+            Considered, well-made headwear built to be worn on repeat. Designed in
             Portland, made responsibly.
           </p>
         </div>

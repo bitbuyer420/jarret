@@ -1,7 +1,7 @@
-# Meridian — Apparel Storefront
+# Meridian — Headwear Storefront
 
 A complete, production-quality e-commerce storefront for a fictional modern
-apparel brand, built with **Next.js (App Router)**, **React**, **TypeScript**,
+hat & headwear brand, built with **Next.js (App Router)**, **React**, **TypeScript**,
 and **Tailwind CSS**. It runs entirely on its own — no external services,
 accounts, or API keys required.
 

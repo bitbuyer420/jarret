@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Our Story",
   description:
-    "Meridian makes fewer, better things — considered apparel in natural fibers, made responsibly.",
+    "Meridian makes fewer, better hats — considered headwear in natural materials, made responsibly.",
 };
 
 export default function AboutPage() {
@@ -15,12 +15,12 @@ export default function AboutPage() {
         <div className="container-site py-16 md:py-24">
           <p className="eyebrow">Our Story</p>
           <h1 className="mt-3 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
-            We started Meridian to make clothes worth keeping.
+            We started Meridian to make hats worth keeping.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-stone">
             In a world of fast fashion and disposable trends, we chose a
-            different path: a small, considered collection of essentials, built
-            from natural fibers and made to last for years, not seasons.
+            different path: a small, considered collection of headwear, built
+            from natural materials and made to last for years, not seasons.
           </p>
         </div>
       </section>
@@ -30,15 +30,15 @@ export default function AboutPage() {
         {[
           {
             t: "Considered design",
-            d: "We release a tight collection of pieces designed to work together. No noise, no logos — just honest cuts and quiet color.",
+            d: "We make a tight collection of hats designed to work with everything. No noise, no loud logos — just clean shapes and quiet color.",
           },
           {
             t: "Natural materials",
-            d: "Organic cotton, extra-fine merino, and European linen. Fibers that feel good, breathe well, and age gracefully.",
+            d: "Wool felt, merino knits, and woven straw. Materials that feel good, wear in beautifully, and age with character.",
           },
           {
             t: "Made responsibly",
-            d: "We partner with a small number of factories we've visited and vetted, and we design out waste wherever we can.",
+            d: "We partner with a small number of workshops we've visited and vetted, and we design out waste wherever we can.",
           },
         ].map((v) => (
           <div key={v.t}>
@@ -63,7 +63,7 @@ export default function AboutPage() {
           <div className="space-y-6">
             {[
               ["Natural & recycled fibers", "Over 90% of our line is natural or recycled materials."],
-              ["Low-impact dyeing", "Garment-dyed in facilities that recycle water."],
+              ["Low-impact dyeing", "Piece-dyed in facilities that recycle water."],
               ["Built to last", "We design for durability, then repair rather than replace."],
               ["Plastic-free shipping", "Recycled, recyclable mailers — no single-use plastic."],
             ].map(([t, d]) => (

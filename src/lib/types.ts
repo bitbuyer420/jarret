@@ -24,11 +24,11 @@ export type Product = {
 };
 
 export type ProductCategory =
-  | "Tees"
-  | "Knitwear"
-  | "Outerwear"
-  | "Bottoms"
-  | "Accessories";
+  | "Caps"
+  | "Beanies"
+  | "Brimmed"
+  | "Bucket"
+  | "Straw";
 
 export type Collection = {
   handle: string;

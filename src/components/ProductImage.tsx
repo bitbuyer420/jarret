@@ -51,88 +51,45 @@ export default function ProductImage({
           strokeLinejoin="round"
           filter={`url(#soft-${handle})`}
         >
-          {renderGarment(category, handle, shade)}
+          {renderHat(category, shade)}
         </g>
       </svg>
     </div>
   );
 }
 
-function renderGarment(
-  category: ProductCategory,
-  handle: string,
-  line: string,
-) {
-  if (handle.includes("beanie")) return beanie();
-  if (handle.includes("tote")) return tote(line);
-  if (handle.includes("card-holder")) return cardHolder(line);
-  if (handle.includes("trouser") || handle.includes("chino")) return pants(line);
-
+function renderHat(category: ProductCategory, line: string) {
   switch (category) {
-    case "Tees":
-      return tee(handle, line);
-    case "Knitwear":
-      return sweater(line);
-    case "Outerwear":
-      return jacket(line);
-    case "Bottoms":
-      return pants(line);
-    case "Accessories":
-      return tote(line);
+    case "Caps":
+      return cap(line);
+    case "Beanies":
+      return beanie();
+    case "Brimmed":
+      return brimmed(line);
+    case "Bucket":
+      return bucket(line);
+    case "Straw":
+      return straw(line);
     default:
-      return tee(handle, line);
+      return cap(line);
   }
 }
 
-/* ---------- Garment paths ---------- */
+/* ---------- Hat paths (front view, 400×480 viewBox) ---------- */
 
-function tee(handle: string, line: string) {
+function cap(line: string) {
   return (
     <>
-      <path d="M150 110 L110 130 L88 185 L120 205 L132 175 L132 380 L268 380 L268 175 L280 205 L312 185 L290 130 L250 110 C240 138 160 138 150 110 Z" />
-      <path
-        d="M150 110 C160 138 240 138 250 110"
-        fill="none"
-        stroke={line}
-        strokeWidth="3"
-      />
-      {handle.includes("pocket") && (
-        <rect x="168" y="205" width="46" height="52" rx="3" fill="none" stroke={line} strokeWidth="2.5" />
-      )}
-    </>
-  );
-}
-
-function sweater(line: string) {
-  return (
-    <>
-      <path d="M150 108 L96 132 L70 210 L104 228 L120 195 L120 388 L280 388 L280 195 L296 228 L330 210 L304 132 L250 108 C242 136 158 136 150 108 Z" />
-      <path d="M150 108 C158 136 242 136 250 108" fill="none" stroke={line} strokeWidth="3" />
-      <path d="M120 372 L280 372" fill="none" stroke={line} strokeWidth="3" strokeDasharray="1 7" />
-      <path d="M110 220 L110 366" fill="none" stroke={line} strokeWidth="2" strokeDasharray="1 8" opacity="0.6" />
-      <path d="M290 220 L290 366" fill="none" stroke={line} strokeWidth="2" strokeDasharray="1 8" opacity="0.6" />
-    </>
-  );
-}
-
-function jacket(line: string) {
-  return (
-    <>
-      <path d="M150 104 L92 130 L66 214 L100 234 L118 198 L118 392 L282 392 L282 198 L300 234 L334 214 L308 130 L250 104 L206 128 L162 128 Z" />
-      <path d="M200 128 L200 392" fill="none" stroke={line} strokeWidth="2.5" strokeDasharray="4 6" />
-      <path d="M162 128 L150 104 M238 128 L250 104" fill="none" stroke={line} strokeWidth="3" />
-      <rect x="150" y="300" width="34" height="42" rx="3" fill="none" stroke={line} strokeWidth="2.5" />
-      <rect x="216" y="300" width="34" height="42" rx="3" fill="none" stroke={line} strokeWidth="2.5" />
-    </>
-  );
-}
-
-function pants(line: string) {
-  return (
-    <>
-      <path d="M132 96 L268 96 L262 200 L214 200 L200 420 L156 420 L150 250 L144 420 L100 420 L138 200 L132 96 Z" transform="translate(0,-4)" />
-      <path d="M132 120 L268 120" fill="none" stroke={line} strokeWidth="3" />
-      <path d="M200 116 L200 196" fill="none" stroke={line} strokeWidth="2" strokeDasharray="3 6" opacity="0.6" />
+      {/* curved brim */}
+      <path d="M112 250 C 150 306 250 306 288 250 C 250 272 150 272 112 250 Z" />
+      {/* crown dome */}
+      <path d="M120 250 A 80 80 0 0 1 280 250 Z" />
+      {/* top button */}
+      <circle cx="200" cy="170" r="6" />
+      {/* panel seams */}
+      <path d="M200 172 L200 250 M164 182 L172 250 M236 182 L228 250" fill="none" stroke={line} strokeWidth="2" opacity="0.55" />
+      {/* brim edge stitch */}
+      <path d="M124 253 C 156 296 244 296 276 253" fill="none" stroke={line} strokeWidth="2" opacity="0.5" />
     </>
   );
 }
@@ -147,22 +104,51 @@ function beanie() {
   );
 }
 
-function tote(line: string) {
+function brimmed(line: string) {
   return (
     <>
-      <path d="M132 190 L268 190 L282 400 L118 400 Z" />
-      <path d="M164 190 C164 130 236 130 236 190" fill="none" stroke={line} strokeWidth="8" strokeLinecap="round" />
-      <path d="M118 232 L282 232" fill="none" stroke={line} strokeWidth="2.5" opacity="0.5" />
+      {/* wide brim ellipse */}
+      <path d="M64 292 C 64 268 336 268 336 292 C 336 316 64 316 64 292 Z" />
+      {/* crown with pinched top */}
+      <path d="M142 290 C 140 212 158 190 200 190 C 242 190 260 212 258 290 Z" />
+      {/* band */}
+      <path d="M144 266 L256 266 L256 284 L144 284 Z" fill={line} opacity="0.85" />
+      {/* teardrop dent */}
+      <path d="M174 200 C 186 210 214 210 226 200" fill="none" stroke={line} strokeWidth="2.5" opacity="0.6" />
+      {/* brim edge */}
+      <path d="M78 292 C 120 306 280 306 322 292" fill="none" stroke={line} strokeWidth="2" opacity="0.45" />
     </>
   );
 }
 
-function cardHolder(line: string) {
+function bucket(line: string) {
   return (
     <>
-      <rect x="118" y="196" width="164" height="118" rx="12" />
-      <rect x="140" y="220" width="120" height="70" rx="6" fill="none" stroke={line} strokeWidth="2.5" opacity="0.7" />
-      <path d="M170 220 L170 290 M200 220 L200 290 M230 220 L230 290" fill="none" stroke={line} strokeWidth="2" opacity="0.5" />
+      {/* downturned brim */}
+      <path d="M100 250 C 118 300 282 300 300 250 C 250 266 150 266 100 250 Z" />
+      {/* rounded crown */}
+      <path d="M142 252 C 142 196 258 196 258 252 Z" />
+      {/* crown topstitch */}
+      <path d="M150 224 C 180 214 220 214 250 224" fill="none" stroke={line} strokeWidth="2" opacity="0.5" />
+      {/* brim stitch lines */}
+      <path d="M116 256 C 150 288 250 288 284 256 M132 260 C 160 280 240 280 268 260" fill="none" stroke={line} strokeWidth="2" opacity="0.4" />
+    </>
+  );
+}
+
+function straw(line: string) {
+  return (
+    <>
+      {/* very wide shade brim */}
+      <path d="M52 296 C 52 266 348 266 348 296 C 348 326 52 326 52 296 Z" />
+      {/* low rounded crown */}
+      <path d="M150 294 C 148 226 158 208 200 208 C 242 208 252 226 250 294 Z" />
+      {/* band */}
+      <path d="M152 272 L248 272 L248 286 L152 286 Z" fill={line} opacity="0.8" />
+      {/* woven straw texture — concentric brim lines */}
+      <path d="M74 296 C 118 312 282 312 326 296 M92 296 C 128 308 272 308 308 296 M110 296 C 140 305 260 305 290 296" fill="none" stroke={line} strokeWidth="1.5" opacity="0.35" />
+      {/* crown weave */}
+      <path d="M160 232 C 186 224 214 224 240 232 M158 250 C 186 244 214 244 242 250" fill="none" stroke={line} strokeWidth="1.5" opacity="0.35" />
     </>
   );
 }
@@ -171,11 +157,11 @@ function cardHolder(line: string) {
 
 function backgroundFor(category: ProductCategory): string {
   const map: Record<ProductCategory, string> = {
-    Tees: "linear-gradient(160deg,#F4EFE6,#EAE2D3)",
-    Knitwear: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
-    Outerwear: "linear-gradient(160deg,#ECEBE6,#DCD9CF)",
-    Bottoms: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
-    Accessories: "linear-gradient(160deg,#F5F0E7,#EBE2D0)",
+    Caps: "linear-gradient(160deg,#F4EFE6,#EAE2D3)",
+    Beanies: "linear-gradient(160deg,#F1ECE2,#E4DAC8)",
+    Brimmed: "linear-gradient(160deg,#ECEBE6,#DCD9CF)",
+    Bucket: "linear-gradient(160deg,#F3EFE8,#E7DECE)",
+    Straw: "linear-gradient(160deg,#F5F0E7,#EBE2D0)",
   };
   return map[category];
 }
