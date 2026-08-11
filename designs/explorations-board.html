@@ -1,94 +1,115 @@
 <style>
-  :root{
-    --board:#E9E2D3; --card:#FBF8F2; --ink:#1E1B17; --ink70:rgba(30,27,23,.68);
-    --stone:#8B8172; --clay:#AC4E38; --loden:#4B5240; --line:rgba(30,27,23,.14);
-    --serif:Georgia,'Iowan Old Style',Cambria,serif;
-    --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-    color-scheme:light;
-  }
+  :root{--board:#E9E2D3;--card:#FBF8F2;--ink:#1E1B17;--ink70:rgba(30,27,23,.68);--stone:#8B8172;--clay:#AC4E38;--loden:#4B5240;--camel:#C19A6B;--line:rgba(30,27,23,.14);--serif:Georgia,'Iowan Old Style',Cambria,serif;--sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color-scheme:light;}
   *{box-sizing:border-box}
   body{margin:0;background:var(--board);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
   h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;margin:0;text-wrap:balance}
   .eyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin:0}
   svg{display:block}
-
   .mast{border-bottom:1px solid var(--line)}
   .mast .wrap{padding:60px 28px 44px}
   .mast h1{font-family:var(--sans);font-weight:700;letter-spacing:.14em;font-size:clamp(26px,5vw,44px);margin-top:14px}
   .mast p.lede{max-width:44rem;margin-top:18px;font-size:18px;color:var(--ink70)}
-
   section{padding:52px 0}
   .sec-label{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
   .sec-label span{font-size:12px;font-weight:700;color:var(--clay)}
   .sec-label h2{font-size:26px}
   .sec-sub{color:var(--ink70);margin:0 0 30px;max-width:44rem}
-
+  .threads{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:720px){.threads{grid-template-columns:repeat(5,1fr)}}
+  .thread{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .thread .sw{height:80px}
+  .thread .meta{padding:12px 14px}
+  .thread .meta b{font-size:14px}
+  .thread .meta code{display:block;font-size:12px;color:var(--stone);margin-top:2px;font-variant-numeric:tabular-nums}
   .grid3{display:grid;grid-template-columns:1fr;gap:20px}
   @media(min-width:640px){.grid3{grid-template-columns:repeat(3,1fr)}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-  .art{background:repeating-linear-gradient(45deg,#F4F0E7 0 12px,#F0EBE0 12px 24px);
-    display:flex;align-items:center;justify-content:center;padding:26px;border-bottom:1px solid var(--line)}
+  .art{background:repeating-linear-gradient(45deg,#F4F0E7 0 12px,#F0EBE0 12px 24px);display:flex;align-items:center;justify-content:center;padding:26px;border-bottom:1px solid var(--line)}
   .art svg{width:100%;max-width:190px;height:auto}
   .info{padding:20px 22px 24px}
   .info .role{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
   .info h3{font-size:20px;margin-top:6px}
   .info p{color:var(--ink70);margin:8px 0 0;font-size:14px}
-  .info .treat{margin-top:12px;font-size:12px;color:var(--stone);display:flex;flex-wrap:wrap;gap:6px}
+  .info .treat{margin-top:12px;font-size:12px;color:var(--stone)}
   .info .treat b{color:var(--ink);font-weight:600}
-
-  .note{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-top:6px}
+  .oncap{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+  .oncap .cap{width:78px;height:78px;flex:none}
+  .oncap small{font-size:12px;color:var(--stone)}
+  .heritage{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:720px){.heritage{grid-template-columns:repeat(3,1fr)}}
+  .hcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .hcard .art{padding:22px}.hcard .art svg{max-width:150px}
+  .hcard .hinfo{padding:16px 18px 20px}.hcard h3{font-size:18px}
+  .hcard .role{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+  .hcard p{font-size:13px;color:var(--ink70);margin:8px 0 0}
+  .caprow{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:720px){.caprow{grid-template-columns:repeat(6,1fr)}}
+  .capcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+  .capcard .cap{width:100%;height:120px}.capcard b{display:block;font-size:12px;margin-top:4px}
+  .specs{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:720px){.specs{grid-template-columns:repeat(3,1fr)}}
+  .spec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .spec h4{font-family:var(--sans);font-size:14px;font-weight:700;margin:0 0 8px}
+  .spec ul{margin:0;padding-left:18px;color:var(--ink70);font-size:14px}.spec ul li{margin:5px 0}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
   .note p{margin:0;color:var(--ink70);font-size:14px}
   footer{border-top:1px solid var(--line);margin-top:20px}
   footer .wrap{padding:26px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--stone)}
 </style>
-
-<div class="mast">
-  <div class="wrap">
-    <p class="eyebrow">Animal Design Explorations</p>
-    <h1>MERCHANT&nbsp;FRONTIER</h1>
-    <p class="lede">Six new directions for the herd — three signature <em>skull mounts</em> and three creative studies. All embroidery-ready: flat shapes, the five house thread colors, bold enough to stitch at 2 inches.</p>
-  </div>
-</div>
-
+<div class="mast"><div class="wrap"><p class="eyebrow">Animal Design Explorations</p><h1>MERCHANT&nbsp;FRONTIER</h1>
+<p class="lede">Two directions beyond the standard marks — the animals out on the <em>prairie</em>, and a set of creative studies. All embroidery-ready and inside the five house thread colors.</p></div></div>
 <div class="wrap">
-
-  <section>
-    <div class="sec-label"><span>01</span><h2>Signature — Skull Mounts</h2></div>
-    <p class="sec-sub">A cohesive trio of European-mount skull badges. Distinctive, western, and unmistakably ours — the flagship upgrade to the animal line.</p>
-    <div class="grid3">
-      <div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
-<circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/><circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/><path d="M216 164 C 240 158 258 158 270 150 C 266 164 254 178 244 180 C 248 172 244 166 236 166 C 228 166 220 165 216 168 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M216 164 C 240 158 258 158 270 150 C 266 164 254 178 244 180 C 248 172 244 166 236 166 C 228 166 220 165 216 168 Z" fill="#1E1B17"/></g><path d="M200 156 C 174 156 165 176 170 200 C 173 216 185 224 191 238 C 195 250 205 250 209 238 C 215 224 227 216 230 200 C 235 176 226 156 200 156 Z" fill="#1E1B17"/><ellipse cx="186" cy="196" rx="6" ry="9" fill="#FBF8F2"/><ellipse cx="214" cy="196" rx="6" ry="9" fill="#FBF8F2"/><path d="M200 214 L193 230 L207 230 Z" fill="#FBF8F2"/><text x="200" y="312" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="18" letter-spacing="4" fill="#1E1B17">BISON</text>
-</svg></div><div class="info"><p class="role">Signature</p><h3>Bison Skull</h3><p>A broad bison skull with horns hooking up and out. The head of the herd, mounted.</p><div class="treat"><b>2 colors</b> · Ink + Ivory · front &amp; center</div></div></div>
-      <div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
-<circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/><circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/><path d="M206 188 C 226 168 238 146 242 116" fill="none" stroke="#1E1B17" stroke-width="6.5" stroke-linecap="round"/><path d="M228 158 L250 150" fill="none" stroke="#1E1B17" stroke-width="5.5" stroke-linecap="round"/><path d="M235 140 L257 134" fill="none" stroke="#1E1B17" stroke-width="5.5" stroke-linecap="round"/><path d="M240 124 L258 116" fill="none" stroke="#1E1B17" stroke-width="5.5" stroke-linecap="round"/><path d="M242 116 L250 104" fill="none" stroke="#1E1B17" stroke-width="5.5" stroke-linecap="round"/><g transform="translate(400,0) scale(-1,1)"><path d="M206 188 C 226 168 238 146 242 116" fill="none" stroke="#1E1B17" stroke-width="6.5" stroke-linecap="round"/><path d="M228 158 L250 150" fill="none" stroke="#1E1B17" stroke-width="5.5" stroke-linecap="round"/><path d="M235 140 L257 134" fill="none" stroke="#1E1B17" stroke-width="5.5" stroke-linecap="round"/><path d="M240 124 L258 116" fill="none" stroke="#1E1B17" stroke-width="5.5" stroke-linecap="round"/><path d="M242 116 L250 104" fill="none" stroke="#1E1B17" stroke-width="5.5" stroke-linecap="round"/></g><path d="M200 186 C 187 186 181 198 183 212 C 185 224 193 230 197 242 C 199 250 203 250 205 242 C 209 230 217 224 219 212 C 221 198 215 186 200 186 Z" fill="#1E1B17"/><ellipse cx="191" cy="206" rx="4.5" ry="7" fill="#FBF8F2"/><ellipse cx="209" cy="206" rx="4.5" ry="7" fill="#FBF8F2"/><path d="M200 224 L195 236 L205 236 Z" fill="#FBF8F2"/><text x="200" y="312" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="18" letter-spacing="4" fill="#1E1B17">ELK</text>
-</svg></div><div class="info"><p class="role">Signature</p><h3>Elk Skull</h3><p>A European-mount elk skull with a full branching rack rising off the crown.</p><div class="treat"><b>2 colors</b> · Ink + Ivory · front &amp; center</div></div></div>
-      <div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
-<circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/><circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/><path d="M214 158 C 244 150 276 146 300 128 C 304 132 303 140 294 146 C 268 162 234 168 214 166 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M214 158 C 244 150 276 146 300 128 C 304 132 303 140 294 146 C 268 162 234 168 214 166 Z" fill="#1E1B17"/></g><path d="M200 150 C 176 150 168 168 172 190 C 174 206 184 214 190 230 C 194 242 206 242 210 230 C 216 214 226 206 228 190 C 232 168 224 150 200 150 Z" fill="#1E1B17"/><ellipse cx="187" cy="188" rx="6" ry="9" fill="#FBF8F2"/><ellipse cx="213" cy="188" rx="6" ry="9" fill="#FBF8F2"/><path d="M200 206 L194 220 L206 220 Z" fill="#FBF8F2"/><text x="200" y="312" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="18" letter-spacing="4" fill="#1E1B17">LONGHORN</text>
-</svg></div><div class="info"><p class="role">Signature</p><h3>Longhorn Skull</h3><p>The classic — a steer skull with horns running nearly ear to ear.</p><div class="treat"><b>2 colors</b> · Ink + Ivory · front &amp; center</div></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-label"><span>02</span><h2>Creative studies</h2></div>
-    <p class="sec-sub">Three experimental takes — each pushes the animal into a different graphic language while staying inside the house palette.</p>
-    <div class="grid3">
-      <div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+<section><div class="sec-label"><span>01</span><h2>Prairie scenes</h2></div><p class="sec-sub">The signature explorations — each animal out in its country: the frontier sun, distant hills, and long grass. Scenic patch badges.</p><div class="grid3"><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier buffalo on the prairie">
+  <defs><clipPath id="pr-buffalo"><circle cx="200" cy="200" r="138"/></clipPath></defs>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
+  <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
+  <g clip-path="url(#pr-buffalo)">
+    <circle cx="252" cy="150" r="24" fill="#AC4E38"/>
+    <path d="M60 256 C 96 230 138 240 176 256 Z" fill="#C8A87A" opacity="0.55"/>
+    <path d="M170 256 C 214 232 262 240 340 256 Z" fill="#C8A87A" opacity="0.7"/>
+    <rect x="58" y="254" width="284" height="100" fill="#E7DAC0"/>
+    <path d="M60 254 H340" stroke="#1E1B17" stroke-width="2.5" opacity="0.5"/>
+    <path d="M74 256 L71 246 M74 256 L77 246 M74 256 L74 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M92 256 L89 246 M92 256 L95 246 M92 256 L92 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M300 256 L297 246 M300 256 L303 246 M300 256 L300 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M318 256 L315 246 M318 256 L321 246 M318 256 L318 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M150 256 L147 246 M150 256 L153 246 M150 256 L150 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M250 256 L247 246 M250 256 L253 246 M250 256 L250 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+    <g transform="translate(112.5,122) scale(0.5)"><path d="M96 182 L88 250 L100 250 L108 184 Z" fill="#1E1B17"/><path d="M124 184 L122 250 L134 250 L134 184 Z" fill="#1E1B17"/><path d="M236 178 L230 250 L242 250 L246 180 Z" fill="#1E1B17"/><path d="M262 172 L266 250 L278 250 L272 174 Z" fill="#1E1B17"/><path d="M78 150 C 82 116 112 80 148 84 C 186 86 234 116 268 138 C 282 145 286 156 283 166 C 274 182 176 186 150 186 C 118 186 92 182 80 174 C 72 168 74 158 78 150 Z" fill="#1E1B17"/><path d="M90 146 C 82 132 84 116 96 114 C 101 119 100 134 98 148 Z" fill="#1E1B17"/><path d="M88 148 C 62 148 44 162 46 182 C 47 197 60 204 76 202 C 90 201 96 191 96 176 C 96 162 94 152 90 146 Z" fill="#1E1B17"/><path d="M52 194 L46 222 L72 202 Z" fill="#1E1B17"/><path d="M282 150 C 297 145 302 160 292 173" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><circle cx="72" cy="168" r="2.4" fill="#FBF8F2"/></g>
+  </g>
+  <text x="200" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="4" fill="#1E1B17">BUFFALO</text>
+</svg></div><div class="info"><p class="role">Prairie scene</p><h3>Buffalo on the Plains</h3><p>The bison grazing the open range at first light, ringed by the frontier sun.</p><div class="treat"><b>Scenic badge</b> · Ink · Clay · Camel · Ivory</div></div></div><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier elk on the prairie">
+  <defs><clipPath id="pr-elk"><circle cx="200" cy="200" r="138"/></clipPath></defs>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
+  <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
+  <g clip-path="url(#pr-elk)">
+    <circle cx="252" cy="150" r="24" fill="#AC4E38"/>
+    <path d="M60 256 C 96 230 138 240 176 256 Z" fill="#C8A87A" opacity="0.55"/>
+    <path d="M170 256 C 214 232 262 240 340 256 Z" fill="#C8A87A" opacity="0.7"/>
+    <rect x="58" y="254" width="284" height="100" fill="#E7DAC0"/>
+    <path d="M60 254 H340" stroke="#1E1B17" stroke-width="2.5" opacity="0.5"/>
+    <path d="M74 256 L71 246 M74 256 L77 246 M74 256 L74 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M92 256 L89 246 M92 256 L95 246 M92 256 L92 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M300 256 L297 246 M300 256 L303 246 M300 256 L300 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M318 256 L315 246 M318 256 L321 246 M318 256 L318 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M150 256 L147 246 M150 256 L153 246 M150 256 L150 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M250 256 L247 246 M250 256 L253 246 M250 256 L250 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+    <g transform="translate(112.5,122) scale(0.5)"><path d="M176 208 L170 262 L180 262 L186 208 Z" fill="#1E1B17"/><path d="M198 210 L198 262 L208 262 L208 210 Z" fill="#1E1B17"/><path d="M270 206 L266 262 L276 262 L280 206 Z" fill="#1E1B17"/><path d="M292 202 L296 262 L306 262 L300 202 Z" fill="#1E1B17"/><path d="M150 196 C 146 172 162 160 184 162 C 210 156 258 156 296 166 C 312 172 316 186 309 200 C 300 214 188 216 168 212 C 156 209 150 204 150 196 Z" fill="#1E1B17"/><path d="M168 164 C 158 142 150 122 150 106 C 150 98 160 97 165 105 C 174 125 182 150 190 172 Z" fill="#1E1B17"/><path d="M151 106 C 168 82 190 62 200 38" fill="none" stroke="#1E1B17" stroke-width="6.5" stroke-linecap="round"/><path d="M168 78 L190 74" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M181 60 L203 54" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M193 44 L213 37" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M158 104 C 176 84 198 68 212 48" fill="none" stroke="#1E1B17" stroke-width="6" stroke-linecap="round"/><path d="M180 78 L200 70" fill="none" stroke="#1E1B17" stroke-width="4.5" stroke-linecap="round"/><path d="M195 62 L215 54" fill="none" stroke="#1E1B17" stroke-width="4.5" stroke-linecap="round"/><path d="M150 110 C 137 102 123 104 119 117 C 116 128 124 136 135 135 C 144 134 151 125 153 114 Z" fill="#1E1B17"/><path d="M152 108 L145 92 L162 102 Z" fill="#1E1B17"/><path d="M308 176 L317 188 L308 193 Z" fill="#1E1B17"/><circle cx="133" cy="118" r="2.2" fill="#FBF8F2"/></g>
+  </g>
+  <text x="200" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="4" fill="#1E1B17">ELK</text>
+</svg></div><div class="info"><p class="role">Prairie scene</p><h3>Elk at the Ridge</h3><p>A bull elk holding the high country, antlers against the morning sky.</p><div class="treat"><b>Scenic badge</b> · Ink · Clay · Camel · Ivory</div></div></div><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier longhorn on the prairie">
+  <defs><clipPath id="pr-longhorn"><circle cx="200" cy="200" r="138"/></clipPath></defs>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
+  <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
+  <g clip-path="url(#pr-longhorn)">
+    <circle cx="252" cy="150" r="24" fill="#AC4E38"/>
+    <path d="M60 256 C 96 230 138 240 176 256 Z" fill="#C8A87A" opacity="0.55"/>
+    <path d="M170 256 C 214 232 262 240 340 256 Z" fill="#C8A87A" opacity="0.7"/>
+    <rect x="58" y="254" width="284" height="100" fill="#E7DAC0"/>
+    <path d="M60 254 H340" stroke="#1E1B17" stroke-width="2.5" opacity="0.5"/>
+    <path d="M74 256 L71 246 M74 256 L77 246 M74 256 L74 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M92 256 L89 246 M92 256 L95 246 M92 256 L92 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M300 256 L297 246 M300 256 L303 246 M300 256 L300 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M318 256 L315 246 M318 256 L321 246 M318 256 L318 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M150 256 L147 246 M150 256 L153 246 M150 256 L150 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M250 256 L247 246 M250 256 L253 246 M250 256 L250 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+    <g transform="translate(112.5,122) scale(0.5)"><path d="M156 206 L150 258 L160 258 L166 206 Z" fill="#1E1B17"/><path d="M178 208 L178 258 L188 258 L188 208 Z" fill="#1E1B17"/><path d="M266 206 L262 258 L272 258 L276 206 Z" fill="#1E1B17"/><path d="M288 204 L292 258 L302 258 L296 204 Z" fill="#1E1B17"/><path d="M124 190 C 120 168 136 156 158 158 C 194 152 252 152 292 162 C 308 168 312 182 305 198 C 296 212 162 214 144 210 C 132 207 124 200 124 190 Z" fill="#1E1B17"/><path d="M132 176 C 162 165 196 162 218 148 C 216 158 218 167 206 172 C 180 182 150 184 128 183 Z" fill="#1E1B17"/><path d="M126 172 C 108 170 96 182 98 198 C 99 210 108 217 121 217 C 134 216 143 207 146 195 L148 176 Z" fill="#1E1B17"/><path d="M120 178 C 92 172 60 172 36 182 C 42 174 42 165 54 163 C 80 161 106 170 124 180 Z" fill="#1E1B17"/><path d="M140 172 L130 158 L150 166 Z" fill="#1E1B17"/><circle cx="116" cy="190" r="2.6" fill="#FBF8F2"/><path d="M304 176 C 316 174 320 190 310 200 L308 214" fill="none" stroke="#1E1B17" stroke-width="4" stroke-linecap="round"/></g>
+  </g>
+  <text x="200" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="4" fill="#1E1B17">LONGHORN</text>
+</svg></div><div class="info"><p class="role">Prairie scene</p><h3>Longhorn on the Trail</h3><p>The steer on the cattle trail — wide horns, low sun, long grass.</p><div class="treat"><b>Scenic badge</b> · Ink · Clay · Camel · Ivory</div></div></div></div></section>
+<section><div class="sec-label"><span>02</span><h2>Creative studies</h2></div><p class="sec-sub">Three experimental takes — each pushes the animal into a different graphic language while staying inside the palette.</p><div class="grid3"><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
 <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/><circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/><path d="M200 258 L164 214 L200 226 Z" fill="#3A3733"/><path d="M200 258 L236 214 L200 226 Z" fill="#1E1B17"/><path d="M164 214 L152 168 L200 226 Z" fill="#1E1B17"/><path d="M236 214 L248 168 L200 226 Z" fill="#3A3733"/><path d="M152 168 L200 150 L200 226 Z" fill="#3A3733"/><path d="M248 168 L200 150 L200 226 Z" fill="#1E1B17"/><path d="M152 168 L146 196 L164 214 Z" fill="#3A3733"/><path d="M248 168 L254 196 L236 214 Z" fill="#1E1B17"/><path d="M152 168 L200 150 L172 150 Z" fill="#1E1B17"/><path d="M248 168 L200 150 L228 150 Z" fill="#3A3733"/><path d="M172 154 C 156 148 150 156 158 164 C 162 160 168 158 174 158 Z" fill="#1E1B17"/><path d="M228 154 C 244 148 250 156 242 164 C 238 160 232 158 226 158 Z" fill="#3A3733"/><circle cx="188" cy="192" r="3" fill="#FBF8F2"/><circle cx="212" cy="192" r="3" fill="#FBF8F2"/>
-</svg></div><div class="info"><p class="role">Low-poly</p><h3>Geometric Bison</h3><p>The bison head faceted into flat planes — a two-tone, cut-paper feel.</p><div class="treat"><b>Duotone</b> · Ink + Charcoal · patch or print</div></div></div>
-      <div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+</svg></div><div class="info"><p class="role">Low-poly</p><h3>Geometric Bison</h3><p>The bison head faceted into flat planes — a two-tone, cut-paper feel.</p><div class="treat"><b>Duotone</b> · Ink + Charcoal</div></div></div><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
 <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/><circle cx="200" cy="200" r="140" fill="#1E1B17"/><line x1="200" y1="236" x2="200" y2="210" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="200" y1="210" x2="186" y2="196" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="200" y1="210" x2="214" y2="196" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="186" y1="196" x2="176" y2="176" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="214" y1="196" x2="224" y2="176" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="176" y1="176" x2="168" y2="150" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="168" y1="150" x2="160" y2="132" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="168" y1="150" x2="184" y2="160" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="224" y1="176" x2="232" y2="150" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="232" y1="150" x2="240" y2="132" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><line x1="232" y1="150" x2="216" y2="160" stroke="#FBF8F2" stroke-width="1.4" opacity="0.7"/><circle cx="200" cy="236" r="3" fill="#FBF8F2"/><circle cx="200" cy="210" r="3" fill="#FBF8F2"/><circle cx="186" cy="196" r="3" fill="#FBF8F2"/><circle cx="214" cy="196" r="3" fill="#FBF8F2"/><circle cx="176" cy="176" r="3" fill="#FBF8F2"/><circle cx="224" cy="176" r="3" fill="#FBF8F2"/><circle cx="168" cy="150" r="3" fill="#FBF8F2"/><circle cx="160" cy="132" r="3" fill="#FBF8F2"/><circle cx="184" cy="160" r="3" fill="#FBF8F2"/><circle cx="232" cy="150" r="3" fill="#FBF8F2"/><circle cx="240" cy="132" r="3" fill="#FBF8F2"/><circle cx="216" cy="160" r="3" fill="#FBF8F2"/><circle cx="150" cy="160" r="1.4" fill="#FBF8F2" opacity="0.8"/><circle cx="250" cy="150" r="1.4" fill="#FBF8F2" opacity="0.8"/><circle cx="170" cy="120" r="1.4" fill="#FBF8F2" opacity="0.8"/><circle cx="235" cy="118" r="1.4" fill="#FBF8F2" opacity="0.8"/><circle cx="200" cy="250" r="1.4" fill="#FBF8F2" opacity="0.8"/><circle cx="160" cy="210" r="1.4" fill="#FBF8F2" opacity="0.8"/><circle cx="248" cy="205" r="1.4" fill="#FBF8F2" opacity="0.8"/><circle cx="200" cy="200" r="120" fill="none" stroke="#FBF8F2" stroke-width="1.5" opacity="0.35"/>
-</svg></div><div class="info"><p class="role">Star map</p><h3>Constellation Elk</h3><p>The rack drawn as a constellation — dots and lines on a night-sky field.</p><div class="treat"><b>Reverse</b> · Ivory on Ink · woven patch</div></div></div>
-      <div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+</svg></div><div class="info"><p class="role">Star map</p><h3>Constellation Elk</h3><p>The rack drawn as a constellation — dots and lines on a night-sky field.</p><div class="treat"><b>Reverse</b> · Ivory on Ink</div></div></div><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
 <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/><circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/><line x1="264.0" y1="200.0" x2="298.0" y2="200.0" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="261.8" y1="216.6" x2="283.1" y2="222.3" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="255.4" y1="232.0" x2="284.9" y2="249.0" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="245.3" y1="245.3" x2="260.8" y2="260.8" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="232.0" y1="255.4" x2="249.0" y2="284.9" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="216.6" y1="261.8" x2="222.3" y2="283.1" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="200.0" y1="264.0" x2="200.0" y2="298.0" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="183.4" y1="261.8" x2="177.7" y2="283.1" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="168.0" y1="255.4" x2="151.0" y2="284.9" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="154.7" y1="245.3" x2="139.2" y2="260.8" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="144.6" y1="232.0" x2="115.1" y2="249.0" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="138.2" y1="216.6" x2="116.9" y2="222.3" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="136.0" y1="200.0" x2="102.0" y2="200.0" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="138.2" y1="183.4" x2="116.9" y2="177.7" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="144.6" y1="168.0" x2="115.1" y2="151.0" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="154.7" y1="154.7" x2="139.2" y2="139.2" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="168.0" y1="144.6" x2="151.0" y2="115.1" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="183.4" y1="138.2" x2="177.7" y2="116.9" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="200.0" y1="136.0" x2="200.0" y2="102.0" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="216.6" y1="138.2" x2="222.3" y2="116.9" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="232.0" y1="144.6" x2="249.0" y2="115.1" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="245.3" y1="154.7" x2="260.8" y2="139.2" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="255.4" y1="168.0" x2="284.9" y2="151.0" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><line x1="261.8" y1="183.4" x2="283.1" y2="177.7" stroke="#AC4E38" stroke-width="4" stroke-linecap="round"/><circle cx="200" cy="200" r="60" fill="#AC4E38"/><path d="M210 182 C 232 176 254 172 268 160 C 271 163 270 169 263 173 C 246 184 224 188 210 187 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M210 182 C 232 176 254 172 268 160 C 271 163 270 169 263 173 C 246 184 224 188 210 187 Z" fill="#1E1B17"/></g><path d="M200 176 C 184 176 178 188 181 204 C 183 216 191 222 195 232 C 197 240 203 240 205 232 C 209 222 217 216 219 204 C 222 188 216 176 200 176 Z" fill="#1E1B17"/>
-</svg></div><div class="info"><p class="role">Sunburst</p><h3>Sunburst Longhorn</h3><p>The longhorn on a radiating frontier sun — the boldest, most graphic of the set.</p><div class="treat"><b>2 colors</b> · Clay + Ink · front hit</div></div></div>
-    </div>
-  </section>
-
-  <div class="wrap" style="padding:0 0 20px">
-    <div class="note"><p><b>Want these on the caps?</b> Any of the six can replace the current tonal animal marks in the store, or ship as woven/embroidered patches. The skull mounts are the natural flagship; the creative studies work as limited drops.</p></div>
-  </div>
-
+</svg></div><div class="info"><p class="role">Sunburst</p><h3>Sunburst Longhorn</h3><p>The longhorn on a radiating frontier sun — the boldest, most graphic study.</p><div class="treat"><b>2 colors</b> · Clay + Ink</div></div></div></div></section>
+<div class="wrap" style="padding:0 0 20px"><div class="note"><p><b>Want these on the caps?</b> The live silhouettes are already the standard cap marks. The prairie scenes and creative studies work as woven patches or limited drops.</p></div></div>
 </div>
-
-<footer><div class="wrap"><span>Merchant Frontier — Animal Design Explorations</span><span>Skull mounts &amp; creative studies · Portland, OR</span></div></footer>
+<footer><div class="wrap"><span>Merchant Frontier — Animal Design Explorations</span><span>Prairie scenes &amp; creative studies · Portland, OR</span></div></footer>

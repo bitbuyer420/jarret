@@ -70,28 +70,32 @@ system — embroidery-ready SVGs. The three animal marks lead; the frontier mark
 
 | File | Mark | Used on |
 | ---- | ---- | ------- |
-| `mf-buffalo.svg` | Buffalo (badge) | Buffalo snapbacks |
-| `mf-elk.svg` | Elk (badge) | Elk snapbacks |
-| `mf-longhorn.svg` | Longhorn (badge) | Longhorn snapbacks |
+| `mf-buffalo.svg` | Buffalo — live silhouette badge | Buffalo snapbacks |
+| `mf-elk.svg` | Elk — live silhouette badge | Elk snapbacks |
+| `mf-longhorn.svg` | Longhorn — live silhouette badge | Longhorn snapbacks |
 | `mf-emblem-roundel.svg` | Frontier Emblem (crest) | Frontier snapbacks |
 | `mf-compass-patch.svg` | Compass Star (woven patch) | Frontier snapbacks |
 | `mf-wordmark.svg` | Stacked wordmark | Frontier snapbacks |
 | `mf-icon-sun-horizon.svg` | Sun & Horizon (core icon) | — heritage bug |
 | `mf-monogram.svg` | Interlocked MF | — heritage mark |
 
+The store's cap graphics are the **live full-body animal silhouettes** (bold,
+athletic-logo style) — buffalo, elk, and longhorn — rendered tonally on each
+crown by [`ProductImage.tsx`](src/components/ProductImage.tsx).
+
 `designs/brand-board.html` is a self-contained page presenting the marks with
 their thread colors, placements, and on-cap mockups — open it in any browser.
 
 ### Animal design explorations
 
-Six further directions for the animal line live alongside them — three
-signature **skull mounts** and three **creative studies**:
+Further directions for the animal line — three **prairie scenes** (the animals
+out in their country) and three **creative studies**:
 
 | File | Design | Kind |
 | ---- | ------ | ---- |
-| `mf-bison-skull.svg` | Bison skull mount | Signature |
-| `mf-elk-skull.svg` | Elk skull mount | Signature |
-| `mf-longhorn-skull.svg` | Longhorn skull mount | Signature |
+| `mf-buffalo-prairie.svg` | Buffalo on the plains | Prairie scene |
+| `mf-elk-prairie.svg` | Elk at the ridge | Prairie scene |
+| `mf-longhorn-prairie.svg` | Longhorn on the trail | Prairie scene |
 | `mf-bison-geometric.svg` | Faceted low-poly bison | Creative |
 | `mf-elk-constellation.svg` | Elk-rack constellation | Creative |
 | `mf-longhorn-sunburst.svg` | Longhorn on a frontier sun | Creative |

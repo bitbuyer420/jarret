@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier buffalo on the prairie">
+  <defs><clipPath id="pr-buffalo"><circle cx="200" cy="200" r="138"/></clipPath></defs>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
+  <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
+  <g clip-path="url(#pr-buffalo)">
+    <circle cx="252" cy="150" r="24" fill="#AC4E38"/>
+    <path d="M60 256 C 96 230 138 240 176 256 Z" fill="#C8A87A" opacity="0.55"/>
+    <path d="M170 256 C 214 232 262 240 340 256 Z" fill="#C8A87A" opacity="0.7"/>
+    <rect x="58" y="254" width="284" height="100" fill="#E7DAC0"/>
+    <path d="M60 254 H340" stroke="#1E1B17" stroke-width="2.5" opacity="0.5"/>
+    <path d="M74 256 L71 246 M74 256 L77 246 M74 256 L74 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M92 256 L89 246 M92 256 L95 246 M92 256 L92 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M300 256 L297 246 M300 256 L303 246 M300 256 L300 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M318 256 L315 246 M318 256 L321 246 M318 256 L318 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M150 256 L147 246 M150 256 L153 246 M150 256 L150 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/><path d="M250 256 L247 246 M250 256 L253 246 M250 256 L250 244" stroke="#1E1B17" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+    <g transform="translate(112.5,122) scale(0.5)"><path d="M96 182 L88 250 L100 250 L108 184 Z" fill="#1E1B17"/><path d="M124 184 L122 250 L134 250 L134 184 Z" fill="#1E1B17"/><path d="M236 178 L230 250 L242 250 L246 180 Z" fill="#1E1B17"/><path d="M262 172 L266 250 L278 250 L272 174 Z" fill="#1E1B17"/><path d="M78 150 C 82 116 112 80 148 84 C 186 86 234 116 268 138 C 282 145 286 156 283 166 C 274 182 176 186 150 186 C 118 186 92 182 80 174 C 72 168 74 158 78 150 Z" fill="#1E1B17"/><path d="M90 146 C 82 132 84 116 96 114 C 101 119 100 134 98 148 Z" fill="#1E1B17"/><path d="M88 148 C 62 148 44 162 46 182 C 47 197 60 204 76 202 C 90 201 96 191 96 176 C 96 162 94 152 90 146 Z" fill="#1E1B17"/><path d="M52 194 L46 222 L72 202 Z" fill="#1E1B17"/><path d="M282 150 C 297 145 302 160 292 173" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><circle cx="72" cy="168" r="2.4" fill="#FBF8F2"/></g>
+  </g>
+  <text x="200" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="4" fill="#1E1B17">BUFFALO</text>
+</svg>

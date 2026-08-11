@@ -456,30 +456,36 @@
     Longhorn: "linear-gradient(160deg,#F3EFE8,#E7DECE)", Frontier: "linear-gradient(160deg,#F5F0E7,#EBE2D0)"
   };
   var CLOUD2 = "#FBF8F2";
-  function mirrored(s){ return s + '<g transform="translate(400,0) scale(-1,1)">'+s+'</g>'; }
-  function longhornMark(c){
-    return '<path d="M182 208 C 181 232 194 252 200 252 C 206 252 219 232 218 208 C 211 213 189 213 182 208 Z" fill="'+c+'"/>'+
-      '<circle cx="194" cy="226" r="2.6" fill="'+CLOUD2+'"/><circle cx="206" cy="226" r="2.6" fill="'+CLOUD2+'"/>'+
-      mirrored('<path d="M200 208 C 226 206 250 202 264 188 C 267 191 266 197 259 202 C 244 212 220 214 200 213 Z" fill="'+c+'"/>')+
-      mirrored('<path d="M215 210 L230 205 L223 218 Z" fill="'+c+'"/>');
-  }
   function buffaloMark(c){
-    return '<path d="M164 204 C 152 224 170 256 200 258 C 230 256 248 224 236 204 C 216 194 184 194 164 204 Z" fill="'+c+'"/>'+
-      '<path d="M182 256 L190 276 L200 264 L210 276 L218 256 Z" fill="'+c+'"/>'+
-      '<path d="M191 198 L200 210 L209 198" fill="none" stroke="'+CLOUD2+'" stroke-width="2.5" opacity="0.5"/>'+
-      '<circle cx="210" cy="220" r="2.6" fill="'+CLOUD2+'"/><circle cx="190" cy="220" r="2.6" fill="'+CLOUD2+'"/>'+
-      mirrored('<path d="M232 206 C 248 200 260 206 259 218 C 255 210 244 210 233 213 Z" fill="'+c+'"/>');
+    return '<path d="M96 182 L88 250 L100 250 L108 184 Z" fill="'+c+'"/><path d="M124 184 L122 250 L134 250 L134 184 Z" fill="'+c+'"/><path d="M236 178 L230 250 L242 250 L246 180 Z" fill="'+c+'"/><path d="M262 172 L266 250 L278 250 L272 174 Z" fill="'+c+'"/>'+
+      '<path d="M78 150 C 82 116 112 80 148 84 C 186 86 234 116 268 138 C 282 145 286 156 283 166 C 274 182 176 186 150 186 C 118 186 92 182 80 174 C 72 168 74 158 78 150 Z" fill="'+c+'"/>'+
+      '<path d="M90 146 C 82 132 84 116 96 114 C 101 119 100 134 98 148 Z" fill="'+c+'"/>'+
+      '<path d="M88 148 C 62 148 44 162 46 182 C 47 197 60 204 76 202 C 90 201 96 191 96 176 C 96 162 94 152 90 146 Z" fill="'+c+'"/>'+
+      '<path d="M52 194 L46 222 L72 202 Z" fill="'+c+'"/>'+
+      '<path d="M282 150 C 297 145 302 160 292 173" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>'+
+      '<circle cx="72" cy="168" r="2.4" fill="'+CLOUD2+'"/>';
   }
   function elkMark(c){
-    return '<path d="M187 204 C 185 226 196 252 200 252 C 204 252 215 226 213 204 C 208 200 192 200 187 204 Z" fill="'+c+'"/>'+
-      '<circle cx="207" cy="220" r="2.6" fill="'+CLOUD2+'"/><circle cx="193" cy="220" r="2.6" fill="'+CLOUD2+'"/>'+
-      mirrored('<path d="M209 202 C 222 185 230 170 233 150" fill="none" stroke="'+c+'" stroke-width="6" stroke-linecap="round"/>'+
-        '<path d="M221 178 L238 170" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>'+
-        '<path d="M226 166 L243 160" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>'+
-        '<path d="M233 150 L240 141" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>')+
-      mirrored('<path d="M212 206 L225 200 L219 213 Z" fill="'+c+'"/>');
+    return '<path d="M176 208 L170 262 L180 262 L186 208 Z" fill="'+c+'"/><path d="M198 210 L198 262 L208 262 L208 210 Z" fill="'+c+'"/><path d="M270 206 L266 262 L276 262 L280 206 Z" fill="'+c+'"/><path d="M292 202 L296 262 L306 262 L300 202 Z" fill="'+c+'"/>'+
+      '<path d="M150 196 C 146 172 162 160 184 162 C 210 156 258 156 296 166 C 312 172 316 186 309 200 C 300 214 188 216 168 212 C 156 209 150 204 150 196 Z" fill="'+c+'"/>'+
+      '<path d="M168 164 C 158 142 150 122 150 106 C 150 98 160 97 165 105 C 174 125 182 150 190 172 Z" fill="'+c+'"/>'+
+      '<path d="M151 106 C 168 82 190 62 200 38" fill="none" stroke="'+c+'" stroke-width="6.5" stroke-linecap="round"/><path d="M168 78 L190 74" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M181 60 L203 54" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M193 44 L213 37" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M158 104 C 176 84 198 68 212 48" fill="none" stroke="'+c+'" stroke-width="6" stroke-linecap="round"/><path d="M180 78 L200 70" fill="none" stroke="'+c+'" stroke-width="4.5" stroke-linecap="round"/><path d="M195 62 L215 54" fill="none" stroke="'+c+'" stroke-width="4.5" stroke-linecap="round"/>'+
+      '<path d="M150 110 C 137 102 123 104 119 117 C 116 128 124 136 135 135 C 144 134 151 125 153 114 Z" fill="'+c+'"/>'+
+      '<path d="M152 108 L145 92 L162 102 Z" fill="'+c+'"/>'+
+      '<path d="M308 176 L317 188 L308 193 Z" fill="'+c+'"/>'+
+      '<circle cx="133" cy="118" r="2.2" fill="'+CLOUD2+'"/>';
   }
-  function animalScaled(inner){ return '<g transform="translate(200,216) scale(0.66) translate(-200,-216)">'+inner+'</g>'; }
+  function longhornMark(c){
+    return '<path d="M156 206 L150 258 L160 258 L166 206 Z" fill="'+c+'"/><path d="M178 208 L178 258 L188 258 L188 208 Z" fill="'+c+'"/><path d="M266 206 L262 258 L272 258 L276 206 Z" fill="'+c+'"/><path d="M288 204 L292 258 L302 258 L296 204 Z" fill="'+c+'"/>'+
+      '<path d="M124 190 C 120 168 136 156 158 158 C 194 152 252 152 292 162 C 308 168 312 182 305 198 C 296 212 162 214 144 210 C 132 207 124 200 124 190 Z" fill="'+c+'"/>'+
+      '<path d="M132 176 C 162 165 196 162 218 148 C 216 158 218 167 206 172 C 180 182 150 184 128 183 Z" fill="'+c+'"/>'+
+      '<path d="M126 172 C 108 170 96 182 98 198 C 99 210 108 217 121 217 C 134 216 143 207 146 195 L148 176 Z" fill="'+c+'"/>'+
+      '<path d="M120 178 C 92 172 60 172 36 182 C 42 174 42 165 54 163 C 80 161 106 170 124 180 Z" fill="'+c+'"/>'+
+      '<path d="M140 172 L130 158 L150 166 Z" fill="'+c+'"/>'+
+      '<circle cx="116" cy="190" r="2.6" fill="'+CLOUD2+'"/>'+
+      '<path d="M304 176 C 316 174 320 190 310 200 L308 214" fill="none" stroke="'+c+'" stroke-width="4" stroke-linecap="round"/>';
+  }
+  function animalScaled(inner){ return '<g transform="translate(200,214) scale(0.42) translate(-180,-160)">'+inner+'</g>'; }
 
   // A snapback silhouette (wide flat brim + structured crown) plus the front graphic.
   function snapbackBody(line) {

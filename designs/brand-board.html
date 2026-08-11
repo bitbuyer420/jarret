@@ -1,208 +1,97 @@
 <style>
-  :root{
-    --board:#E9E2D3; --card:#FBF8F2; --ink:#1E1B17; --ink70:rgba(30,27,23,.68);
-    --stone:#8B8172; --clay:#AC4E38; --loden:#4B5240; --camel:#C19A6B; --line:rgba(30,27,23,.14);
-    --serif:Georgia,'Iowan Old Style',Cambria,serif;
-    --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-    color-scheme:light;
-  }
+  :root{--board:#E9E2D3;--card:#FBF8F2;--ink:#1E1B17;--ink70:rgba(30,27,23,.68);--stone:#8B8172;--clay:#AC4E38;--loden:#4B5240;--camel:#C19A6B;--line:rgba(30,27,23,.14);--serif:Georgia,'Iowan Old Style',Cambria,serif;--sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color-scheme:light;}
   *{box-sizing:border-box}
   body{margin:0;background:var(--board);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
   h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;margin:0;text-wrap:balance}
   .eyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin:0}
   svg{display:block}
-
   .mast{border-bottom:1px solid var(--line)}
-  .mast .wrap{padding:64px 28px 48px}
-  .mast h1{font-family:var(--sans);font-weight:700;letter-spacing:.14em;font-size:clamp(26px,5vw,46px);margin-top:14px}
-  .mast p.lede{max-width:44rem;margin-top:20px;font-size:18px;color:var(--ink70)}
-  .concept{display:flex;gap:16px;align-items:center;margin-top:32px;flex-wrap:wrap}
-  .concept .chip{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px}
-
-  section{padding:56px 0}
-  .sec-label{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .mast .wrap{padding:60px 28px 44px}
+  .mast h1{font-family:var(--sans);font-weight:700;letter-spacing:.14em;font-size:clamp(26px,5vw,44px);margin-top:14px}
+  .mast p.lede{max-width:44rem;margin-top:18px;font-size:18px;color:var(--ink70)}
+  section{padding:52px 0}
+  .sec-label{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
   .sec-label span{font-size:12px;font-weight:700;color:var(--clay)}
   .sec-label h2{font-size:26px}
-  .sec-sub{color:var(--ink70);margin:0 0 28px;max-width:42rem}
-
+  .sec-sub{color:var(--ink70);margin:0 0 30px;max-width:44rem}
   .threads{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   @media(min-width:720px){.threads{grid-template-columns:repeat(5,1fr)}}
   .thread{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .thread .sw{height:84px}
+  .thread .sw{height:80px}
   .thread .meta{padding:12px 14px}
   .thread .meta b{font-size:14px}
   .thread .meta code{display:block;font-size:12px;color:var(--stone);margin-top:2px;font-variant-numeric:tabular-nums}
-
-  .marks{display:grid;gap:22px}
-  .mark{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid}
-  @media(min-width:760px){.mark{grid-template-columns:340px 1fr}}
-  .art{background:
-      linear-gradient(0deg,rgba(30,27,23,.04),rgba(30,27,23,.04)),
-      repeating-linear-gradient(45deg,#F4F0E7 0 12px,#F0EBE0 12px 24px);
-    display:flex;align-items:center;justify-content:center;padding:30px;border-bottom:1px solid var(--line)}
-  @media(min-width:760px){.art{border-bottom:none;border-right:1px solid var(--line)}}
-  .art svg{width:100%;max-width:210px;height:auto}
-  .info{padding:26px 28px}
-  .info .role{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
-  .info h3{font-size:23px;margin-top:6px}
-  .info p{color:var(--ink70);margin:12px 0 0;font-size:15px}
-  .info dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:20px 0 0;font-size:13px}
-  .info dt{color:var(--stone);font-weight:600}
-  .info dd{margin:0}
-  .tdots{display:inline-flex;gap:6px;vertical-align:middle}
-  .tdots i{width:14px;height:14px;border-radius:999px;border:1px solid var(--line);display:inline-block}
-  .oncap{display:flex;align-items:center;gap:10px;margin-top:18px;padding-top:16px;border-top:1px dashed var(--line)}
-  .oncap .cap{width:84px;height:84px;flex:none}
+  .grid3{display:grid;grid-template-columns:1fr;gap:20px}
+  @media(min-width:640px){.grid3{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .art{background:repeating-linear-gradient(45deg,#F4F0E7 0 12px,#F0EBE0 12px 24px);display:flex;align-items:center;justify-content:center;padding:26px;border-bottom:1px solid var(--line)}
+  .art svg{width:100%;max-width:190px;height:auto}
+  .info{padding:20px 22px 24px}
+  .info .role{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+  .info h3{font-size:20px;margin-top:6px}
+  .info p{color:var(--ink70);margin:8px 0 0;font-size:14px}
+  .info .treat{margin-top:12px;font-size:12px;color:var(--stone)}
+  .info .treat b{color:var(--ink);font-weight:600}
+  .oncap{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+  .oncap .cap{width:78px;height:78px;flex:none}
   .oncap small{font-size:12px;color:var(--stone)}
-
   .heritage{display:grid;grid-template-columns:1fr;gap:16px}
   @media(min-width:720px){.heritage{grid-template-columns:repeat(3,1fr)}}
   .hcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .hcard .art{padding:22px}
-  .hcard .art svg{max-width:150px}
-  .hcard .hinfo{padding:16px 18px 20px}
-  .hcard h3{font-size:18px}
+  .hcard .art{padding:22px}.hcard .art svg{max-width:150px}
+  .hcard .hinfo{padding:16px 18px 20px}.hcard h3{font-size:18px}
   .hcard .role{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
   .hcard p{font-size:13px;color:var(--ink70);margin:8px 0 0}
-
   .caprow{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   @media(min-width:720px){.caprow{grid-template-columns:repeat(6,1fr)}}
   .capcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
-  .capcard .cap{width:100%;height:120px}
-  .capcard b{display:block;font-size:12px;margin-top:4px}
-
+  .capcard .cap{width:100%;height:120px}.capcard b{display:block;font-size:12px;margin-top:4px}
   .specs{display:grid;gap:16px;grid-template-columns:1fr}
   @media(min-width:720px){.specs{grid-template-columns:repeat(3,1fr)}}
   .spec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
   .spec h4{font-family:var(--sans);font-size:14px;font-weight:700;margin:0 0 8px}
-  .spec ul{margin:0;padding-left:18px;color:var(--ink70);font-size:14px}
-  .spec ul li{margin:5px 0}
-
-  footer{border-top:1px solid var(--line);margin-top:24px}
-  footer .wrap{padding:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--stone)}
+  .spec ul{margin:0;padding-left:18px;color:var(--ink70);font-size:14px}.spec ul li{margin:5px 0}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+  .note p{margin:0;color:var(--ink70);font-size:14px}
+  footer{border-top:1px solid var(--line);margin-top:20px}
+  footer .wrap{padding:26px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--stone)}
 </style>
-
-<div class="mast">
-  <div class="wrap">
-    <p class="eyebrow">Animal Mark System · v2</p>
-    <h1>MERCHANT&nbsp;FRONTIER</h1>
-    <p class="lede">One perfected snapback, stitched with the animals of the range. Three hero marks — <em>buffalo, elk, and longhorn</em> — plus a set of heritage frontier marks. Every one drawn front-facing and symmetric, built for embroidery: flat shapes, limited thread colors, bold enough to stitch clean at 2 inches.</p>
-    <div class="concept">
-      <span class="chip"><span class="cap" data-cap="Buffalo" data-color="#211E1B" style="width:30px;height:24px;display:inline-block"></span> Buffalo · Elk · Longhorn</span>
-      <span class="chip" style="color:var(--ink70)">3 animals · 3 heritage marks · 1 cap</span>
-    </div>
-  </div>
-</div>
-
+<div class="mast"><div class="wrap"><p class="eyebrow">Animal Mark System · v3</p><h1>MERCHANT&nbsp;FRONTIER</h1>
+<p class="lede">One perfected snapback, stitched with the live animals of the range — <em>buffalo, elk, and longhorn</em> — in bold, athletic silhouettes, plus a set of heritage frontier marks. Every one built for embroidery: flat shapes, five thread colors, bold enough to stitch at 2 inches.</p></div></div>
 <div class="wrap">
-
-  <section>
-    <div class="sec-label"><span>01</span><h2>Thread palette</h2></div>
-    <p class="sec-sub">Five thread colors carry the whole system. Animals stitch tonal (single-thread) or in ink with ivory highlights.</p>
-    <div class="threads">
-      <div class="thread"><div class="sw" style="background:#1E1B17"></div><div class="meta"><b>Frontier Ink</b><code>#1E1B17</code></div></div>
-      <div class="thread"><div class="sw" style="background:#AC4E38"></div><div class="meta"><b>Trail Clay</b><code>#AC4E38</code></div></div>
-      <div class="thread"><div class="sw" style="background:#4B5240"></div><div class="meta"><b>Loden</b><code>#4B5240</code></div></div>
-      <div class="thread"><div class="sw" style="background:#C19A6B"></div><div class="meta"><b>Camel</b><code>#C19A6B</code></div></div>
-      <div class="thread"><div class="sw" style="background:#FBF8F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)"></div><div class="meta"><b>Ivory</b><code>#FBF8F2</code></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-label"><span>02</span><h2>The herd</h2></div>
-    <p class="sec-sub">The three animal marks — the heart of the line. Each is a front-facing head, embroidered large and centered on the crown.</p>
-    <div class="marks">
-
-      <div class="mark">
-        <div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier buffalo badge">
-  <!-- BUFFALO BADGE. Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2. -->
-  <defs>
-    <path id="arc-top-buffalo" d="M 84 200 A 116 116 0 0 1 316 200" />
-    <path id="arc-bot-buffalo" d="M 92 200 A 108 108 0 0 0 308 200" />
-  </defs>
+<section><div class="sec-label"><span>01</span><h2>Thread palette</h2></div><p class="sec-sub">Five thread colors carry the whole system. Animals stitch tonal on colored crowns, or ink with ivory highlights.</p><div class="threads">
+  <div class="thread"><div class="sw" style="background:#1E1B17"></div><div class="meta"><b>Frontier Ink</b><code>#1E1B17</code></div></div>
+  <div class="thread"><div class="sw" style="background:#AC4E38"></div><div class="meta"><b>Trail Clay</b><code>#AC4E38</code></div></div>
+  <div class="thread"><div class="sw" style="background:#4B5240"></div><div class="meta"><b>Loden</b><code>#4B5240</code></div></div>
+  <div class="thread"><div class="sw" style="background:#C19A6B"></div><div class="meta"><b>Camel</b><code>#C19A6B</code></div></div>
+  <div class="thread"><div class="sw" style="background:#FBF8F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)"></div><div class="meta"><b>Ivory</b><code>#FBF8F2</code></div></div>
+</div></section>
+<section><div class="sec-label"><span>02</span><h2>The herd — live marks</h2></div><p class="sec-sub">The three animal marks — full-body silhouettes in a bold, collegiate-logo spirit. Embroidered front and center on the crown.</p><div class="grid3"><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier buffalo">
+  <defs><path id="at-buffalo" d="M 84 200 A 116 116 0 0 1 316 200"/></defs>
   <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
   <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
-  <circle cx="200" cy="200" r="120" fill="none" stroke="#1E1B17" stroke-width="1.5"/>
-  <g transform="translate(0,-12)"><path d="M164 204 C 152 224 170 256 200 258 C 230 256 248 224 236 204 C 216 194 184 194 164 204 Z" fill="#1E1B17"/><path d="M182 256 L190 276 L200 264 L210 276 L218 256 Z" fill="#1E1B17"/><path d="M191 198 L200 210 L209 198" fill="none" stroke="#FBF8F2" stroke-width="2.5" opacity="0.5"/><circle cx="210" cy="220" r="2.6" fill="#FBF8F2"/><circle cx="190" cy="220" r="2.6" fill="#FBF8F2"/><path d="M232 206 C 248 200 260 206 259 218 C 255 210 244 210 233 213 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M232 206 C 248 200 260 206 259 218 C 255 210 244 210 233 213 Z" fill="#1E1B17"/></g></g>
-  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-top-buffalo" startOffset="50%" text-anchor="middle" font-size="24" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath></text>
-  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-bot-buffalo" startOffset="50%" text-anchor="middle" font-size="17" letter-spacing="6">★ BUFFALO ★</textPath></text>
-</svg></div>
-        <div class="info">
-          <p class="role">Animal mark · flagship</p>
-          <h3>Buffalo</h3>
-          <p>A shaggy bison head with short up-swept horns and a full beard. Bulky, low, and unmistakable — the head of the herd.</p>
-          <dl>
-            <dt>Threads</dt><dd><span class="tdots"><i style="background:#1E1B17"></i><i style="background:#FBF8F2"></i></span> Ink · Ivory (tonal on dark)</dd>
-            <dt>Placement</dt><dd>Front &amp; center, ~2.2&#8243; wide</dd>
-            <dt>Used on</dt><dd>Buffalo Head · Great Plains Bison · Standing Bison</dd>
-          </dl>
-          <div class="oncap"><div class="cap" data-cap="Buffalo" data-color="#211E1B"></div><small>On a Black snapback</small></div>
-        </div>
-      </div>
-
-      <div class="mark">
-        <div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier elk badge">
-  <!-- ELK BADGE. Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2. -->
-  <defs>
-    <path id="arc-top-elk" d="M 84 200 A 116 116 0 0 1 316 200" />
-    <path id="arc-bot-elk" d="M 92 200 A 108 108 0 0 0 308 200" />
-  </defs>
+  <g transform="translate(200,206) scale(0.6) translate(-175,-150)"><path d="M96 182 L88 250 L100 250 L108 184 Z" fill="#1E1B17"/><path d="M124 184 L122 250 L134 250 L134 184 Z" fill="#1E1B17"/><path d="M236 178 L230 250 L242 250 L246 180 Z" fill="#1E1B17"/><path d="M262 172 L266 250 L278 250 L272 174 Z" fill="#1E1B17"/><path d="M78 150 C 82 116 112 80 148 84 C 186 86 234 116 268 138 C 282 145 286 156 283 166 C 274 182 176 186 150 186 C 118 186 92 182 80 174 C 72 168 74 158 78 150 Z" fill="#1E1B17"/><path d="M90 146 C 82 132 84 116 96 114 C 101 119 100 134 98 148 Z" fill="#1E1B17"/><path d="M88 148 C 62 148 44 162 46 182 C 47 197 60 204 76 202 C 90 201 96 191 96 176 C 96 162 94 152 90 146 Z" fill="#1E1B17"/><path d="M52 194 L46 222 L72 202 Z" fill="#1E1B17"/><path d="M282 150 C 297 145 302 160 292 173" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><circle cx="72" cy="168" r="2.4" fill="#FBF8F2"/></g>
+  <text font-family="Arial,sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#at-buffalo" startOffset="50%" text-anchor="middle" font-size="23" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath></text>
+  <text x="200" y="322" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="5" fill="#1E1B17">BUFFALO</text>
+</svg></div><div class="info"><p class="role">Live animal mark</p><h3>Buffalo</h3><p>A standing bison in full profile — the hump, the low head, the beard. A bold, athletic mark.</p><div class="treat"><b>Ink + Ivory</b> · tonal on colored crowns · front &amp; center</div><div class="oncap"><div class="cap" data-cap="Buffalo" data-color="#211E1B"></div><small>Used on: Buffalo Head · Great Plains Bison · Standing Bison</small></div></div></div><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier elk">
+  <defs><path id="at-elk" d="M 84 200 A 116 116 0 0 1 316 200"/></defs>
   <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
   <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
-  <circle cx="200" cy="200" r="120" fill="none" stroke="#1E1B17" stroke-width="1.5"/>
-  <g transform="translate(0,-6)"><path d="M187 204 C 185 226 196 252 200 252 C 204 252 215 226 213 204 C 208 200 192 200 187 204 Z" fill="#1E1B17"/><circle cx="207" cy="220" r="2.6" fill="#FBF8F2"/><circle cx="193" cy="220" r="2.6" fill="#FBF8F2"/><path d="M209 202 C 222 185 230 170 233 150" fill="none" stroke="#1E1B17" stroke-width="6" stroke-linecap="round"/><path d="M221 178 L238 170" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M226 166 L243 160" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M233 150 L240 141" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><g transform="translate(400,0) scale(-1,1)"><path d="M209 202 C 222 185 230 170 233 150" fill="none" stroke="#1E1B17" stroke-width="6" stroke-linecap="round"/><path d="M221 178 L238 170" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M226 166 L243 160" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M233 150 L240 141" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/></g><path d="M212 206 L225 200 L219 213 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M212 206 L225 200 L219 213 Z" fill="#1E1B17"/></g></g>
-  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-top-elk" startOffset="50%" text-anchor="middle" font-size="24" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath></text>
-  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-bot-elk" startOffset="50%" text-anchor="middle" font-size="17" letter-spacing="6">★ ELK ★</textPath></text>
-</svg></div>
-        <div class="info">
-          <p class="role">Animal mark</p>
-          <h3>Elk</h3>
-          <p>A bull elk with a full branching rack. The antlers do the work — tall, symmetric, and instantly readable at any size.</p>
-          <dl>
-            <dt>Threads</dt><dd><span class="tdots"><i style="background:#1E1B17"></i><i style="background:#FBF8F2"></i></span> Ink · Ivory</dd>
-            <dt>Placement</dt><dd>Front &amp; center; antlers stay in the crown</dd>
-            <dt>Used on</dt><dd>Bull Elk · Bugling Elk · Elk Ridge</dd>
-          </dl>
-          <div class="oncap"><div class="cap" data-cap="Elk" data-color="#4B5240"></div><small>On a Loden snapback</small></div>
-        </div>
-      </div>
-
-      <div class="mark">
-        <div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier longhorn badge">
-  <!-- LONGHORN BADGE. Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2. -->
-  <defs>
-    <path id="arc-top-longhorn" d="M 84 200 A 116 116 0 0 1 316 200" />
-    <path id="arc-bot-longhorn" d="M 92 200 A 108 108 0 0 0 308 200" />
-  </defs>
+  <g transform="translate(200,206) scale(0.6) translate(-175,-150)"><path d="M176 208 L170 262 L180 262 L186 208 Z" fill="#1E1B17"/><path d="M198 210 L198 262 L208 262 L208 210 Z" fill="#1E1B17"/><path d="M270 206 L266 262 L276 262 L280 206 Z" fill="#1E1B17"/><path d="M292 202 L296 262 L306 262 L300 202 Z" fill="#1E1B17"/><path d="M150 196 C 146 172 162 160 184 162 C 210 156 258 156 296 166 C 312 172 316 186 309 200 C 300 214 188 216 168 212 C 156 209 150 204 150 196 Z" fill="#1E1B17"/><path d="M168 164 C 158 142 150 122 150 106 C 150 98 160 97 165 105 C 174 125 182 150 190 172 Z" fill="#1E1B17"/><path d="M151 106 C 168 82 190 62 200 38" fill="none" stroke="#1E1B17" stroke-width="6.5" stroke-linecap="round"/><path d="M168 78 L190 74" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M181 60 L203 54" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M193 44 L213 37" fill="none" stroke="#1E1B17" stroke-width="5" stroke-linecap="round"/><path d="M158 104 C 176 84 198 68 212 48" fill="none" stroke="#1E1B17" stroke-width="6" stroke-linecap="round"/><path d="M180 78 L200 70" fill="none" stroke="#1E1B17" stroke-width="4.5" stroke-linecap="round"/><path d="M195 62 L215 54" fill="none" stroke="#1E1B17" stroke-width="4.5" stroke-linecap="round"/><path d="M150 110 C 137 102 123 104 119 117 C 116 128 124 136 135 135 C 144 134 151 125 153 114 Z" fill="#1E1B17"/><path d="M152 108 L145 92 L162 102 Z" fill="#1E1B17"/><path d="M308 176 L317 188 L308 193 Z" fill="#1E1B17"/><circle cx="133" cy="118" r="2.2" fill="#FBF8F2"/></g>
+  <text font-family="Arial,sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#at-elk" startOffset="50%" text-anchor="middle" font-size="23" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath></text>
+  <text x="200" y="322" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="5" fill="#1E1B17">ELK</text>
+</svg></div><div class="info"><p class="role">Live animal mark</p><h3>Elk</h3><p>A bull elk with a full branching rack, head high. Reads at a glance, even small.</p><div class="treat"><b>Ink + Ivory</b> · tonal on colored crowns · front &amp; center</div><div class="oncap"><div class="cap" data-cap="Elk" data-color="#4B5240"></div><small>Used on: Bull Elk · Bugling Elk · Elk Ridge</small></div></div></div><div class="card"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Merchant Frontier longhorn">
+  <defs><path id="at-longhorn" d="M 84 200 A 116 116 0 0 1 316 200"/></defs>
   <circle cx="200" cy="200" r="150" fill="none" stroke="#AC4E38" stroke-width="8"/>
   <circle cx="200" cy="200" r="140" fill="#FBF8F2" stroke="#1E1B17" stroke-width="4"/>
-  <circle cx="200" cy="200" r="120" fill="none" stroke="#1E1B17" stroke-width="1.5"/>
-  <g transform="translate(0,-6)"><path d="M182 208 C 181 232 194 252 200 252 C 206 252 219 232 218 208 C 211 213 189 213 182 208 Z" fill="#1E1B17"/><circle cx="194" cy="226" r="2.6" fill="#FBF8F2"/><circle cx="206" cy="226" r="2.6" fill="#FBF8F2"/><path d="M200 208 C 226 206 250 202 264 188 C 267 191 266 197 259 202 C 244 212 220 214 200 213 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M200 208 C 226 206 250 202 264 188 C 267 191 266 197 259 202 C 244 212 220 214 200 213 Z" fill="#1E1B17"/></g><path d="M215 210 L230 205 L223 218 Z" fill="#1E1B17"/><g transform="translate(400,0) scale(-1,1)"><path d="M215 210 L230 205 L223 218 Z" fill="#1E1B17"/></g></g>
-  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-top-longhorn" startOffset="50%" text-anchor="middle" font-size="24" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath></text>
-  <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#arc-bot-longhorn" startOffset="50%" text-anchor="middle" font-size="17" letter-spacing="6">★ LONGHORN ★</textPath></text>
-</svg></div>
-        <div class="info">
-          <p class="role">Animal mark</p>
-          <h3>Longhorn</h3>
-          <p>A steer with horns sweeping nearly ear to ear. The widest mark in the set — give it room and let the horns run.</p>
-          <dl>
-            <dt>Threads</dt><dd><span class="tdots"><i style="background:#1E1B17"></i><i style="background:#FBF8F2"></i></span> Ink · Ivory (or two-color)</dd>
-            <dt>Placement</dt><dd>Front &amp; center, widest of the set</dd>
-            <dt>Used on</dt><dd>Longhorn · Texas Longhorn · Longhorn Steer</dd>
-          </dl>
-          <div class="oncap"><div class="cap" data-cap="Longhorn" data-color="#A0522D"></div><small>On a Rust snapback</small></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-label"><span>03</span><h2>Frontier marks</h2></div>
-    <p class="sec-sub">The heritage set — for a cleaner, graphic front. Built on the same idea: the sun crossing the frontier.</p>
-    <div class="heritage">
-      <div class="hcard"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Merchant Frontier emblem crest">
+  <g transform="translate(200,206) scale(0.6) translate(-175,-150)"><path d="M156 206 L150 258 L160 258 L166 206 Z" fill="#1E1B17"/><path d="M178 208 L178 258 L188 258 L188 208 Z" fill="#1E1B17"/><path d="M266 206 L262 258 L272 258 L276 206 Z" fill="#1E1B17"/><path d="M288 204 L292 258 L302 258 L296 204 Z" fill="#1E1B17"/><path d="M124 190 C 120 168 136 156 158 158 C 194 152 252 152 292 162 C 308 168 312 182 305 198 C 296 212 162 214 144 210 C 132 207 124 200 124 190 Z" fill="#1E1B17"/><path d="M132 176 C 162 165 196 162 218 148 C 216 158 218 167 206 172 C 180 182 150 184 128 183 Z" fill="#1E1B17"/><path d="M126 172 C 108 170 96 182 98 198 C 99 210 108 217 121 217 C 134 216 143 207 146 195 L148 176 Z" fill="#1E1B17"/><path d="M120 178 C 92 172 60 172 36 182 C 42 174 42 165 54 163 C 80 161 106 170 124 180 Z" fill="#1E1B17"/><path d="M140 172 L130 158 L150 166 Z" fill="#1E1B17"/><circle cx="116" cy="190" r="2.6" fill="#FBF8F2"/><path d="M304 176 C 316 174 320 190 310 200 L308 214" fill="none" stroke="#1E1B17" stroke-width="4" stroke-linecap="round"/></g>
+  <text font-family="Arial,sans-serif" font-weight="700" fill="#1E1B17"><textPath href="#at-longhorn" startOffset="50%" text-anchor="middle" font-size="23" letter-spacing="3">MERCHANT&#160;FRONTIER</textPath></text>
+  <text x="200" y="322" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="17" letter-spacing="5" fill="#1E1B17">LONGHORN</text>
+</svg></div><div class="info"><p class="role">Live animal mark</p><h3>Longhorn</h3><p>A longhorn steer with horns sweeping the full width of the mark. Big and unmistakable.</p><div class="treat"><b>Ink + Ivory</b> · tonal on colored crowns · front &amp; center</div><div class="oncap"><div class="cap" data-cap="Longhorn" data-color="#A0522D"></div><small>Used on: Longhorn · Texas Longhorn · Longhorn Steer</small></div></div></div></div></section>
+<section><div class="sec-label"><span>03</span><h2>Frontier marks</h2></div><p class="sec-sub">The heritage set — for a cleaner, graphic front. Built on one idea: the sun crossing the frontier.</p>
+<div class="heritage">
+<div class="hcard"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Merchant Frontier emblem crest">
   <!-- FLAGSHIP EMBLEM — the frontier crest.
        Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2 (backing). -->
   <defs>
@@ -238,8 +127,8 @@
     <!-- ground line -->
     <path d="M78 178 H222" stroke="#1E1B17" stroke-width="5" stroke-linecap="round" />
   </g>
-</svg></div><div class="hinfo"><p class="role">Crest</p><h3>Frontier Emblem</h3><p>Sun rising over the frontier, ringed by the name. The flagship heritage mark.</p></div></div>
-      <div class="hcard"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Merchant Frontier compass patch">
+</svg></div><div class="hinfo"><p class="role">Crest</p><h3>Frontier Emblem</h3><p>Sun rising over the frontier, ringed by the name.</p></div></div>
+<div class="hcard"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Merchant Frontier compass patch">
   <!-- COMPASS PATCH — a woven compass-star badge.
        Thread colors: Ink #1E1B17, Clay #AC4E38, Ivory #FBF8F2. Merrow-edge border. -->
   <defs>
@@ -272,8 +161,8 @@
   <text font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1E1B17">
     <textPath href="#mf-comp-bottom" startOffset="50%" text-anchor="middle" font-size="15" letter-spacing="5">★ TRUE&#160;NORTH ★</textPath>
   </text>
-</svg></div><div class="hinfo"><p class="role">Woven patch</p><h3>Compass Star</h3><p>A woven compass badge — it always reads north. Merrow edge.</p></div></div>
-      <div class="hcard"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 210" width="460" height="210" role="img" aria-label="Merchant Frontier wordmark">
+</svg></div><div class="hinfo"><p class="role">Woven patch</p><h3>Compass Star</h3><p>A woven compass badge — it always reads north.</p></div></div>
+<div class="hcard"><div class="art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 210" width="460" height="210" role="img" aria-label="Merchant Frontier wordmark">
   <!-- STACKED WORDMARK — the full name, letter-spaced, with a sun-on-the-line divider.
        Thread colors: Ink #1E1B17, Clay #AC4E38. -->
   <text x="230" y="72" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="56" letter-spacing="6" fill="#1E1B17">MERCHANT</text>
@@ -286,64 +175,70 @@
   </g>
   <path d="M212 168 A18 18 0 0 1 248 168 Z" fill="#AC4E38" />
   <path d="M230 168 V184" stroke="#1E1B17" stroke-width="4" stroke-linecap="round" />
-</svg></div><div class="hinfo"><p class="role">Wordmark</p><h3>The Wordmark</h3><p>The full name stacked and letter-spaced, split by a sun-on-the-line divider.</p></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-label"><span>04</span><h2>On the cap</h2></div>
-    <div class="caprow">
-      <div class="capcard"><div class="cap" data-cap="Buffalo" data-color="#211E1B"></div><b>Buffalo</b></div>
-      <div class="capcard"><div class="cap" data-cap="Elk" data-color="#4B5240"></div><b>Elk</b></div>
-      <div class="capcard"><div class="cap" data-cap="Longhorn" data-color="#A0522D"></div><b>Longhorn</b></div>
-      <div class="capcard"><div class="cap" data-cap="Emblem" data-color="#2C3444"></div><b>Emblem</b></div>
-      <div class="capcard"><div class="cap" data-cap="Compass" data-color="#211E1B"></div><b>Compass</b></div>
-      <div class="capcard"><div class="cap" data-cap="Wordmark" data-color="#EDE6D8"></div><b>Wordmark</b></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-label"><span>05</span><h2>Embroidery notes</h2></div>
-    <div class="specs">
-      <div class="spec"><h4>Do</h4><ul><li>Keep to the five thread colors</li><li>Stitch animals tonal on colored crowns, or ink + ivory on dark</li><li>Give the longhorn horns full width</li><li>Min. size 1.8&#8243; so the eyes and antler tines read</li></ul></div>
-      <div class="spec"><h4>Don't</h4><ul><li>Add gradients or fine fur detail that won't stitch</li><li>Recolor the marks outside the palette</li><li>Crowd the antlers or horns against the seams</li><li>Mix an animal and a heritage mark on one cap</li></ul></div>
-      <div class="spec"><h4>Files</h4><ul><li>mf-buffalo.svg</li><li>mf-elk.svg</li><li>mf-longhorn.svg</li><li>mf-emblem-roundel.svg</li><li>mf-compass-patch.svg · mf-wordmark.svg</li></ul></div>
-    </div>
-  </section>
-
+</svg></div><div class="hinfo"><p class="role">Wordmark</p><h3>The Wordmark</h3><p>The full name stacked, split by a sun-on-the-line divider.</p></div></div>
+</div></section>
+<section><div class="sec-label"><span>04</span><h2>On the cap</h2></div>
+<div class="caprow">
+<div class="capcard"><div class="cap" data-cap="Buffalo" data-color="#211E1B"></div><b>Buffalo</b></div>
+<div class="capcard"><div class="cap" data-cap="Elk" data-color="#4B5240"></div><b>Elk</b></div>
+<div class="capcard"><div class="cap" data-cap="Longhorn" data-color="#A0522D"></div><b>Longhorn</b></div>
+<div class="capcard"><div class="cap" data-cap="Emblem" data-color="#2C3444"></div><b>Emblem</b></div>
+<div class="capcard"><div class="cap" data-cap="Compass" data-color="#211E1B"></div><b>Compass</b></div>
+<div class="capcard"><div class="cap" data-cap="Wordmark" data-color="#EDE6D8"></div><b>Wordmark</b></div>
+</div></section>
+<section><div class="sec-label"><span>05</span><h2>Embroidery notes</h2></div>
+<div class="specs">
+<div class="spec"><h4>Do</h4><ul><li>Keep to the five thread colors</li><li>Stitch animals tonal on colored crowns</li><li>Give the longhorn horns full width</li><li>Min. size 1.8&#8243; so the legs and antlers read</li></ul></div>
+<div class="spec"><h4>Don't</h4><ul><li>Add gradients or fine fur detail that won't stitch</li><li>Recolor outside the palette</li><li>Crowd the antlers or horns against the seams</li><li>Mix an animal and a heritage mark on one cap</li></ul></div>
+<div class="spec"><h4>Files</h4><ul><li>mf-buffalo.svg · mf-elk.svg · mf-longhorn.svg</li><li>mf-emblem-roundel.svg</li><li>mf-compass-patch.svg · mf-wordmark.svg</li></ul></div>
+</div></section>
 </div>
-
-<footer><div class="wrap"><span>Merchant Frontier — Animal Mark System v2</span><span>Buffalo · Elk · Longhorn · Portland, OR</span></div></footer>
-
+<footer><div class="wrap"><span>Merchant Frontier — Animal Mark System v3</span><span>Buffalo · Elk · Longhorn · Portland, OR</span></div></footer>
 <script>
-  function shade(hex,pct){var n=hex.replace('#','');if(n.length===3)n=n[0]+n[0]+n[1]+n[1]+n[2]+n[2];var num=parseInt(n,16),amt=Math.round(2.55*pct);var r=Math.max(0,Math.min(255,(num>>16)+amt)),g=Math.max(0,Math.min(255,((num>>8)&255)+amt)),b=Math.max(0,Math.min(255,(num&255)+amt));return '#'+(0x1000000+(r<<16)+(g<<8)+b).toString(16).slice(1);}
-  var CLOUD="#FBF8F2";
-  function mir(s){return s+'<g transform="translate(400,0) scale(-1,1)">'+s+'</g>';}
-  function longhorn(c){return '<path d="M182 208 C 181 232 194 252 200 252 C 206 252 219 232 218 208 C 211 213 189 213 182 208 Z" fill="'+c+'"/><circle cx="194" cy="226" r="2.6" fill="'+CLOUD+'"/><circle cx="206" cy="226" r="2.6" fill="'+CLOUD+'"/>'+mir('<path d="M200 208 C 226 206 250 202 264 188 C 267 191 266 197 259 202 C 244 212 220 214 200 213 Z" fill="'+c+'"/>')+mir('<path d="M215 210 L230 205 L223 218 Z" fill="'+c+'"/>');}
-  function buffalo(c){return '<path d="M164 204 C 152 224 170 256 200 258 C 230 256 248 224 236 204 C 216 194 184 194 164 204 Z" fill="'+c+'"/><path d="M182 256 L190 276 L200 264 L210 276 L218 256 Z" fill="'+c+'"/><path d="M191 198 L200 210 L209 198" fill="none" stroke="'+CLOUD+'" stroke-width="2.5" opacity="0.5"/><circle cx="210" cy="220" r="2.6" fill="'+CLOUD+'"/><circle cx="190" cy="220" r="2.6" fill="'+CLOUD+'"/>'+mir('<path d="M232 206 C 248 200 260 206 259 218 C 255 210 244 210 233 213 Z" fill="'+c+'"/>');}
-  function elk(c){return '<path d="M187 204 C 185 226 196 252 200 252 C 204 252 215 226 213 204 C 208 200 192 200 187 204 Z" fill="'+c+'"/><circle cx="207" cy="220" r="2.6" fill="'+CLOUD+'"/><circle cx="193" cy="220" r="2.6" fill="'+CLOUD+'"/>'+mir('<path d="M209 202 C 222 185 230 170 233 150" fill="none" stroke="'+c+'" stroke-width="6" stroke-linecap="round"/><path d="M221 178 L238 170" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M226 166 L243 160" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M233 150 L240 141" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>')+mir('<path d="M212 206 L225 200 L219 213 Z" fill="'+c+'"/>');}
-  function scaled(i){return '<g transform="translate(200,216) scale(0.66) translate(-200,-216)">'+i+'</g>';}
-  function heritage(cat,line){
-    if(cat==='Compass')return '<g fill="'+line+'" opacity="0.9"><path d="M200 188 L208 208 L228 214 L208 220 L200 240 L192 220 L172 214 L192 208 Z"/><circle cx="200" cy="214" r="3" fill="#FBF8F2"/></g>';
-    if(cat==='Wordmark')return '<g fill="'+line+'" opacity="0.9"><rect x="170" y="202" width="60" height="7" rx="3"/><rect x="164" y="216" width="72" height="7" rx="3"/><rect x="182" y="230" width="36" height="4" rx="2" opacity="0.6"/></g>';
-    return '<g fill="none" stroke="'+line+'" stroke-width="3" opacity="0.9"><circle cx="200" cy="214" r="26"/><circle cx="200" cy="214" r="20" stroke-width="1.5" opacity="0.6"/><path d="M182 214 H218" stroke-width="2.5"/><path d="M191 214 A9 9 0 0 1 209 214 Z" fill="'+line+'" stroke="none"/><path d="M200 198 V204 M188 204 L191 208 M212 204 L209 208" stroke-width="2"/></g>';
-  }
-  function front(cat,line){
-    if(cat==='Buffalo')return scaled(buffalo(line));
-    if(cat==='Elk')return scaled(elk(line));
-    if(cat==='Longhorn')return scaled(longhorn(line));
-    return heritage(cat,line);
-  }
-  function capSVG(cat,hex){
-    var dark=shade(hex,-18),light=shade(hex,16),uid=cat+hex.replace('#','');
-    return '<svg viewBox="0 0 400 320" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">'+
-      '<defs><linearGradient id="cg'+uid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+light+'"/><stop offset="100%" stop-color="'+dark+'"/></linearGradient>'+
-      '<filter id="cs'+uid+'" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.14"/></filter></defs>'+
-      '<g fill="url(#cg'+uid+')" stroke="'+dark+'" stroke-width="2" stroke-linejoin="round" filter="url(#cs'+uid+')">'+
-      '<path d="M84 250 L84 286 C 130 297 270 297 316 286 L316 250 Z"/><path d="M122 252 A 78 78 0 0 1 278 252 Z"/><circle cx="200" cy="172" r="6"/>'+
-      '<path d="M200 174 L200 252 M166 184 L174 252 M234 184 L226 252" fill="none" stroke="'+dark+'" stroke-width="2" opacity="0.45"/>'+
-      '<path d="M104 252 C 150 262 250 262 296 252" fill="none" stroke="'+dark+'" stroke-width="2" opacity="0.5"/>'+
-      '</g>'+front(cat,dark)+'</svg>';
-  }
-  document.querySelectorAll('[data-cap]').forEach(function(el){el.innerHTML=capSVG(el.getAttribute('data-cap'),el.getAttribute('data-color'));});
+var CLOUD="#FBF8F2";
+function shade(hex,pct){var n=hex.replace('#','');var num=parseInt(n,16),amt=Math.round(2.55*pct);var r=Math.max(0,Math.min(255,(num>>16)+amt)),g=Math.max(0,Math.min(255,((num>>8)&255)+amt)),b=Math.max(0,Math.min(255,(num&255)+amt));return '#'+(0x1000000+(r<<16)+(g<<8)+b).toString(16).slice(1);}
+function buffalo(c) {
+  return '<path d="M96 182 L88 250 L100 250 L108 184 Z" fill="'+c+'"/><path d="M124 184 L122 250 L134 250 L134 184 Z" fill="'+c+'"/><path d="M236 178 L230 250 L242 250 L246 180 Z" fill="'+c+'"/><path d="M262 172 L266 250 L278 250 L272 174 Z" fill="'+c+'"/>'+
+    '<path d="M78 150 C 82 116 112 80 148 84 C 186 86 234 116 268 138 C 282 145 286 156 283 166 C 274 182 176 186 150 186 C 118 186 92 182 80 174 C 72 168 74 158 78 150 Z" fill="'+c+'"/>'+
+    '<path d="M90 146 C 82 132 84 116 96 114 C 101 119 100 134 98 148 Z" fill="'+c+'"/>'+
+    '<path d="M88 148 C 62 148 44 162 46 182 C 47 197 60 204 76 202 C 90 201 96 191 96 176 C 96 162 94 152 90 146 Z" fill="'+c+'"/>'+
+    '<path d="M52 194 L46 222 L72 202 Z" fill="'+c+'"/>'+
+    '<path d="M282 150 C 297 145 302 160 292 173" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/>'+
+    '<circle cx="72" cy="168" r="2.4" fill="'+CLOUD+'"/>';
+}
+function elk(c) {
+  return '<path d="M176 208 L170 262 L180 262 L186 208 Z" fill="'+c+'"/><path d="M198 210 L198 262 L208 262 L208 210 Z" fill="'+c+'"/><path d="M270 206 L266 262 L276 262 L280 206 Z" fill="'+c+'"/><path d="M292 202 L296 262 L306 262 L300 202 Z" fill="'+c+'"/>'+
+    '<path d="M150 196 C 146 172 162 160 184 162 C 210 156 258 156 296 166 C 312 172 316 186 309 200 C 300 214 188 216 168 212 C 156 209 150 204 150 196 Z" fill="'+c+'"/>'+
+    '<path d="M168 164 C 158 142 150 122 150 106 C 150 98 160 97 165 105 C 174 125 182 150 190 172 Z" fill="'+c+'"/>'+
+    '<path d="M151 106 C 168 82 190 62 200 38" fill="none" stroke="'+c+'" stroke-width="6.5" stroke-linecap="round"/><path d="M168 78 L190 74" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M181 60 L203 54" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M193 44 L213 37" fill="none" stroke="'+c+'" stroke-width="5" stroke-linecap="round"/><path d="M158 104 C 176 84 198 68 212 48" fill="none" stroke="'+c+'" stroke-width="6" stroke-linecap="round"/><path d="M180 78 L200 70" fill="none" stroke="'+c+'" stroke-width="4.5" stroke-linecap="round"/><path d="M195 62 L215 54" fill="none" stroke="'+c+'" stroke-width="4.5" stroke-linecap="round"/>'+
+    '<path d="M150 110 C 137 102 123 104 119 117 C 116 128 124 136 135 135 C 144 134 151 125 153 114 Z" fill="'+c+'"/>'+
+    '<path d="M152 108 L145 92 L162 102 Z" fill="'+c+'"/>'+
+    '<path d="M308 176 L317 188 L308 193 Z" fill="'+c+'"/>'+
+    '<circle cx="133" cy="118" r="2.2" fill="'+CLOUD+'"/>';
+}
+function longhorn(c) {
+  return '<path d="M156 206 L150 258 L160 258 L166 206 Z" fill="'+c+'"/><path d="M178 208 L178 258 L188 258 L188 208 Z" fill="'+c+'"/><path d="M266 206 L262 258 L272 258 L276 206 Z" fill="'+c+'"/><path d="M288 204 L292 258 L302 258 L296 204 Z" fill="'+c+'"/>'+
+    '<path d="M124 190 C 120 168 136 156 158 158 C 194 152 252 152 292 162 C 308 168 312 182 305 198 C 296 212 162 214 144 210 C 132 207 124 200 124 190 Z" fill="'+c+'"/>'+
+    '<path d="M132 176 C 162 165 196 162 218 148 C 216 158 218 167 206 172 C 180 182 150 184 128 183 Z" fill="'+c+'"/>'+
+    '<path d="M126 172 C 108 170 96 182 98 198 C 99 210 108 217 121 217 C 134 216 143 207 146 195 L148 176 Z" fill="'+c+'"/>'+
+    '<path d="M120 178 C 92 172 60 172 36 182 C 42 174 42 165 54 163 C 80 161 106 170 124 180 Z" fill="'+c+'"/>'+
+    '<path d="M140 172 L130 158 L150 166 Z" fill="'+c+'"/>'+
+    '<circle cx="116" cy="190" r="2.6" fill="'+CLOUD+'"/>'+
+    '<path d="M304 176 C 316 174 320 190 310 200 L308 214" fill="none" stroke="'+c+'" stroke-width="4" stroke-linecap="round"/>';
+}
+function heritage(cat,line){
+  if(cat==='Compass')return '<g fill="'+line+'" opacity="0.9"><path d="M200 188 L208 208 L228 214 L208 220 L200 240 L192 220 L172 214 L192 208 Z"/><circle cx="200" cy="214" r="3" fill="#FBF8F2"/></g>';
+  if(cat==='Wordmark')return '<g fill="'+line+'" opacity="0.9"><rect x="170" y="202" width="60" height="7" rx="3"/><rect x="164" y="216" width="72" height="7" rx="3"/><rect x="182" y="230" width="36" height="4" rx="2" opacity="0.6"/></g>';
+  return '<g fill="none" stroke="'+line+'" stroke-width="3" opacity="0.9"><circle cx="200" cy="214" r="26"/><circle cx="200" cy="214" r="20" stroke-width="1.5" opacity="0.6"/><path d="M182 214 H218" stroke-width="2.5"/><path d="M191 214 A9 9 0 0 1 209 214 Z" fill="'+line+'" stroke="none"/><path d="M200 198 V204 M188 204 L191 208 M212 204 L209 208" stroke-width="2"/></g>';
+}
+function front(cat,line){
+  if(cat==='Buffalo')return '<g transform="translate(200,214) scale(0.42) translate(-180,-160)">'+buffalo(line)+'</g>';
+  if(cat==='Elk')return '<g transform="translate(200,214) scale(0.42) translate(-180,-160)">'+elk(line)+'</g>';
+  if(cat==='Longhorn')return '<g transform="translate(200,214) scale(0.42) translate(-180,-160)">'+longhorn(line)+'</g>';
+  return heritage(cat,line);
+}
+function capSVG(cat,hex){var dark=shade(hex,-18),light=shade(hex,16),uid=cat+hex.replace('#','');
+  return '<svg viewBox="0 0 400 320" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="cg'+uid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+light+'"/><stop offset="100%" stop-color="'+dark+'"/></linearGradient><filter id="cs'+uid+'" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.14"/></filter></defs><g fill="url(#cg'+uid+')" stroke="'+dark+'" stroke-width="2" stroke-linejoin="round" filter="url(#cs'+uid+')"><path d="M84 250 L84 286 C 130 297 270 297 316 286 L316 250 Z"/><path d="M122 252 A 78 78 0 0 1 278 252 Z"/><circle cx="200" cy="172" r="6"/><path d="M104 252 C 150 262 250 262 296 252" fill="none" stroke="'+dark+'" stroke-width="2" opacity="0.5"/></g>'+front(cat,dark)+'</svg>';
+}
+document.querySelectorAll('[data-cap]').forEach(function(el){el.innerHTML=capSVG(el.getAttribute('data-cap'),el.getAttribute('data-color'));});
 </script>
