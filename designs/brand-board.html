@@ -237,8 +237,22 @@ function front(cat,line){
   if(cat==='Longhorn')return '<g transform="translate(200,214) scale(0.42) translate(-180,-160)">'+longhorn(line)+'</g>';
   return heritage(cat,line);
 }
+function snapbackBody(line){
+  return '<path d="M92 256 L82 290 C 140 303 260 303 318 290 L308 256 C 250 265 150 265 92 256 Z"/>'+
+    '<path d="M94 292 C 150 302 250 302 306 292 C 250 298 150 298 94 292 Z" fill="#33463A" stroke="none"/>'+
+    '<path d="M104 264 C 150 272 250 272 296 264 M100 274 C 150 282 250 282 300 274 M104 284 C 150 291 250 291 296 284" fill="none" stroke="'+line+'" stroke-width="1.4" opacity="0.4"/>'+
+    '<path d="M116 256 C 110 198 132 152 200 150 C 268 152 290 198 284 256 Z"/>'+
+    '<ellipse cx="180" cy="186" rx="52" ry="38" fill="#ffffff" fill-opacity="0.13" stroke="none"/>'+
+    '<path d="M118 246 C 150 260 250 260 282 246 L284 256 C 250 264 150 264 116 256 Z" fill="#000000" fill-opacity="0.12" stroke="none"/>'+
+    '<path d="M200 156 L200 254" fill="none" stroke="'+line+'" stroke-width="1.6" opacity="0.3" stroke-dasharray="1 5"/>'+
+    '<path d="M162 166 C 150 200 150 230 158 254" fill="none" stroke="'+line+'" stroke-width="1.6" opacity="0.28" stroke-dasharray="1 5"/>'+
+    '<path d="M238 166 C 250 200 250 230 242 254" fill="none" stroke="'+line+'" stroke-width="1.6" opacity="0.28" stroke-dasharray="1 5"/>'+
+    '<circle cx="150" cy="200" r="2.5" fill="'+line+'" stroke="none" opacity="0.45"/><circle cx="150" cy="216" r="2.5" fill="'+line+'" stroke="none" opacity="0.45"/><circle cx="250" cy="200" r="2.5" fill="'+line+'" stroke="none" opacity="0.45"/><circle cx="250" cy="216" r="2.5" fill="'+line+'" stroke="none" opacity="0.45"/>'+
+    '<circle cx="200" cy="149" r="7"/>'+
+    '<path d="M196 146 A5 5 0 0 1 205 148" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5"/>';
+}
 function capSVG(cat,hex){var dark=shade(hex,-18),light=shade(hex,16),uid=cat+hex.replace('#','');
-  return '<svg viewBox="0 0 400 320" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="cg'+uid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+light+'"/><stop offset="100%" stop-color="'+dark+'"/></linearGradient><filter id="cs'+uid+'" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.14"/></filter></defs><g fill="url(#cg'+uid+')" stroke="'+dark+'" stroke-width="2" stroke-linejoin="round" filter="url(#cs'+uid+')"><path d="M84 250 L84 286 C 130 297 270 297 316 286 L316 250 Z"/><path d="M122 252 A 78 78 0 0 1 278 252 Z"/><circle cx="200" cy="172" r="6"/><path d="M104 252 C 150 262 250 262 296 252" fill="none" stroke="'+dark+'" stroke-width="2" opacity="0.5"/></g>'+front(cat,dark)+'</svg>';
+  return '<svg viewBox="0 0 400 330" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="cg'+uid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+light+'"/><stop offset="100%" stop-color="'+dark+'"/></linearGradient><filter id="cs'+uid+'" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.14"/></filter></defs><g fill="url(#cg'+uid+')" stroke="'+dark+'" stroke-width="2" stroke-linejoin="round" filter="url(#cs'+uid+')">'+snapbackBody(dark)+'</g>'+front(cat,dark)+'</svg>';
 }
 document.querySelectorAll('[data-cap]').forEach(function(el){el.innerHTML=capSVG(el.getAttribute('data-cap'),el.getAttribute('data-color'));});
 </script>

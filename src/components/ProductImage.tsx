@@ -73,17 +73,31 @@ function renderHat(category: ProductCategory, line: string, handle: string) {
 function snapback(line: string) {
   return (
     <>
-      {/* wide flat brim */}
-      <path d="M84 250 L84 286 C 130 297 270 297 316 286 L316 250 Z" />
-      {/* structured crown */}
-      <path d="M122 252 A 78 78 0 0 1 278 252 Z" />
-      {/* top button */}
-      <circle cx="200" cy="172" r="6" />
-      {/* panel seams */}
-      <path d="M200 174 L200 252 M166 184 L174 252 M234 184 L226 252" fill="none" stroke={line} strokeWidth="2" opacity="0.45" />
-      {/* brim top edge + stitch */}
-      <path d="M104 252 C 150 262 250 262 296 252" fill="none" stroke={line} strokeWidth="2" opacity="0.5" />
-      <path d="M104 284 C 150 293 250 293 316 284" fill="none" stroke={line} strokeWidth="2" opacity="0.35" />
+      {/* ---- flat brim (behind crown) ---- */}
+      <path d="M92 256 L82 290 C 140 303 260 303 318 290 L308 256 C 250 265 150 265 92 256 Z" />
+      {/* green under-visor sliver */}
+      <path d="M94 292 C 150 302 250 302 306 292 C 250 298 150 298 94 292 Z" fill="#33463A" stroke="none" />
+      {/* brim topstitch rows */}
+      <path d="M104 264 C 150 272 250 272 296 264 M100 274 C 150 282 250 282 300 274 M104 284 C 150 291 250 291 296 284" fill="none" stroke={line} strokeWidth="1.4" opacity="0.4" />
+
+      {/* ---- structured 6-panel crown ---- */}
+      <path d="M116 256 C 110 198 132 152 200 150 C 268 152 290 198 284 256 Z" />
+      {/* fabric sheen (top highlight) */}
+      <ellipse cx="180" cy="186" rx="52" ry="38" fill="#ffffff" fillOpacity="0.13" stroke="none" />
+      {/* base shadow where crown meets brim */}
+      <path d="M118 246 C 150 260 250 260 282 246 L284 256 C 250 264 150 264 116 256 Z" fill="#000000" fillOpacity="0.12" stroke="none" />
+      {/* panel seams (6-panel: center + two curved) */}
+      <path d="M200 156 L200 254" fill="none" stroke={line} strokeWidth="1.6" opacity="0.3" strokeDasharray="1 5" />
+      <path d="M162 166 C 150 200 150 230 158 254" fill="none" stroke={line} strokeWidth="1.6" opacity="0.28" strokeDasharray="1 5" />
+      <path d="M238 166 C 250 200 250 230 242 254" fill="none" stroke={line} strokeWidth="1.6" opacity="0.28" strokeDasharray="1 5" />
+      {/* eyelets */}
+      <circle cx="150" cy="200" r="2.5" fill={line} stroke="none" opacity="0.45" />
+      <circle cx="150" cy="216" r="2.5" fill={line} stroke="none" opacity="0.45" />
+      <circle cx="250" cy="200" r="2.5" fill={line} stroke="none" opacity="0.45" />
+      <circle cx="250" cy="216" r="2.5" fill={line} stroke="none" opacity="0.45" />
+      {/* fabric-covered button */}
+      <circle cx="200" cy="149" r="7" />
+      <path d="M196 146 A5 5 0 0 1 205 148" fill="none" stroke="#ffffff" strokeOpacity="0.3" strokeWidth="1.5" />
     </>
   );
 }
